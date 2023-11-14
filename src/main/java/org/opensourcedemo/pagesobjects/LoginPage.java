@@ -14,10 +14,10 @@ public class LoginPage {
     @FindBy(css="input[name=\"username\"]")
     private WebElement inputUsername;
 
-    @FindBy(id="input[name=\"password\"]")
+    @FindBy(css="input[name=\"password\"]")
     WebElement inputPassword;
 
-    @FindBy(id="button[type=\"submit\"]")
+    @FindBy(css="button[type=\"submit\"]")
     WebElement bontouLogin;
 
     public LoginPage(WebDriver paramDriver){
