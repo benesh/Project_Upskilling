@@ -1,5 +1,7 @@
 package org.opensourcedemo.core;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.OperaDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -23,6 +25,10 @@ public class DriverFactory {
             case Driver.EDGE -> {
                 return new EdgeDriver();
             }
+            /*case Driver.OPERA -> {
+                WebDriverManager.operadriver().setup();
+                return new Webdriver.OperaDriver();
+            }*/
         }
         return null;
     }

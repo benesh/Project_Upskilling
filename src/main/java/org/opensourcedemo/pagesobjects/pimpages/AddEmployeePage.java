@@ -1,4 +1,4 @@
-package org.opensourcedemo.pagesobjects;
+package org.opensourcedemo.pagesobjects.pimpages;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-import java.awt.*;
 import java.time.Duration;
 
 @Log4j2

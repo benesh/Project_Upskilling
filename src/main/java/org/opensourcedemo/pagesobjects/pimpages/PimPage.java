@@ -1,4 +1,4 @@
-package org.opensourcedemo.pagesobjects;
+package org.opensourcedemo.pagesobjects.pimpages;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.pagesobjects.pimpages.AddEmployeePage;
 
 import java.time.Duration;
 
