@@ -12,7 +12,7 @@ public class DriverFactory {
         typeDriver= paramDriver;
     }
 
-    public WebDriver getDriverFactory(){
+    public WebDriver getDriver(){
         switch (typeDriver){
             case Driver.CHROME -> {
                 return new ChromeDriver();

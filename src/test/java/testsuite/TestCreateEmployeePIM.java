@@ -17,7 +17,7 @@ public class TestCreateEmployeePIM {
 
     @BeforeMethod
     public void setup(){
-        driver = new DriverFactory(typeDriver).getDriverFactory();
+        driver = new DriverFactory(typeDriver).getDriver();
         driver.get(URL);
         driver.manage().window().maximize();
 
