@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
 import org.opensourcedemo.pagesobjects.pimpages.PimPage;
 
 import java.time.Duration;
@@ -16,6 +17,9 @@ public class DashbordPage {
 
     @FindBy(css="a[href*='viewPimModule']")
     WebElement pimElement;
+
+    @FindBy(css="a[href*='viewAdminModule']")
+    WebElement adminElement;
     WebDriver driver;
     WebDriverWait wait ;
 
@@ -30,5 +34,13 @@ public class DashbordPage {
         wait.until(ExpectedConditions.visibilityOfAllElements(pimElement));
         pimElement.click();
         return new PimPage(driver);
+    }
+
+    public AdminPage clickAdminElement(){
+        log.info("Clicking On Admin Element");
+        wait.until(ExpectedConditions.visibilityOfAllElements(adminElement));
+        adminElement.click();
+        return new AdminPage(driver);
+
     }
 }
