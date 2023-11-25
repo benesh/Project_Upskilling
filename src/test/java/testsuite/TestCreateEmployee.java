@@ -1,7 +1,6 @@
 package testsuite;
 
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.opensourcedemo.core.Driver;
 import org.opensourcedemo.core.DriverFactory;
@@ -23,7 +22,6 @@ public class TestCreateEmployee {
         driver = new DriverFactory(typeDriver).getDriver();
         driver.get(URL);
         driver.manage().window().maximize();
-
     }
 
     @Test
@@ -36,9 +34,6 @@ public class TestCreateEmployee {
         String middlename="Omar";
         String lastname="Ba";
 
-
-
-
         //Act
         String titlegetted = new LoginPage(driver)
                 .inputUserName(username)
@@ -50,6 +45,7 @@ public class TestCreateEmployee {
                 .typeInputMiddletName(middlename)
                 .typeInputLastName(lastname)
                 .clickSaveButton()
+                .clicksavebutton()
                 .getTitle();
 
         //Asserts
@@ -58,7 +54,6 @@ public class TestCreateEmployee {
 
     @Test
     public void createAdmin(){
-
 
     }
 
