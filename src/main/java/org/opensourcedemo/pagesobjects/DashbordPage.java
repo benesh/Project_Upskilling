@@ -15,6 +15,14 @@ import java.time.Duration;
 @Log4j2
 public class DashbordPage {
 
+<<<<<<< HEAD
+=======
+    @FindBy(css="a[href*='viewPimModule']")
+    WebElement pimElement;
+
+    @FindBy(css="a[href*='viewAdminModule']")
+    WebElement adminElement;
+>>>>>>> 0e867b9ab3595ed021875b7456a0c846b3231034
     WebDriver driver;
     WebDriverWait wait ;
     @FindBy(css="a[href*='viewPimModule']")
@@ -33,6 +41,7 @@ public class DashbordPage {
         pimElement.click();
         return new PimPage(driver);
     }
+<<<<<<< HEAD
     public AdminPage clickAdminPage(){
         wait.until(ExpectedConditions.visibilityOfAllElements(pimElement));
         adminPageElement.click();
@@ -40,4 +49,14 @@ public class DashbordPage {
         return new AdminPage(driver);
     }
 
+=======
+
+    public AdminPage clickAdminElement(){
+        log.info("Clicking On Admin Element");
+        wait.until(ExpectedConditions.visibilityOfAllElements(adminElement));
+        adminElement.click();
+        return new AdminPage(driver);
+
+    }
+>>>>>>> 0e867b9ab3595ed021875b7456a0c846b3231034
 }

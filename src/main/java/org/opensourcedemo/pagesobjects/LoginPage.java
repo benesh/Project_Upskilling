@@ -50,11 +50,4 @@ public class LoginPage {
         return new DashbordPage(driver);
     }
 
-
-
-
-
-
-
-
 }
