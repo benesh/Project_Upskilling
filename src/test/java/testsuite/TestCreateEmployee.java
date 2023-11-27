@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.opensourcedemo.core.Driver;
 import org.opensourcedemo.core.DriverFactory;
 import org.opensourcedemo.pagesobjects.LoginPage;
+import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
+import org.opensourcedemo.pagesobjects.adminpages.FormAddAdminUser;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,9 +21,10 @@ public class TestCreateEmployee {
     public void setup(){
 //        WebDriverManager.operadriver().setup();
 //        driver = new WebDriverManager.operadriver()
-        driver = new DriverFactory(typeDriver).getDriver();
         driver.get(URL);
         driver.manage().window().maximize();
+        driver = new DriverFactory(typeDriver).getDriver();
+
     }
 
     @Test
@@ -53,9 +56,33 @@ public class TestCreateEmployee {
     }
 
     @Test
-    public void createAdmin(){
+    public void testAddAmdinUser(){
+        //Arrange
+        String title="PIM";
+        String username="Admin";
+        String password = "admin123";
+        String firstname="Ben";
+        String middlename="Omar";
+        String lastname="Ba";
+        String adminuser="omzo";
+        String passwordAdmin ="viti123456";
 
+
+        AdminPage adminpage= new LoginPage(driver)
+                .inputUserName(username)
+                .inputPwd(password)
+                .clickButtonLogin()
+                .clickAdminPage()
+                .clickAddAmdin()
+                .inputUserRole()
+                .inputEmployeeName(firstname +" "+ middlename +" "+ lastname)
+                .inputSatus()
+                .inputUserNameAdmin(adminuser)
+                .inputPassword(passwordAdmin)
+                .inputPassworConfirmation(passwordAdmin)
+                .buttonSaveAdmin();
     }
+
 
     @AfterMethod
     public void quittingDriver(){
