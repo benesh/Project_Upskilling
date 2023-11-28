@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.core.GlobalConfig;
 import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
 import org.opensourcedemo.pagesobjects.pimpages.PimPage;
 
@@ -23,7 +24,7 @@ public class DashbordPage {
     public DashbordPage(WebDriver paramDriver){
         driver = paramDriver;
         PageFactory.initElements(driver,this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
         log.info("Initialize Dashbord Page");
     }
     public PimPage clickPimPage(){

@@ -13,16 +13,18 @@ public class DriverFactory {
     public DriverFactory(Driver paramDriver){
         typeDriver= paramDriver;
     }
-
     public WebDriver getDriver(){
         switch (typeDriver){
             case Driver.CHROME -> {
+                WebDriverManager.chromedriver().setup();
                 return new ChromeDriver();
             }
             case Driver.FIREFOX -> {
+                WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
             }
             case Driver.EDGE -> {
+                WebDriverManager.edgedriver().setup();
                 return new EdgeDriver();
             }
             /*case Driver.OPERA -> {

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.core.GlobalConfig;
 
 import java.time.Duration;
 
@@ -16,7 +17,7 @@ public class EmployeeDatailPage {
     WebDriverWait wait ;
     @FindBy(css = ".oxd-topbar-header-title")
     WebElement titleElement;
-    @FindBy(css="button.oxd-button--secondary:nth-child(2)")
+    @FindBy(css="button.oxd-button--secondary:nth-child(3)")
     WebElement savebuttonElemnt;
 
     @FindBy(css = "li.oxd-topbar-body-nav-tab:nth-child(2)")
@@ -24,7 +25,7 @@ public class EmployeeDatailPage {
 
     public EmployeeDatailPage(WebDriver paramdriver){
         driver = paramdriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
         PageFactory.initElements(driver,this);
         log.info("Initialize EmployeeDatail Page ");
     }

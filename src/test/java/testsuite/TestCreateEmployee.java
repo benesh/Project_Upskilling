@@ -4,6 +4,7 @@ package testsuite;
 import org.openqa.selenium.WebDriver;
 import org.opensourcedemo.core.Driver;
 import org.opensourcedemo.core.DriverFactory;
+import org.opensourcedemo.core.Utils;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
 import org.opensourcedemo.pagesobjects.adminpages.FormAddAdminUser;
@@ -14,17 +15,15 @@ import org.testng.annotations.Test;
 
 public class TestCreateEmployee {
     WebDriver driver;
-    Driver typeDriver =Driver.EDGE;
+    Driver typeDriver =Driver.FIREFOX;
+    DriverFactory driverfactory;
     String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+
+
 
     @BeforeMethod
     public void setup(){
-//        WebDriverManager.operadriver().setup();
-//        driver = new WebDriverManager.operadriver()
-        driver.get(URL);
-        driver.manage().window().maximize();
-        driver = new DriverFactory(typeDriver).getDriver();
-
+        driver = Utils.setup(typeDriver,URL);
     }
 
     @Test

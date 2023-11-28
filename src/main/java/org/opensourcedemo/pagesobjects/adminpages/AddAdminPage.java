@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.core.GlobalConfig;
 
 import java.time.Duration;
 
@@ -25,9 +26,7 @@ public class AddAdminPage {
     public AddAdminPage(WebDriver param_drive){
         driver = param_drive;
         PageFactory.initElements(driver,this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
         log.info("Initialize Page Add Admin Page");
     }
-
-
 }

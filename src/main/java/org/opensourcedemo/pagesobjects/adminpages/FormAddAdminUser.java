@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.core.GlobalConfig;
 
 import java.time.Duration;
 import java.util.List;
@@ -17,57 +18,56 @@ public class FormAddAdminUser {
     WebDriver driver;
     WebDriverWait wait ;
     @FindBy(css = "div.oxd-form-row:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div")
-    WebElement userroleelement;
+    WebElement inptuserroleelement;
     @FindBy(css =".oxd-autocomplete-text-input" )
-    WebElement employeename;
+    WebElement inputemployeenameelement;
     @FindBy(css = "div.oxd-grid-item:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)")
-    WebElement statuselement;
-    @FindBy(css = "")
-    WebElement unsernameelement;
+    WebElement inputstatuselement;
     @FindBy(css = "div.oxd-input-group:nth-child(2) > div:nth-child(2) > input:nth-child(1)")
-    WebElement passwordelement;
+    WebElement inputpasswordelement;
     @FindBy(css = "div.oxd-form-row:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
-    WebElement passwordfconfirmationelement;
+    WebElement inputpasswordfconfirmationelement;
     @FindBy(css = ".orangehrm-left-space")
     WebElement buttonsaveelement;
 
     public FormAddAdminUser(WebDriver paramdriver){
         driver = paramdriver;
         PageFactory.initElements(driver,this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
         log.info("Initialize Formuler Admin Page");
     }
     public FormAddAdminUser inputUserRole(){
-        wait.until(ExpectedConditions.visibilityOfAllElements(userroleelement));
-        userroleelement.click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(inptuserroleelement));
+        inptuserroleelement.click();
         log.info("input role");
         return selectoption( ".oxd-select-option","Admin");
     }
     public FormAddAdminUser inputSatus(){
-        wait.until(ExpectedConditions.visibilityOfAllElements(statuselement));
-        statuselement.click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(inputstatuselement));
+        inputstatuselement.click();
         return selectoption("oxd-select-option","Enable");
     }
     public FormAddAdminUser inputEmployeeName(String paramemployeename){
-        wait.until(ExpectedConditions.visibilityOfAllElements(statuselement));
-        employeename.click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(inputemployeenameelement));
+        String firstname = paramemployeename.substring(0,1);//paramemployeename.indexOf(" "));
+        inputemployeenameelement.sendKeys(firstname);
         log.info("Input Emplyee Name");
         return selectoption(".oxd-autocomplete-option",paramemployeename);
     }
     public FormAddAdminUser inputUserNameAdmin(String paramusername){
-        wait.until(ExpectedConditions.visibilityOfAllElements(userroleelement));
-        userroleelement.sendKeys(paramusername);
+        wait.until(ExpectedConditions.visibilityOfAllElements(inptuserroleelement));
+        inptuserroleelement.sendKeys(paramusername);
         return this;
     }
     public FormAddAdminUser inputPassword(String parampassword){
-        wait.until(ExpectedConditions.visibilityOfAllElements(passwordelement));
-        passwordelement.sendKeys(parampassword);
+        wait.until(ExpectedConditions.visibilityOfAllElements(inputpasswordelement));
+        inputpasswordelement.sendKeys(parampassword);
         log.info("Input Password");
         return this;
     }
     public FormAddAdminUser inputPassworConfirmation(String parampasswor){
-        wait.until(ExpectedConditions.visibilityOfAllElements(passwordfconfirmationelement));
-        passwordfconfirmationelement.sendKeys(parampasswor);
+        wait.until(ExpectedConditions.visibilityOfAllElements(inputpasswordfconfirmationelement));
+        inputpasswordfconfirmationelement.sendKeys(parampasswor);
         return this;
     }
     public AdminPage buttonSaveAdmin(){
