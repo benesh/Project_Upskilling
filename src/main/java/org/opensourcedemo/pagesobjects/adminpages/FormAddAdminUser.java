@@ -19,14 +19,14 @@ public class FormAddAdminUser {
     WebDriverWait wait ;
     @FindBy(css = "div.oxd-form-row:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div")
     WebElement inptuserroleelement;
-    @FindBy(css =".oxd-autocomplete-text-input" )
+    @FindBy(css =".oxd-autocomplete-text-input>input" )
     WebElement inputemployeenameelement;
     @FindBy(css = "div.oxd-grid-item:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)")
     WebElement inputstatuselement;
     @FindBy(css = "div.oxd-input-group:nth-child(2) > div:nth-child(2) > input:nth-child(1)")
-    WebElement inputpasswordelement;
+    WebElement inputpasswordelement; //input.oxd-input[autocomplete="off"]
     @FindBy(css = "div.oxd-form-row:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
-    WebElement inputpasswordfconfirmationelement;
+    WebElement inputpasswordfconfirmationelement; //input.oxd-input[autocomplete="off"]
     @FindBy(css = ".orangehrm-left-space")
     WebElement buttonsaveelement;
 
@@ -45,17 +45,17 @@ public class FormAddAdminUser {
     public FormAddAdminUser inputSatus(){
         wait.until(ExpectedConditions.visibilityOfAllElements(inputstatuselement));
         inputstatuselement.click();
-        return selectoption("oxd-select-option","Enable");
+        return selectoption("oxd-select-option>span","Enable");
     }
     public FormAddAdminUser inputEmployeeName(String paramemployeename){
-        wait.until(ExpectedConditions.visibilityOfAllElements(inputemployeenameelement));
-        String firstname = paramemployeename.substring(0,1);//paramemployeename.indexOf(" "));
-        inputemployeenameelement.sendKeys(firstname);
-        log.info("Input Emplyee Name");
-        return selectoption(".oxd-autocomplete-option",paramemployeename);
+        wait.until(ExpectedConditions.visibilityOf(inputemployeenameelement));
+        String firstname = paramemployeename.substring(0,paramemployeename.indexOf(" "));
+        inputemployeenameelement.sendKeys(firstname.substring(2));
+        log.info("Input Employee Name");
+        return selectoption(".oxd-autocomplete-option>span",paramemployeename);
     }
     public FormAddAdminUser inputUserNameAdmin(String paramusername){
-        wait.until(ExpectedConditions.visibilityOfAllElements(inptuserroleelement));
+        wait.until(ExpectedConditions.visibilityOf(inptuserroleelement));
         inptuserroleelement.sendKeys(paramusername);
         return this;
     }
@@ -77,13 +77,22 @@ public class FormAddAdminUser {
     }
     public FormAddAdminUser selectoption (String cssselector,String optiontoselect){
         By userroleselector = By.cssSelector(cssselector);
-        List<WebElement> listuserrolestatus = driver.findElements( userroleselector);
+        List<WebElement> listuserrolestatus = driver.findElements(userroleselector);
+        WebElement oneoption = driver.findElement(userroleselector);
         wait.until(ExpectedConditions.visibilityOfAllElements(listuserrolestatus));
-        WebElement optiontoselectelement = listuserrolestatus.stream()
+//        wait.until(d-> listuserrolestatus.getFirst().isDisplayed());
+//        wait.until(ExpectedConditions.visibilityOf(oneoption));
+        for(WebElement optionelement : listuserrolestatus){
+            if(optionelement.getText().equals(optiontoselect)){
+                optionelement.click();
+                break;
+            }
+        }
+        /*WebElement optiontoselectelement = listuserrolestatus.stream()
                 .filter( e -> e.getText().equals(optiontoselect))
                 .findFirst()
                 .orElse(null);
-        optiontoselectelement.click();
+        optiontoselectelement.click();*/
         return this;
     }
 }

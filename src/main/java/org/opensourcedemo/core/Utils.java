@@ -16,7 +16,6 @@ public class Utils {
         return driver;
     }
 
-
     public void quittingDrivere(WebDriver driver){
         log.info("Quitting Driver");
         driver.quit();

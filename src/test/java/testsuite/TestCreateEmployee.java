@@ -60,11 +60,12 @@ public class TestCreateEmployee {
         String title="PIM";
         String username="Admin";
         String password = "admin123";
-        String firstname="Ben";
-        String middlename="Omar";
-        String lastname="Ba";
-        String adminuser="omzo";
+        String firstname="Virat";
+        String middlename="";
+        String lastname="minion";
+        String adminuser="Kohli";
         String passwordAdmin ="viti123456";
+        //Virat  Kohli
 
 
         AdminPage adminpage= new LoginPage(driver)
@@ -74,7 +75,7 @@ public class TestCreateEmployee {
                 .clickAdminPage()
                 .clickAddAmdin()
                 .inputUserRole()
-                .inputEmployeeName(firstname +" "+ middlename +" "+ lastname)
+                .inputEmployeeName(firstname +" "+ lastname)
                 .inputSatus()
                 .inputUserNameAdmin(adminuser)
                 .inputPassword(passwordAdmin)
