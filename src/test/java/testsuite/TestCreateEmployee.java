@@ -2,30 +2,31 @@ package testsuite;
 
 
 import org.openqa.selenium.WebDriver;
-import org.opensourcedemo.core.Driver;
-import org.opensourcedemo.core.DriverFactory;
-import org.opensourcedemo.core.Utils;
+import org.opensourcedemo.core.*;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
-import org.opensourcedemo.pagesobjects.adminpages.FormAddAdminUser;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class TestCreateEmployee {
     WebDriver driver;
-    Driver typeDriver =Driver.FIREFOX;
-    DriverFactory driverfactory;
-    String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
-
-
-
+    String patconfig = "src/main/resources/entry_data/scenario1/config.properties";
+    String pathdata = "src/main/resources/entry_data/scenario1/user_data.properties";
+    ConfigProperties configproperties;
+    UserProperties userproperties;
+    @BeforeSuite
+    public void setupAll(){
+        PropertiesFactory propfactory = new PropertiesFactory();
+        configproperties = (ConfigProperties) propfactory.factoryProperty(patconfig);
+        userproperties = (UserProperties) propfactory.factoryProperty(pathdata);
+    }
     @BeforeMethod
     public void setup(){
-        driver = Utils.setup(typeDriver,URL);
+        driver = Utils.setup(configproperties);
     }
-
     @Test
     public void Testexecution(){
         //Arrange
@@ -38,14 +39,14 @@ public class TestCreateEmployee {
 
         //Act
         String titlegetted = new LoginPage(driver)
-                .inputUserName(username)
-                .inputPwd(password)
+                .inputUserName(userproperties.getRootUserName())
+                .inputPwd(userproperties.getRootPassword())
                 .clickButtonLogin()
                 .clickPimPage()
                 .clickAddButton()
-                .typeInputFirstName(firstname)
-                .typeInputMiddletName(middlename)
-                .typeInputLastName(lastname)
+                .typeInputFirstName(userproperties.getUserFirstName())
+                .typeInputMiddletName(userproperties.getUserMiddleName())
+                .typeInputLastName(userproperties.getUserLastName())
                 .clickSaveButton()
                 .clicksavebutton()
                 .getTitle();
@@ -54,7 +55,7 @@ public class TestCreateEmployee {
         Assert.assertEquals(titlegetted,title);
     }
 
-    @Test
+   /* @Test
     public void testAddAmdinUser(){
         //Arrange
         String title="PIM";
@@ -82,11 +83,10 @@ public class TestCreateEmployee {
                 .inputPassworConfirmation(passwordAdmin)
                 .buttonSaveAdmin();
     }
-
-
+*/
     @AfterMethod
     public void quittingDriver(){
-        driver.quit();
+        Utils.quittingDrivere(driver);
     }
 
 

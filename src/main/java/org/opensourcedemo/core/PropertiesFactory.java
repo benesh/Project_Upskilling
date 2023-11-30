@@ -1,16 +1,15 @@
 package org.opensourcedemo.core;
 
-import config.Porperties;
 import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class PropertiesFactory {
     private ReaderPropertiesFile readproperty;
-    public PropertiesFactory(String pathfileproperty){
-        readproperty = new ReaderPropertiesFile(pathfileproperty);
+    public PropertiesFactory(){
         log.info("Initialize Factory Reading Property");
     }
-    public PropertiesParent factoryProperty(){
-        switch (readproperty.getTypecConfig()){
+    public PropertiesParent factoryProperty(String pathfileproperty){
+        readproperty = new ReaderPropertiesFile(pathfileproperty);
+        switch (readproperty.getTypeConfig()){
             case "CONFIG":
                 return new ConfigProperties(readproperty.getProperties());
             case "USER":

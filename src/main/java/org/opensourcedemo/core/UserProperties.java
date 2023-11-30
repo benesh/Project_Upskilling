@@ -13,20 +13,25 @@ public class UserProperties extends PropertiesParent {
         propertie = parampropertie;
     }
 
-    public String getUsername(){
+    public String getUserName(){
         return propertie.getProperty("username");
     }
-    public String getpassword(){
+    public String getPassword(){
         return propertie.getProperty("password");
     }
-    public String getuserfirstname(){
+    public String getUserFirstName(){
         return propertie.getProperty("firstname");
     }
-    public String getusermiddletname(){
+    public String getUserMiddleName(){
         return propertie.getProperty("middlename");
     }
-    public String getuserlastname(){
+    public String getUserLastName(){
         return propertie.getProperty("lastname");
+    }
+    public String getRootUserName(){
+        return propertie.getProperty("username_root");
+    }public String getRootPassword(){
+        return propertie.getProperty("password_root");
     }
 
 }

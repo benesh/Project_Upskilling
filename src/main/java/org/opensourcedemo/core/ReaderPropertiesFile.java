@@ -22,9 +22,8 @@ public class ReaderPropertiesFile {
         log.info("Getting Properties object");
         return properties;
     }
-    public String getTypecConfig(){
-        return properties.getProperty("TYPE");
+    public String getTypeConfig(){
+        return properties.getProperty("type");
     }
-
 
 }

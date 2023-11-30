@@ -19,11 +19,11 @@ public class ConfigProperties extends PropertiesParent {
         return propertie.getProperty("URL");
     }
     public Driver getBrowser(){
-        return Driver.valueOf(propertie.getProperty("BROWSER"));
+        return Driver.valueOf(propertie.getProperty("browser"));
     }
-    public String getPathLog(){return propertie.getProperty("PATHLOG");}
-    public String getPathScreenshot(){return propertie.getProperty("PATHSCREENSHOT");}
-    public String getPathReport(){return propertie.getProperty("PATHREPORT");}
-    public String geOptions(){ return propertie.getProperty("OPTION_BROWSER");}
+    public String getPathLog(){return propertie.getProperty("patlog");}
+    public String getPathScreenshot(){return propertie.getProperty("patscreenshot");}
+    public String getPathReport(){return propertie.getProperty("pathreport");}
+    public String geOptions(){ return propertie.getProperty("option_browser");}
 
 }

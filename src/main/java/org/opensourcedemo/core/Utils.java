@@ -9,14 +9,14 @@ import java.net.URL;
 @Log4j2
 public class Utils {
 
-    public static WebDriver setup(Driver typeDriver,String URL){
-        WebDriver driver = new DriverFactory(typeDriver).getDriver();
-        driver.get(URL);
+    public static WebDriver setup(ConfigProperties propconfig){
+        WebDriver driver = new DriverFactory(propconfig.getBrowser()).getDriver();
+        driver.get(propconfig.getUrl());
         driver.manage().window().maximize();
         return driver;
     }
 
-    public void quittingDrivere(WebDriver driver){
+    public static void quittingDrivere(WebDriver driver){
         log.info("Quitting Driver");
         driver.quit();
     }
