@@ -1,4 +1,4 @@
-package org.opensourcedemo.core;
+package org.opensourcedemo.core.properties_manager;
 
 import lombok.extern.log4j.Log4j2;
 @Log4j2

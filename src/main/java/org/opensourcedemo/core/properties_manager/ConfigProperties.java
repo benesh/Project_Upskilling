@@ -1,20 +1,21 @@
-package org.opensourcedemo.core;
+package org.opensourcedemo.core.properties_manager;
 
-import config.Porperties;
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
+import org.opensourcedemo.core.driver_manager.Driver;
+import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 
-import java.awt.event.PaintEvent;
 import java.util.Properties;
 
 @Log4j2
 public class ConfigProperties extends PropertiesParent {
     Properties propertie ;
-
+    @Getter
+    Employee employee;
     public ConfigProperties(Properties parampropertie){
         propertie = parampropertie;
-        log.info("Initialise properties config " + propertie.getProperty("TITLE"));
+        log.info("Initialise properties config " + propertie.getProperty("title"));
     }
-
     public String getUrl(){
         return propertie.getProperty("URL");
     }
@@ -25,5 +26,5 @@ public class ConfigProperties extends PropertiesParent {
     public String getPathScreenshot(){return propertie.getProperty("patscreenshot");}
     public String getPathReport(){return propertie.getProperty("pathreport");}
     public String geOptions(){ return propertie.getProperty("option_browser");}
-
+    public String getDataEmployeeUserPath(){ return propertie.getProperty("option_browser");}
 }

@@ -1,10 +1,8 @@
-package org.opensourcedemo.core;
+package org.opensourcedemo.core.driver_manager;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.net.URL;
+import org.opensourcedemo.core.properties_manager.ConfigProperties;
 
 @Log4j2
 public class Utils {

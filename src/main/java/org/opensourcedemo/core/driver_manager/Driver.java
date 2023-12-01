@@ -1,4 +1,4 @@
-package org.opensourcedemo.core;
+package org.opensourcedemo.core.driver_manager;
 
 public enum Driver {
     FIREFOX,

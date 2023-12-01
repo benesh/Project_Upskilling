@@ -1,0 +1,12 @@
+{
+  "firtname" : "Omar",
+  "middlename" : "Ben",
+  "lastename" : "Ba",
+  "user": {
+    "username": "adminomar",
+    "password": "admin12344"
+  },
+  "birthdate": "Time"
+
+
+}

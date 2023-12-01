@@ -2,9 +2,11 @@ package testsuite;
 
 
 import org.openqa.selenium.WebDriver;
-import org.opensourcedemo.core.*;
+import org.opensourcedemo.core.driver_manager.Utils;
+import org.opensourcedemo.core.properties_manager.ConfigProperties;
+import org.opensourcedemo.core.properties_manager.PropertiesFactory;
+import org.opensourcedemo.core.properties_manager.UserProperties;
 import org.opensourcedemo.pagesobjects.LoginPage;
-import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

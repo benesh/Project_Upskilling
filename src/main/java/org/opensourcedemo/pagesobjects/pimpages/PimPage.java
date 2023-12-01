@@ -7,8 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.opensourcedemo.core.GlobalConfig;
-import org.opensourcedemo.pagesobjects.pimpages.AddEmployeePage;
+import org.opensourcedemo.core.properties_manager.GlobalConfig;
 
 import java.time.Duration;
 
