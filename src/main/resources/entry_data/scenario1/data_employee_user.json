@@ -1,12 +1,20 @@
-{
-  "firtname" : "Omar",
-  "middlename" : "Ben",
-  "lastename" : "Ba",
-  "user": {
-    "username": "adminomar",
-    "password": "admin12344"
+[
+  {
+    "firstname" : "Default Admin",
+    "lastname" : "Admin",
+    "user":
+    {
+      "username": "Admin",
+      "password": "admin123"
+    }
   },
-  "birthdate": "Time"
-
-
-}
+  {
+    "firstname" : "omOmarr",
+    "middlename" : "Benna",
+    "lastname" : "Ba12",
+    "user": {
+      "username": "adminomar",
+      "password": "admin12344"
+    }
+  }
+]

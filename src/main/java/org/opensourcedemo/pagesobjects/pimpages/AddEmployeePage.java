@@ -22,33 +22,36 @@ public class AddEmployeePage {
     WebElement inputMiddlename;
     @FindBy(css = ".orangehrm-lastname")
     WebElement inputLastname;
-    @FindBy(css = ".oxd-button--secondary")
+    @FindBy(css = "button.oxd-button:nth-child(3)")
     WebElement saveButtonvalidation;
-
     public AddEmployeePage(WebDriver param_driver){
         driver = param_driver;
         PageFactory.initElements(driver,this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
         log.info("Initialize Add Employee Page");
     }
-    public AddEmployeePage typeInputFirstName (String paramFirstName){
+    public AddEmployeePage inputFirstName(String paramFirstName){
         wait.until(ExpectedConditions.visibilityOfAllElements(inputFirstname));
         inputFirstname.sendKeys(paramFirstName);
         log.info("Typing First Name");
         return this;
     }
-    public AddEmployeePage typeInputLastName (String paramLastName){
+    public AddEmployeePage inputLastName(String paramLastName){
         inputLastname.sendKeys(paramLastName);
         log.info("Typing First Name");
         return this;
     }
-    public AddEmployeePage typeInputMiddletName (String paramMiddleName){
+    public AddEmployeePage inputMiddletName(String paramMiddleName){
         inputMiddlename.sendKeys(paramMiddleName);
         log.info("Typing First Name");
         return this;
     }
-
     public EmployeeDatailPage clickSaveButton(){
+        System.out.println("hello save button methods");
+        wait.until(ExpectedConditions.visibilityOfAllElements(saveButtonvalidation));
+        saveButtonvalidation.click();
+        log.info("Save Employee Info primary");
+        System.out.println("hello save button methods fin");
         return new EmployeeDatailPage(driver);
     }
 

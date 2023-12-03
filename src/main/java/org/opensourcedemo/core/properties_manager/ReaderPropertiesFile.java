@@ -8,14 +8,12 @@ import java.util.Properties;
 
 @Log4j2
 public class ReaderPropertiesFile {
-    ConfigProperties Config ;
-
+    Properties properties;
     public ReaderPropertiesFile(String configpath){
-
+        initialieProperties(configpath);
     }
-
-    private Properties initialieProperties(String configpath){
-        Properties properties = new Properties();
+    private void initialieProperties(String configpath){
+        properties = new Properties();
         try {
             FileInputStream fileInputStream = new FileInputStream(configpath);
              properties.load(fileInputStream);
@@ -24,11 +22,9 @@ public class ReaderPropertiesFile {
         }catch (IOException e){
             log.error(e);
         }
-        return properties;
-    }
-    private void initalizeEmployeeParser(){
-
     }
 
-
+    public Properties getProperties(){
+        log.info("Get Properties");
+        return properties;}
 }

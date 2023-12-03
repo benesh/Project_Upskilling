@@ -8,21 +8,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
 
-    private Driver typeDriver;
-    public DriverFactory(Driver paramDriver){
-        typeDriver= paramDriver;
+    private DriverType typeDriverType;
+    public DriverFactory(DriverType paramDriverType){
+        typeDriverType = paramDriverType;
     }
     public WebDriver getDriver(){
-        switch (typeDriver){
-            case Driver.CHROME -> {
+        switch (typeDriverType){
+            case DriverType.CHROME -> {
                 WebDriverManager.chromedriver().setup();
                 return new ChromeDriver();
             }
-            case Driver.FIREFOX -> {
+            case DriverType.FIREFOX -> {
                 WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
             }
-            case Driver.EDGE -> {
+            case DriverType.EDGE -> {
                 WebDriverManager.edgedriver().setup();
                 return new EdgeDriver();
             }

@@ -17,11 +17,13 @@ public class EmployeeDatailPage {
     WebDriverWait wait ;
     @FindBy(css = ".oxd-topbar-header-title")
     WebElement titleElement;
-    @FindBy(css="button.oxd-button--secondary:nth-child(3)")
+    @FindBy(css="button.oxd-button--secondary:nth-child(2)")
     WebElement savebuttonElemnt;
 
     @FindBy(css = "li.oxd-topbar-body-nav-tab:nth-child(2)")
     WebElement employeeListelement;
+    @FindBy(css = ".oxd-button--secondary:nth-child(1)")
+    WebElement savebuttonwithbloddtype;
 
     public EmployeeDatailPage(WebDriver paramdriver){
         driver = paramdriver;

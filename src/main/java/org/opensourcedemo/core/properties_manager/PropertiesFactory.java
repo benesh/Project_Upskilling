@@ -7,15 +7,10 @@ public class PropertiesFactory {
     public PropertiesFactory(){
         log.info("Initialize Factory Reading Property");
     }
-    public PropertiesParent factoryProperty(String pathfileproperty){
+    public ConfigProperties factoryProperty(String pathfileproperty){
         readproperty = new ReaderPropertiesFile(pathfileproperty);
-        switch (readproperty.getTypeConfig()){
-            case "CONFIG":
-                return new ConfigProperties(readproperty.getProperties());
-            case "USER":
-                return new UserProperties(readproperty.getProperties());
-            default:
-                return null;
-        }
+        return new ConfigProperties(readproperty.getProperties());
+
+
     }
 }
