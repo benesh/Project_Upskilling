@@ -9,12 +9,11 @@
     }
   },
   {
-    "firstname" : "omOmarr",
-    "middlename" : "Benna",
-    "lastname" : "Ba12",
+    "firstname" : "David",
+    "lastname" : "Morris",
     "user": {
-      "username": "adminomar",
-      "password": "admin12344"
+      "username": "adminomar22",
+      "password": "Admin12345"
     }
   }
 ]

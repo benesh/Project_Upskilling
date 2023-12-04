@@ -18,4 +18,11 @@ public class Employee {
     private Date birthdate = null;
     @Getter
     private User user;
+    public String getNameComplete(){
+        if (middlename!=null){
+            return firstname+" "+middlename+" "+lastname;
+        }else{
+            return  firstname +" "+lastname;
+        }
+    }
 }

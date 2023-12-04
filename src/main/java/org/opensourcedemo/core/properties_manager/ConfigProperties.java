@@ -5,7 +5,6 @@ import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.driver_manager.DriverType;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -18,7 +17,8 @@ public class ConfigProperties {
     List<Employee> employees;
     public ConfigProperties(Properties parampropertie){
         propertie = parampropertie;
-        GlobalConfig.GLOBALWAIT=getImplicitWait();
+        GlobalConfig.GLOBALWAIT= getExplicitWait();
+        GlobalConfig.GLOBALPOLLING=getWaitPollingEvery();
         log.info("Initialise properties config " + propertie.getProperty("title"));
     }
     public String getUrl(){
@@ -33,7 +33,8 @@ public class ConfigProperties {
     public String geOptions(){ return propertie.getProperty("option_browser");}
     public String getDataEmployeeUserPath(){ return propertie.getProperty("option_browser");}
     public String getPathUserData(){return propertie.getProperty("pathuserdata");}
-    public int getImplicitWait(){return Integer.parseInt(propertie.getProperty("implicitwait"));}
+    public int getExplicitWait(){return Integer.parseInt(propertie.getProperty("explicitwait"));}
+    public int getWaitPollingEvery(){return Integer.parseInt(propertie.getProperty("pollingEvery"));}
     public List<Employee> getEmployee() {
         if (employees==null){
             ObjectMapper mapper = new ObjectMapper();

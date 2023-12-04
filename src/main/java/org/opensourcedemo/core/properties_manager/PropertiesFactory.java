@@ -10,7 +10,5 @@ public class PropertiesFactory {
     public ConfigProperties factoryProperty(String pathfileproperty){
         readproperty = new ReaderPropertiesFile(pathfileproperty);
         return new ConfigProperties(readproperty.getProperties());
-
-
     }
 }

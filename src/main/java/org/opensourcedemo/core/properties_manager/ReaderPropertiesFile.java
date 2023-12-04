@@ -1,5 +1,4 @@
 package org.opensourcedemo.core.properties_manager;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.FileInputStream;
@@ -10,9 +9,9 @@ import java.util.Properties;
 public class ReaderPropertiesFile {
     Properties properties;
     public ReaderPropertiesFile(String configpath){
-        initialieProperties(configpath);
+        initializeProperties(configpath);
     }
-    private void initialieProperties(String configpath){
+    private void initializeProperties(String configpath){
         properties = new Properties();
         try {
             FileInputStream fileInputStream = new FileInputStream(configpath);
@@ -23,7 +22,6 @@ public class ReaderPropertiesFile {
             log.error(e);
         }
     }
-
     public Properties getProperties(){
         log.info("Get Properties");
         return properties;}
