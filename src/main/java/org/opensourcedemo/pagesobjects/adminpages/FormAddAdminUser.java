@@ -61,7 +61,7 @@ public class FormAddAdminUser {
         return this;
     }
     public FormAddAdminUser inputPassword(String parampassword){
-//        testSetup.getFwait().until(ExpectedConditions.visibilityOfAllElements(inputpasswordelement));
+//        testSetup.getFwait().until(ExpectedConditions.visibilityOf(inputpasswordelement));
         inputpasswordelement.sendKeys(parampassword);
         log.info("Input Password");
         return this;

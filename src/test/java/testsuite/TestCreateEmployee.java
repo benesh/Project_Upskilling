@@ -26,10 +26,11 @@ import java.util.List;
 public class TestCreateEmployee {
     TestSetup testsetup;
     ConfigProperties configproperties;
+    PropertiesFactory propfactory;
     String pathconfig = "src/main/resources/entry_data/scenario1/config.properties";
     @BeforeSuite
     public void setupAll(){
-        PropertiesFactory propfactory = new PropertiesFactory();
+        propfactory = new PropertiesFactory();
         configproperties = propfactory.factoryProperty(pathconfig);
         testsetup = new TestSetup();
     }
@@ -57,7 +58,6 @@ public class TestCreateEmployee {
         //Asserts
         Assert.assertEquals(titlegetted,title);
     }
-
     @Test
     public void testCreateUserAdmin(){
         //Arrange
@@ -84,11 +84,8 @@ public class TestCreateEmployee {
                                 .inputPwd(configproperties.getEmployee().get(1).getUser().getUsername())
                                         .clickButtonLogin();
 
-
         log.info(tittlegetted.getTittle());
     }
-
-
     @AfterMethod
     public void resulscreenshot(ITestResult result){
 //        if (result.getStatus() == ITestResult.FAILURE){
