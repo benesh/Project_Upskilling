@@ -55,7 +55,6 @@ public class AddEmployeePage {
             log.info("middlename Null");
             return this;
         }
-
     }
     public EmployeeDatailsPage clickSaveButton(){
         /*testsetup.getFwait().ignoring(ElementClickInterceptedException.class);
