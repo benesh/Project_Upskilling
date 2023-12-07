@@ -6759,3 +6759,449 @@
 [32m10:56:19:796 [main] INFO  TestCreateEmployee.testCreateUserAdmin - OrangeHRM[m
 [32m10:56:19:896 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
 [36m10:56:19:907 [main] DEBUG ThreadLocalRandom.newSeed - -Dio.netty.initialSeedUniquifier: 0x749ce89c6367e4d1[m
+[32m11:48:39:187 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m11:48:39:197 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m11:48:39:197 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m11:48:39:199 [main] INFO  ConfigProperties.<init> - Initialise properties config scénario1[m
+[36m11:48:42:901 [main] DEBUG InternalLoggerFactory.useLog4J2LoggerFactory - Using Log4J2 as the default logging framework[m
+[36m11:48:42:908 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.level: simple[m
+[36m11:48:42:908 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.targetRecords: 4[m
+[36m11:48:42:912 [main] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@2dddc1b9[m
+[36m11:48:42:932 [main] DEBUG PlatformDependent0.explicitNoUnsafeCause0 - -Dio.netty.noUnsafe: false[m
+[36m11:48:42:932 [main] DEBUG PlatformDependent0.javaVersion0 - Java version: 21[m
+[36m11:48:42:934 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.theUnsafe: available[m
+[36m11:48:42:935 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.copyMemory: available[m
+[36m11:48:42:936 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.storeFence: available[m
+[36m11:48:42:937 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Buffer.address: available[m
+[36m11:48:42:937 [main] DEBUG PlatformDependent0.<clinit> - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled[m
+[36m11:48:42:938 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Bits.unaligned: available, true[m
+[36m11:48:42:940 [main] DEBUG PlatformDependent0.<clinit> - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module ja...
+[36m11:48:42:941 [main] DEBUG PlatformDependent0.<clinit> - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable[m
+[36m11:48:42:941 [main] DEBUG PlatformDependent.unsafeUnavailabilityCause0 - sun.misc.Unsafe: available[m
+[36m11:48:42:942 [main] DEBUG PlatformDependent.estimateMaxDirectMemory - maxDirectMemory: 4213178368 bytes (maybe)[m
+[36m11:48:42:942 [main] DEBUG PlatformDependent.tmpdir0 - -Dio.netty.tmpdir: C:\Users\cobcouli\AppData\Local\Temp (java.io.tmpdir)[m
+[36m11:48:42:943 [main] DEBUG PlatformDependent.bitMode0 - -Dio.netty.bitMode: 64 (sun.arch.data.model)[m
+[36m11:48:42:943 [main] DEBUG PlatformDependent.isWindows0 - Platform: Windows[m
+[36m11:48:42:944 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.maxDirectMemory: -1 bytes[m
+[36m11:48:42:944 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.uninitializedArrayAllocationThreshold: -1[m
+[36m11:48:42:945 [main] DEBUG CleanerJava9.<clinit> - java.nio.ByteBuffer.cleaner(): available[m
+[36m11:48:42:946 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.noPreferDirect: false[m
+[36m11:48:42:953 [main] DEBUG PlatformDependent$Mpsc.<clinit> - org.jctools-core.MpscChunkedArrayQueue: available[m
+[36m11:48:42:977 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024[m
+[36m11:48:42:978 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096[m
+[36m11:48:42:997 [main] DEBUG JdkSslContext.<clinit> - Default protocols (JDK): [TLSv1.3, TLSv1.2] [m
+[36m11:48:42:997 [main] DEBUG JdkSslContext.<clinit> - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SH...
+[36m11:48:43:13 [main] DEBUG GlobalEventExecutor.<clinit> - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1[m
+[36m11:48:43:28 [main] DEBUG MultithreadEventLoopGroup.<clinit> - -Dio.netty.eventLoopThreads: 16[m
+[36m11:48:43:37 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.noKeySetOptimization: false[m
+[36m11:48:43:38 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.selectorAutoRebuildThreshold: 512[m
+[36m11:48:43:116 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numHeapArenas: 16[m
+[36m11:48:43:117 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numDirectArenas: 16[m
+[36m11:48:43:117 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.pageSize: 8192[m
+[36m11:48:43:118 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxOrder: 9[m
+[36m11:48:43:118 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.chunkSize: 4194304[m
+[36m11:48:43:118 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.smallCacheSize: 256[m
+[36m11:48:43:118 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.normalCacheSize: 64[m
+[36m11:48:43:118 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedBufferCapacity: 32768[m
+[36m11:48:43:118 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimInterval: 8192[m
+[36m11:48:43:119 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimIntervalMillis: 0[m
+[36m11:48:43:119 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.useCacheForAllThreads: false[m
+[36m11:48:43:119 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023[m
+[36m11:48:43:131 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.allocator.type: pooled[m
+[36m11:48:43:132 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.threadLocalDirectBufferSize: 0[m
+[36m11:48:43:132 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.maxThreadLocalCharBufferSize: 16384[m
+[36m11:48:43:841 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.processId: 30212 (auto-detected)[m
+[36m11:48:43:844 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv4Stack: false[m
+[36m11:48:43:844 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv6Addresses: false[m
+[36m11:48:43:847 [Forwarding newSession on session null to remote] DEBUG NetUtilInitializations.determineLoopback - Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)[m
+[36m11:48:43:848 [Forwarding newSession on session null to remote] DEBUG NetUtil$SoMaxConnAction.run - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200[m
+[36m11:48:43:849 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.machineId: f0:b6:1e:ff:fe:a7:17:eb (auto-detected)[m
+[36m11:48:43:897 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkAccessible: true[m
+[36m11:48:43:898 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkBounds: true[m
+[36m11:48:43:908 [AsyncHttpClient-1-2] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@71d18c7[m
+[36m11:48:43:937 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.maxCapacityPerThread: 4096[m
+[36m11:48:43:937 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.ratio: 8[m
+[36m11:48:43:938 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.chunkSize: 32[m
+[36m11:48:43:938 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.blocking: false[m
+[36m11:48:43:938 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.batchFastThreadLocalOnly: true[m
+[36m11:48:47:260 [AsyncHttpClient-1-2] DEBUG Brotli.<clinit> - brotli4j not in the classpath; Brotli support will be unavailable.[m
+[32m11:48:49:557 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m11:48:49:949 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m11:48:49:978 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m11:48:50:875 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m11:48:51:812 [main] INFO  DashbordPage.clickPimPage - Click sur la page PIM[m
+[32m11:48:51:815 [main] INFO  PimPage.<init> - Initialize PimPage[m
+[32m11:48:52:773 [main] INFO  PimPage.clickAddButton - Click on Add Button[m
+[32m11:48:52:776 [main] INFO  AddEmployeePage.<init> - Initialize Add Employee Page[m
+[32m11:48:53:10 [main] INFO  AddEmployeePage.inputFirstName - Typing firstname[m
+[32m11:48:53:11 [main] INFO  AddEmployeePage.inputMiddletName - middlename Null[m
+[32m11:48:53:29 [main] INFO  AddEmployeePage.inputLastName - Typing lastname[m
+[32m11:48:55:264 [main] INFO  AddEmployeePage.clickSaveButton - Save Employee Info primary[m
+[32m11:48:55:268 [main] INFO  EmployeeDatailsPage.<init> - Initialize EmployeeDatail Page [m
+[32m11:49:00:504 [main] INFO  EmployeeDatailsPage.clickSaveButton - Save EmployeSecondary[m
+[32m11:49:00:504 [main] INFO  EmployeeDatailsPage.getTitle - Getting Tittle[m
+[32m11:49:00:639 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[36m11:49:00:649 [main] DEBUG ThreadLocalRandom.newSeed - -Dio.netty.initialSeedUniquifier: 0x09cb590119ce920c[m
+[32m11:49:08:683 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m11:49:09:19 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m11:49:09:50 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m11:49:10:06 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m11:49:10:953 [main] INFO  DashbordPage.clickAdminPage - Click Admin Page[m
+[32m11:49:10:956 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m11:49:11:749 [main] INFO  AdminPage.clickAddAmdin - Click for Adding Admin[m
+[32m11:49:11:754 [main] INFO  FormAddAdminUser.<init> - Initialize Formuler Admin Page[m
+[32m11:49:12:244 [main] INFO  FormAddAdminUser.inputUserRole - input User role[m
+[32m11:49:12:362 [main] INFO  FormAddAdminUser.inputEmployeeName - Input Employee Name[m
+[32m11:49:13:927 [main] INFO  FormAddAdminUser.inputUserNameAdmin - Input Username Admin[m
+[32m11:49:13:950 [main] INFO  FormAddAdminUser.inputPassword - Input Password[m
+[32m11:49:13:982 [main] INFO  FormAddAdminUser.inputPassworConfirmation - Input Password Confirmation[m
+[32m11:49:14:226 [main] INFO  FormAddAdminUser.buttonSaveAdmin - Submit Admin[m
+[32m11:49:14:227 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m11:49:14:457 [main] INFO  AdminPage.clickToProfil - Click to Profil[m
+[32m11:49:14:908 [main] INFO  AdminPage.logOutbutton - Logout[m
+[32m11:49:14:909 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m11:49:14:910 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m11:49:15:125 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m11:49:15:405 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m11:49:15:410 [main] INFO  TestCreateEmployee.testCreateUserAdmin - OrangeHRM[m
+[32m11:49:15:471 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[32m14:03:52:259 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m14:03:52:269 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m14:03:52:271 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m14:03:52:272 [main] INFO  ConfigProperties.<init> - Initialise properties config scénario1[m
+[32m15:21:56:674 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m15:21:56:690 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m15:21:56:693 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m15:24:47:43 [main] INFO  BaseTest.setupAll - Initialize Base Test[m
+[32m15:24:47:58 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m15:24:47:60 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m15:24:47:62 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m15:25:42:948 [main] INFO  BaseTest.setupAll - Initialize Base Test and file: C:/Users/cobcouli/IdeaProjects/Project_Upskilling/src/main/resources/testng/testng.xml[m
+[32m15:25:42:955 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m15:25:42:956 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m15:25:42:958 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m15:28:27:842 [main] INFO  BaseTest.setupAll - Initialize Base Test and file: src/main/resources/entry_data/scenario1/config.properties[m
+[32m15:28:27:853 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m15:28:27:855 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m15:28:27:856 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m15:28:27:858 [main] INFO  ConfigProperties.<init> - Initialise properties config scénario1[m
+[36m15:28:32:854 [main] DEBUG InternalLoggerFactory.useLog4J2LoggerFactory - Using Log4J2 as the default logging framework[m
+[36m15:28:32:863 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.level: simple[m
+[36m15:28:32:864 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.targetRecords: 4[m
+[36m15:28:32:867 [main] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@280e8a1a[m
+[36m15:28:32:887 [main] DEBUG PlatformDependent0.explicitNoUnsafeCause0 - -Dio.netty.noUnsafe: false[m
+[36m15:28:32:888 [main] DEBUG PlatformDependent0.javaVersion0 - Java version: 21[m
+[36m15:28:32:889 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.theUnsafe: available[m
+[36m15:28:32:890 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.copyMemory: available[m
+[36m15:28:32:891 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.storeFence: available[m
+[36m15:28:32:892 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Buffer.address: available[m
+[36m15:28:32:893 [main] DEBUG PlatformDependent0.<clinit> - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled[m
+[36m15:28:32:895 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Bits.unaligned: available, true[m
+[36m15:28:32:897 [main] DEBUG PlatformDependent0.<clinit> - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module ja...
+[36m15:28:32:898 [main] DEBUG PlatformDependent0.<clinit> - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable[m
+[36m15:28:32:898 [main] DEBUG PlatformDependent.unsafeUnavailabilityCause0 - sun.misc.Unsafe: available[m
+[36m15:28:32:899 [main] DEBUG PlatformDependent.estimateMaxDirectMemory - maxDirectMemory: 4213178368 bytes (maybe)[m
+[36m15:28:32:899 [main] DEBUG PlatformDependent.tmpdir0 - -Dio.netty.tmpdir: C:\Users\cobcouli\AppData\Local\Temp (java.io.tmpdir)[m
+[36m15:28:32:900 [main] DEBUG PlatformDependent.bitMode0 - -Dio.netty.bitMode: 64 (sun.arch.data.model)[m
+[36m15:28:32:900 [main] DEBUG PlatformDependent.isWindows0 - Platform: Windows[m
+[36m15:28:32:901 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.maxDirectMemory: -1 bytes[m
+[36m15:28:32:901 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.uninitializedArrayAllocationThreshold: -1[m
+[36m15:28:32:902 [main] DEBUG CleanerJava9.<clinit> - java.nio.ByteBuffer.cleaner(): available[m
+[36m15:28:32:902 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.noPreferDirect: false[m
+[36m15:28:32:912 [main] DEBUG PlatformDependent$Mpsc.<clinit> - org.jctools-core.MpscChunkedArrayQueue: available[m
+[36m15:28:32:937 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024[m
+[36m15:28:32:938 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096[m
+[36m15:28:32:958 [main] DEBUG JdkSslContext.<clinit> - Default protocols (JDK): [TLSv1.3, TLSv1.2] [m
+[36m15:28:32:959 [main] DEBUG JdkSslContext.<clinit> - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SH...
+[36m15:28:32:978 [main] DEBUG GlobalEventExecutor.<clinit> - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1[m
+[36m15:28:32:999 [main] DEBUG MultithreadEventLoopGroup.<clinit> - -Dio.netty.eventLoopThreads: 16[m
+[36m15:28:33:11 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.noKeySetOptimization: false[m
+[36m15:28:33:11 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.selectorAutoRebuildThreshold: 512[m
+[36m15:28:33:121 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numHeapArenas: 16[m
+[36m15:28:33:121 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numDirectArenas: 16[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.pageSize: 8192[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxOrder: 9[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.chunkSize: 4194304[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.smallCacheSize: 256[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.normalCacheSize: 64[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedBufferCapacity: 32768[m
+[36m15:28:33:122 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimInterval: 8192[m
+[36m15:28:33:123 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimIntervalMillis: 0[m
+[36m15:28:33:123 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.useCacheForAllThreads: false[m
+[36m15:28:33:123 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023[m
+[36m15:28:33:140 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.allocator.type: pooled[m
+[36m15:28:33:141 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.threadLocalDirectBufferSize: 0[m
+[36m15:28:33:141 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.maxThreadLocalCharBufferSize: 16384[m
+[36m15:28:33:604 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.processId: 15568 (auto-detected)[m
+[36m15:28:33:608 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv4Stack: false[m
+[36m15:28:33:609 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv6Addresses: false[m
+[36m15:28:33:615 [Forwarding newSession on session null to remote] DEBUG NetUtilInitializations.determineLoopback - Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)[m
+[36m15:28:33:616 [Forwarding newSession on session null to remote] DEBUG NetUtil$SoMaxConnAction.run - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200[m
+[36m15:28:33:617 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.machineId: f0:b6:1e:ff:fe:a7:17:eb (auto-detected)[m
+[36m15:28:33:682 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkAccessible: true[m
+[36m15:28:33:683 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkBounds: true[m
+[36m15:28:33:683 [AsyncHttpClient-1-2] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@60d3e288[m
+[36m15:28:33:718 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.maxCapacityPerThread: 4096[m
+[36m15:28:33:719 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.ratio: 8[m
+[36m15:28:33:719 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.chunkSize: 32[m
+[36m15:28:33:719 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.blocking: false[m
+[36m15:28:33:719 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.batchFastThreadLocalOnly: true[m
+[36m15:28:37:806 [AsyncHttpClient-1-2] DEBUG Brotli.<clinit> - brotli4j not in the classpath; Brotli support will be unavailable.[m
+[32m15:28:40:210 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m15:28:40:813 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m15:28:40:853 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m15:28:41:970 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m15:28:42:980 [main] INFO  DashbordPage.clickPimPage - Click sur la page PIM[m
+[32m15:28:42:983 [main] INFO  PimPage.<init> - Initialize PimPage[m
+[32m15:28:43:997 [main] INFO  PimPage.clickAddButton - Click on Add Button[m
+[32m15:28:44:02 [main] INFO  AddEmployeePage.<init> - Initialize Add Employee Page[m
+[32m15:28:44:263 [main] INFO  AddEmployeePage.inputFirstName - Typing firstname[m
+[32m15:28:44:263 [main] INFO  AddEmployeePage.inputMiddletName - middlename Null[m
+[32m15:28:44:285 [main] INFO  AddEmployeePage.inputLastName - Typing lastname[m
+[32m15:28:46:523 [main] INFO  AddEmployeePage.clickSaveButton - Save Employee Info primary[m
+[32m15:28:46:526 [main] INFO  EmployeeDatailsPage.<init> - Initialize EmployeeDatail Page [m
+[32m15:28:51:780 [main] INFO  EmployeeDatailsPage.clickSaveButton - Save EmployeSecondary[m
+[32m15:28:51:781 [main] INFO  EmployeeDatailsPage.getTitle - Getting Tittle[m
+[32m15:28:51:944 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[36m15:28:51:955 [main] DEBUG ThreadLocalRandom.newSeed - -Dio.netty.initialSeedUniquifier: 0xdf07eba40e47f3a6[m
+[32m15:28:58:656 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m15:28:58:733 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m15:28:58:780 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m15:28:59:774 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m15:29:00:922 [main] INFO  DashbordPage.clickAdminPage - Click Admin Page[m
+[32m15:29:00:925 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m15:29:01:772 [main] INFO  AdminPage.clickAddAmdin - Click for Adding Admin[m
+[32m15:29:01:776 [main] INFO  FormAddAdminUser.<init> - Initialize Formuler Admin Page[m
+[32m15:29:02:289 [main] INFO  FormAddAdminUser.inputUserRole - input User role[m
+[32m15:29:02:438 [main] INFO  FormAddAdminUser.inputEmployeeName - Input Employee Name[m
+[32m15:29:04:34 [main] INFO  FormAddAdminUser.inputUserNameAdmin - Input Username Admin[m
+[32m15:29:04:52 [main] INFO  FormAddAdminUser.inputPassword - Input Password[m
+[32m15:29:04:85 [main] INFO  FormAddAdminUser.inputPassworConfirmation - Input Password Confirmation[m
+[32m15:29:04:330 [main] INFO  FormAddAdminUser.buttonSaveAdmin - Submit Admin[m
+[32m15:29:04:331 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m15:29:04:561 [main] INFO  AdminPage.clickToProfil - Click to Profil[m
+[32m15:29:05:252 [main] INFO  AdminPage.logOutbutton - Logout[m
+[32m15:29:05:252 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m15:29:05:253 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m15:29:05:464 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m15:29:05:741 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m15:29:05:746 [main] INFO  TestCreateEmployee.testCreateUserAdmin - OrangeHRM[m
+[32m15:29:05:920 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[32m16:37:46:967 [main] INFO  BaseTest.setupAll - Initialize Base Test and file: src/main/resources/entry_data/scenario1/config.properties[m
+[32m16:37:46:975 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m16:37:46:977 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m16:37:46:979 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m16:37:46:980 [main] INFO  ConfigProperties.<init> - Initialise properties config scénario1[m
+[32m16:37:47:05 [main] INFO  BaseTest.setup - Setup before Method: balalalalalalalalalalalalalalalallaalal[m
+[36m16:37:48:570 [main] DEBUG InternalLoggerFactory.useLog4J2LoggerFactory - Using Log4J2 as the default logging framework[m
+[36m16:37:48:575 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.level: simple[m
+[36m16:37:48:575 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.targetRecords: 4[m
+[36m16:37:48:579 [main] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@784c5ef5[m
+[36m16:37:48:597 [main] DEBUG PlatformDependent0.explicitNoUnsafeCause0 - -Dio.netty.noUnsafe: false[m
+[36m16:37:48:598 [main] DEBUG PlatformDependent0.javaVersion0 - Java version: 21[m
+[36m16:37:48:600 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.theUnsafe: available[m
+[36m16:37:48:600 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.copyMemory: available[m
+[36m16:37:48:601 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.storeFence: available[m
+[36m16:37:48:602 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Buffer.address: available[m
+[36m16:37:48:602 [main] DEBUG PlatformDependent0.<clinit> - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled[m
+[36m16:37:48:603 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Bits.unaligned: available, true[m
+[36m16:37:48:604 [main] DEBUG PlatformDependent0.<clinit> - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module ja...
+[36m16:37:48:605 [main] DEBUG PlatformDependent0.<clinit> - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable[m
+[36m16:37:48:605 [main] DEBUG PlatformDependent.unsafeUnavailabilityCause0 - sun.misc.Unsafe: available[m
+[36m16:37:48:606 [main] DEBUG PlatformDependent.estimateMaxDirectMemory - maxDirectMemory: 4213178368 bytes (maybe)[m
+[36m16:37:48:606 [main] DEBUG PlatformDependent.tmpdir0 - -Dio.netty.tmpdir: C:\Users\cobcouli\AppData\Local\Temp (java.io.tmpdir)[m
+[36m16:37:48:606 [main] DEBUG PlatformDependent.bitMode0 - -Dio.netty.bitMode: 64 (sun.arch.data.model)[m
+[36m16:37:48:607 [main] DEBUG PlatformDependent.isWindows0 - Platform: Windows[m
+[36m16:37:48:607 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.maxDirectMemory: -1 bytes[m
+[36m16:37:48:608 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.uninitializedArrayAllocationThreshold: -1[m
+[36m16:37:48:609 [main] DEBUG CleanerJava9.<clinit> - java.nio.ByteBuffer.cleaner(): available[m
+[36m16:37:48:609 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.noPreferDirect: false[m
+[36m16:37:48:617 [main] DEBUG PlatformDependent$Mpsc.<clinit> - org.jctools-core.MpscChunkedArrayQueue: available[m
+[36m16:37:48:641 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024[m
+[36m16:37:48:641 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096[m
+[36m16:37:48:659 [main] DEBUG JdkSslContext.<clinit> - Default protocols (JDK): [TLSv1.3, TLSv1.2] [m
+[36m16:37:48:660 [main] DEBUG JdkSslContext.<clinit> - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SH...
+[36m16:37:48:675 [main] DEBUG GlobalEventExecutor.<clinit> - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1[m
+[36m16:37:48:690 [main] DEBUG MultithreadEventLoopGroup.<clinit> - -Dio.netty.eventLoopThreads: 16[m
+[36m16:37:48:699 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.noKeySetOptimization: false[m
+[36m16:37:48:700 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.selectorAutoRebuildThreshold: 512[m
+[36m16:37:48:779 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numHeapArenas: 16[m
+[36m16:37:48:779 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numDirectArenas: 16[m
+[36m16:37:48:780 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.pageSize: 8192[m
+[36m16:37:48:781 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxOrder: 9[m
+[36m16:37:48:781 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.chunkSize: 4194304[m
+[36m16:37:48:781 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.smallCacheSize: 256[m
+[36m16:37:48:781 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.normalCacheSize: 64[m
+[36m16:37:48:781 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedBufferCapacity: 32768[m
+[36m16:37:48:781 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimInterval: 8192[m
+[36m16:37:48:782 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimIntervalMillis: 0[m
+[36m16:37:48:782 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.useCacheForAllThreads: false[m
+[36m16:37:48:782 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023[m
+[36m16:37:48:792 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.allocator.type: pooled[m
+[36m16:37:48:793 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.threadLocalDirectBufferSize: 0[m
+[36m16:37:48:793 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.maxThreadLocalCharBufferSize: 16384[m
+[36m16:37:49:124 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.processId: 29164 (auto-detected)[m
+[36m16:37:49:126 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv4Stack: false[m
+[36m16:37:49:127 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv6Addresses: false[m
+[36m16:37:49:130 [Forwarding newSession on session null to remote] DEBUG NetUtilInitializations.determineLoopback - Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)[m
+[36m16:37:49:132 [Forwarding newSession on session null to remote] DEBUG NetUtil$SoMaxConnAction.run - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200[m
+[36m16:37:49:133 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.machineId: f0:b6:1e:ff:fe:a7:17:eb (auto-detected)[m
+[36m16:37:49:184 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkAccessible: true[m
+[36m16:37:49:184 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkBounds: true[m
+[36m16:37:49:184 [AsyncHttpClient-1-2] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@60d3e288[m
+[36m16:37:49:225 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.maxCapacityPerThread: 4096[m
+[36m16:37:49:225 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.ratio: 8[m
+[36m16:37:49:225 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.chunkSize: 32[m
+[36m16:37:49:225 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.blocking: false[m
+[36m16:37:49:225 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.batchFastThreadLocalOnly: true[m
+[36m16:37:52:366 [AsyncHttpClient-1-2] DEBUG Brotli.<clinit> - brotli4j not in the classpath; Brotli support will be unavailable.[m
+[32m16:37:54:302 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m16:37:54:742 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m16:37:54:777 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m16:37:55:697 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m16:37:56:853 [main] INFO  DashbordPage.clickPimPage - Click sur la page PIM[m
+[32m16:37:56:856 [main] INFO  PimPage.<init> - Initialize PimPage[m
+[32m16:37:57:817 [main] INFO  PimPage.clickAddButton - Click on Add Button[m
+[32m16:37:57:820 [main] INFO  AddEmployeePage.<init> - Initialize Add Employee Page[m
+[32m16:37:58:70 [main] INFO  AddEmployeePage.inputFirstName - Typing firstname[m
+[32m16:37:58:71 [main] INFO  AddEmployeePage.inputMiddletName - middlename Null[m
+[32m16:37:58:91 [main] INFO  AddEmployeePage.inputLastName - Typing lastname[m
+[32m16:38:00:336 [main] INFO  AddEmployeePage.clickSaveButton - Save Employee Info primary[m
+[32m16:38:00:339 [main] INFO  EmployeeDatailsPage.<init> - Initialize EmployeeDatail Page [m
+[32m16:38:05:591 [main] INFO  EmployeeDatailsPage.clickSaveButton - Save EmployeSecondary[m
+[32m16:38:05:592 [main] INFO  EmployeeDatailsPage.getTitle - Getting Tittle[m
+[32m16:38:05:756 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[36m16:38:05:765 [main] DEBUG ThreadLocalRandom.newSeed - -Dio.netty.initialSeedUniquifier: 0x42b81be4bd984f79[m
+[32m16:38:07:653 [main] INFO  BaseTest.setup - Setup before Method: balalalalalalalalalalalalalalalallaalal[m
+[32m16:38:14:44 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m16:38:14:120 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m16:38:14:164 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m16:38:15:45 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m16:38:16:28 [main] INFO  DashbordPage.clickAdminPage - Click Admin Page[m
+[32m16:38:16:32 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m16:38:16:714 [main] INFO  AdminPage.clickAddAmdin - Click for Adding Admin[m
+[32m16:38:16:719 [main] INFO  FormAddAdminUser.<init> - Initialize Formuler Admin Page[m
+[32m16:38:17:166 [main] INFO  FormAddAdminUser.inputUserRole - input User role[m
+[32m16:38:17:287 [main] INFO  FormAddAdminUser.inputEmployeeName - Input Employee Name[m
+[32m16:38:18:832 [main] INFO  FormAddAdminUser.inputUserNameAdmin - Input Username Admin[m
+[32m16:38:18:851 [main] INFO  FormAddAdminUser.inputPassword - Input Password[m
+[32m16:38:18:886 [main] INFO  FormAddAdminUser.inputPassworConfirmation - Input Password Confirmation[m
+[32m16:38:19:123 [main] INFO  FormAddAdminUser.buttonSaveAdmin - Submit Admin[m
+[32m16:38:19:124 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m16:38:19:357 [main] INFO  AdminPage.clickToProfil - Click to Profil[m
+[32m16:38:19:816 [main] INFO  AdminPage.logOutbutton - Logout[m
+[32m16:38:19:817 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m16:38:19:817 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m16:38:20:10 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m16:38:20:284 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m16:38:20:288 [main] INFO  TestCreateEmployee.testCreateUserAdmin - OrangeHRM[m
+[32m16:38:20:404 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[32m17:01:59:28 [main] INFO  BaseTest.setupAll - Initialize Base Test and file: src/main/resources/entry_data/scenario1/config.properties[m
+[32m17:01:59:38 [main] INFO  PropertiesFactory.<init> - Initialize Factory Reading Property[m
+[32m17:01:59:41 [main] INFO  ReaderPropertiesFile.initializeProperties - Initilize [m
+[32m17:01:59:43 [main] INFO  ReaderPropertiesFile.getProperties - Get Properties[m
+[32m17:01:59:44 [main] INFO  ConfigProperties.<init> - Initialise properties config scénario1[m
+[32m17:01:59:67 [main] INFO  BaseTest.setup - Setup before Method: balalalalalalalalalalalalalalalallaalal[m
+[36m17:01:59:675 [main] DEBUG InternalLoggerFactory.useLog4J2LoggerFactory - Using Log4J2 as the default logging framework[m
+[36m17:01:59:687 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.level: simple[m
+[36m17:01:59:688 [main] DEBUG ResourceLeakDetector.<clinit> - -Dio.netty.leakDetection.targetRecords: 4[m
+[36m17:01:59:693 [main] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@18324f97[m
+[36m17:01:59:715 [main] DEBUG PlatformDependent0.explicitNoUnsafeCause0 - -Dio.netty.noUnsafe: false[m
+[36m17:01:59:716 [main] DEBUG PlatformDependent0.javaVersion0 - Java version: 21[m
+[36m17:01:59:718 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.theUnsafe: available[m
+[36m17:01:59:719 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.copyMemory: available[m
+[36m17:01:59:719 [main] DEBUG PlatformDependent0.<clinit> - sun.misc.Unsafe.storeFence: available[m
+[36m17:01:59:720 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Buffer.address: available[m
+[36m17:01:59:721 [main] DEBUG PlatformDependent0.<clinit> - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled[m
+[36m17:01:59:721 [main] DEBUG PlatformDependent0.<clinit> - java.nio.Bits.unaligned: available, true[m
+[36m17:01:59:723 [main] DEBUG PlatformDependent0.<clinit> - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module ja...
+[36m17:01:59:726 [main] DEBUG PlatformDependent0.<clinit> - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable[m
+[36m17:01:59:726 [main] DEBUG PlatformDependent.unsafeUnavailabilityCause0 - sun.misc.Unsafe: available[m
+[36m17:01:59:727 [main] DEBUG PlatformDependent.estimateMaxDirectMemory - maxDirectMemory: 4213178368 bytes (maybe)[m
+[36m17:01:59:727 [main] DEBUG PlatformDependent.tmpdir0 - -Dio.netty.tmpdir: C:\Users\cobcouli\AppData\Local\Temp (java.io.tmpdir)[m
+[36m17:01:59:728 [main] DEBUG PlatformDependent.bitMode0 - -Dio.netty.bitMode: 64 (sun.arch.data.model)[m
+[36m17:01:59:728 [main] DEBUG PlatformDependent.isWindows0 - Platform: Windows[m
+[36m17:01:59:729 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.maxDirectMemory: -1 bytes[m
+[36m17:01:59:730 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.uninitializedArrayAllocationThreshold: -1[m
+[36m17:01:59:732 [main] DEBUG CleanerJava9.<clinit> - java.nio.ByteBuffer.cleaner(): available[m
+[36m17:01:59:732 [main] DEBUG PlatformDependent.<clinit> - -Dio.netty.noPreferDirect: false[m
+[36m17:01:59:741 [main] DEBUG PlatformDependent$Mpsc.<clinit> - org.jctools-core.MpscChunkedArrayQueue: available[m
+[36m17:01:59:767 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024[m
+[36m17:01:59:768 [main] DEBUG InternalThreadLocalMap.<clinit> - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096[m
+[36m17:01:59:839 [main] DEBUG JdkSslContext.<clinit> - Default protocols (JDK): [TLSv1.3, TLSv1.2] [m
+[36m17:01:59:839 [main] DEBUG JdkSslContext.<clinit> - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SH...
+[36m17:01:59:854 [main] DEBUG GlobalEventExecutor.<clinit> - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1[m
+[36m17:01:59:871 [main] DEBUG MultithreadEventLoopGroup.<clinit> - -Dio.netty.eventLoopThreads: 16[m
+[36m17:01:59:883 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.noKeySetOptimization: false[m
+[36m17:01:59:883 [main] DEBUG NioEventLoop.<clinit> - -Dio.netty.selectorAutoRebuildThreshold: 512[m
+[36m17:01:59:976 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numHeapArenas: 16[m
+[36m17:01:59:976 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.numDirectArenas: 16[m
+[36m17:01:59:976 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.pageSize: 8192[m
+[36m17:01:59:976 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxOrder: 9[m
+[36m17:01:59:976 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.chunkSize: 4194304[m
+[36m17:01:59:977 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.smallCacheSize: 256[m
+[36m17:01:59:977 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.normalCacheSize: 64[m
+[36m17:01:59:977 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedBufferCapacity: 32768[m
+[36m17:01:59:977 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimInterval: 8192[m
+[36m17:01:59:977 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.cacheTrimIntervalMillis: 0[m
+[36m17:01:59:978 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.useCacheForAllThreads: false[m
+[36m17:01:59:978 [main] DEBUG PooledByteBufAllocator.<clinit> - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023[m
+[36m17:01:59:989 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.allocator.type: pooled[m
+[36m17:01:59:989 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.threadLocalDirectBufferSize: 0[m
+[36m17:01:59:990 [main] DEBUG ByteBufUtil.<clinit> - -Dio.netty.maxThreadLocalCharBufferSize: 16384[m
+[36m17:02:00:388 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.processId: 27088 (auto-detected)[m
+[36m17:02:00:391 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv4Stack: false[m
+[36m17:02:00:392 [Forwarding newSession on session null to remote] DEBUG NetUtil.<clinit> - -Djava.net.preferIPv6Addresses: false[m
+[36m17:02:00:395 [Forwarding newSession on session null to remote] DEBUG NetUtilInitializations.determineLoopback - Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)[m
+[36m17:02:00:396 [Forwarding newSession on session null to remote] DEBUG NetUtil$SoMaxConnAction.run - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200[m
+[36m17:02:00:397 [Forwarding newSession on session null to remote] DEBUG DefaultChannelId.<clinit> - -Dio.netty.machineId: f0:b6:1e:ff:fe:a7:17:eb (auto-detected)[m
+[36m17:02:00:443 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkAccessible: true[m
+[36m17:02:00:444 [AsyncHttpClient-1-2] DEBUG AbstractByteBuf.<clinit> - -Dio.netty.buffer.checkBounds: true[m
+[36m17:02:00:444 [AsyncHttpClient-1-2] DEBUG ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory.newResourceLeakDetector - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1b88e12b[m
+[36m17:02:00:474 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.maxCapacityPerThread: 4096[m
+[36m17:02:00:475 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.ratio: 8[m
+[36m17:02:00:475 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.chunkSize: 32[m
+[36m17:02:00:475 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.blocking: false[m
+[36m17:02:00:475 [AsyncHttpClient-1-2] DEBUG Recycler.<clinit> - -Dio.netty.recycler.batchFastThreadLocalOnly: true[m
+[36m17:02:04:488 [AsyncHttpClient-1-2] DEBUG Brotli.<clinit> - brotli4j not in the classpath; Brotli support will be unavailable.[m
+[32m17:02:07:730 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m17:02:08:524 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m17:02:08:568 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m17:02:09:581 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m17:02:11:91 [main] INFO  DashbordPage.clickPimPage - Click sur la page PIM[m
+[32m17:02:11:94 [main] INFO  PimPage.<init> - Initialize PimPage[m
+[32m17:02:12:332 [main] INFO  PimPage.clickAddButton - Click on Add Button[m
+[32m17:02:12:337 [main] INFO  AddEmployeePage.<init> - Initialize Add Employee Page[m
+[32m17:02:12:723 [main] INFO  AddEmployeePage.inputFirstName - Typing firstname[m
+[32m17:02:12:724 [main] INFO  AddEmployeePage.inputMiddletName - middlename Null[m
+[32m17:02:12:757 [main] INFO  AddEmployeePage.inputLastName - Typing lastname[m
+[32m17:02:15:84 [main] INFO  AddEmployeePage.clickSaveButton - Save Employee Info primary[m
+[32m17:02:15:88 [main] INFO  EmployeeDatailsPage.<init> - Initialize EmployeeDatail Page [m
+[32m17:02:20:379 [main] INFO  EmployeeDatailsPage.clickSaveButton - Save EmployeSecondary[m
+[32m17:02:20:381 [main] INFO  EmployeeDatailsPage.getTitle - Getting Tittle[m
+[32m17:02:20:631 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
+[36m17:02:20:648 [main] DEBUG ThreadLocalRandom.newSeed - -Dio.netty.initialSeedUniquifier: 0x296176805ddb9979[m
+[32m17:02:22:453 [main] INFO  BaseTest.setup - Setup before Method: balalalalalalalalalalalalalalalallaalal[m
+[32m17:02:29:45 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m17:02:29:178 [main] INFO  LoginPage.inputUserName - Typing user name Admin[m
+[32m17:02:29:256 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m17:02:30:346 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m17:02:31:644 [main] INFO  DashbordPage.clickAdminPage - Click Admin Page[m
+[32m17:02:31:647 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m17:02:32:407 [main] INFO  AdminPage.clickAddAmdin - Click for Adding Admin[m
+[32m17:02:32:411 [main] INFO  FormAddAdminUser.<init> - Initialize Formuler Admin Page[m
+[32m17:02:32:909 [main] INFO  FormAddAdminUser.inputUserRole - input User role[m
+[32m17:02:33:174 [main] INFO  FormAddAdminUser.inputEmployeeName - Input Employee Name[m
+[32m17:02:34:811 [main] INFO  FormAddAdminUser.inputUserNameAdmin - Input Username Admin[m
+[32m17:02:34:845 [main] INFO  FormAddAdminUser.inputPassword - Input Password[m
+[32m17:02:34:903 [main] INFO  FormAddAdminUser.inputPassworConfirmation - Input Password Confirmation[m
+[32m17:02:35:169 [main] INFO  FormAddAdminUser.buttonSaveAdmin - Submit Admin[m
+[32m17:02:35:170 [main] INFO  AdminPage.<init> - Initialize Admin Page[m
+[32m17:02:35:417 [main] INFO  AdminPage.clickToProfil - Click to Profil[m
+[32m17:02:35:966 [main] INFO  AdminPage.logOutbutton - Logout[m
+[32m17:02:35:968 [main] INFO  LoginPage.<init> - Initialize Login Page[m
+[32m17:02:35:969 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m17:02:36:305 [main] INFO  LoginPage.inputPwd - Typing user Password [m
+[32m17:02:37:28 [main] INFO  DashbordPage.<init> - Initialize Dashbord Page[m
+[32m17:02:37:32 [main] INFO  TestCreateEmployee.testCreateUserAdmin - OrangeHRM[m
+[32m17:02:37:136 [main] INFO  TestSetup.quitDriver - Quitting Driver[m
