@@ -38,18 +38,23 @@ public class AddEmployeePage {
     public AddEmployeePage inputFirstName(String paramFirstName){
         testsetup.getFwait().until(ExpectedConditions.visibilityOf(inputFirstname));
         inputFirstname.sendKeys(paramFirstName);
-        log.info("Typing First Name");
+        log.info("Typing firstname");
         return this;
     }
     public AddEmployeePage inputLastName(String paramLastName){
         inputLastname.sendKeys(paramLastName);
-        log.info("Typing First Name");
+        log.info("Typing lastname");
         return this;
     }
     public AddEmployeePage inputMiddletName(String paramMiddleName){
-        inputMiddlename.sendKeys(paramMiddleName);
-        log.info("Typing First Name");
-        return this;
+        if(paramMiddleName !=null){
+            inputMiddlename.sendKeys(paramMiddleName);
+            log.info("Typing middlename");
+            return this;
+        }else {
+            log.info("middlename Null");
+            return this;
+        }
     }
     public EmployeeDatailsPage clickSaveButton(){
         /*testsetup.getFwait().ignoring(ElementClickInterceptedException.class);
