@@ -31,7 +31,6 @@ public class AdminPage {
     public String getTittle(){
         return testSetup.getDriver().getTitle();
     }
-
     public AdminPage clickToProfil(){
         testSetup.getFwait().until(ExpectedConditions.visibilityOf(profilelement));
         profilelement.click();
