@@ -2,16 +2,12 @@ package org.opensourcedemo.pagesobjects.adminpages;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.opensourcedemo.core.driver_manager.TestSetup;
-import org.opensourcedemo.core.properties_manager.GlobalConfig;
 
-import java.time.Duration;
 import java.util.List;
 
 @Log4j2
@@ -37,25 +33,25 @@ public class FormAddAdminUser {
         log.info("Initialize Formuler Admin Page");
     }
     public FormAddAdminUser inputUserRole(){
-        testSetup.getFwait() .until(ExpectedConditions.visibilityOf(inptuserroleelement));
+        testSetup.getWait() .until(ExpectedConditions.visibilityOf(inptuserroleelement));
         inptuserroleelement.click();
         log.info("input User role");
         return selectoption( ".oxd-select-option","Administrador");
     }
     public FormAddAdminUser inputSatus(){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOf(inputstatuselement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOf(inputstatuselement));
         inputstatuselement.click();
         return selectoption(".oxd-select-option>span","Habilitado");
     }
     public FormAddAdminUser inputEmployeeName(String paramemployeename){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOf(inputemployeenameelement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOf(inputemployeenameelement));
         String firstname = paramemployeename.substring(0,paramemployeename.indexOf(" "));
         inputemployeenameelement.sendKeys(firstname.substring(2));
         log.info("Input Employee Name");
         return selectoption(".oxd-autocomplete-option>span",paramemployeename);
     }
     public FormAddAdminUser inputUserNameAdmin(String paramusername){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOf(inputusernameadminelement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOf(inputusernameadminelement));
         inputusernameadminelement.sendKeys(paramusername);
         log.info("Input Username Admin");
         return this;
@@ -67,14 +63,14 @@ public class FormAddAdminUser {
         return this;
     }
     public FormAddAdminUser inputPassworConfirmation(String parampasswor){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOfAllElements(inputpasswordfconfirmationelement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOfAllElements(inputpasswordfconfirmationelement));
         inputpasswordfconfirmationelement.sendKeys(parampasswor);
         log.info("Input Password Confirmation");
 
         return this;
     }
     public AdminPage buttonSaveAdmin(){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOfAllElements(buttonsaveelement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOfAllElements(buttonsaveelement));
         buttonsaveelement.click();
         log.info("Submit Admin");
         return new AdminPage(testSetup);
@@ -83,7 +79,7 @@ public class FormAddAdminUser {
         By userroleselector = By.cssSelector(cssselector);
         List<WebElement> listuserrolestatus = testSetup.getDriver().findElements(userroleselector);
         WebElement oneoption = testSetup.getDriver().findElement(userroleselector);
-        testSetup.getFwait().until(ExpectedConditions.visibilityOfAllElements(listuserrolestatus));
+        testSetup.getWait().until(ExpectedConditions.visibilityOfAllElements(listuserrolestatus));
 //        wait.until(d-> listuserrolestatus.getFirst().isDisplayed());
 //        wait.until(ExpectedConditions.visibilityOf(oneoption));
         for(WebElement optionelement : listuserrolestatus){

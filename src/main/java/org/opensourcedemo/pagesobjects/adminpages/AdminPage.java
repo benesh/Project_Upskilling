@@ -23,7 +23,7 @@ public class AdminPage {
         log.info("Initialize Admin Page");
     }
     public FormAddAdminUser clickAddAmdin(){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOf(addadminelement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOf(addadminelement));
         addadminelement.click();
         log.info("Click for Adding Admin");
         return new FormAddAdminUser(testSetup);
@@ -32,13 +32,13 @@ public class AdminPage {
         return testSetup.getDriver().getTitle();
     }
     public AdminPage clickToProfil(){
-        testSetup.getFwait().until(ExpectedConditions.visibilityOf(profilelement));
+        testSetup.getWait().until(ExpectedConditions.visibilityOf(profilelement));
         profilelement.click();
         log.info("Click to Profil");
         return this;
     }
     public LoginPage logOutbutton(){
-        testSetup.getFwait().until(d-> logoutElement.isDisplayed());
+        testSetup.getWait().until(d-> logoutElement.isDisplayed());
         logoutElement.click();
         log.info("Logout");
         return new LoginPage(testSetup);

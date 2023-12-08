@@ -2,16 +2,11 @@ package org.opensourcedemo.pagesobjects;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.opensourcedemo.core.driver_manager.TestSetup;
-import org.opensourcedemo.core.properties_manager.GlobalConfig;
-
-import java.time.Duration;
 
 
 @Log4j2
@@ -29,24 +24,24 @@ public class LoginPage {
 
     public LoginPage(TestSetup paramtestsetup){
         testsetup = paramtestsetup;
-        testsetup.getFwait().ignoring(ElementClickInterceptedException.class, java.util.NoSuchElementException.class);
+        testsetup.getWait().ignoring(ElementClickInterceptedException.class, java.util.NoSuchElementException.class);
         PageFactory.initElements(testsetup.getDriver(),this);
         log.info("Initialize Login Page");
     }
     public LoginPage inputUserName(String parma_unsername ){
-        testsetup.getFwait().until(ExpectedConditions.visibilityOf(inputUsername));
+        testsetup.getWait().until(ExpectedConditions.visibilityOf(inputUsername));
         log.info("Typing user name " + parma_unsername);
         inputUsername.sendKeys(parma_unsername);
         return this;
     }
     public LoginPage inputPwd(String parma_password ){
         log.info("Typing user Password ");
-        testsetup.getFwait().until(ExpectedConditions.visibilityOf(inputPassword));
+        testsetup.getWait().until(ExpectedConditions.visibilityOf(inputPassword));
         inputPassword.sendKeys(parma_password);
         return this;
     }
     public DashbordPage clickButtonLogin(){
-        testsetup.getFwait().until( b -> bontouLogin.isDisplayed());
+        testsetup.getWait().until(b -> bontouLogin.isDisplayed());
         bontouLogin.click();
         return new DashbordPage(testsetup);
     }

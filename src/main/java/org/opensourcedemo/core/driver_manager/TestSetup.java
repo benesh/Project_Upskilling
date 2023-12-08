@@ -2,9 +2,7 @@ package org.opensourcedemo.core.driver_manager;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.opensourcedemo.core.properties_manager.ConfigProperties;
 import org.opensourcedemo.core.properties_manager.GlobalConfig;
@@ -16,7 +14,7 @@ public class TestSetup {
     @Getter
     WebDriver driver;
     @Getter
-    WebDriverWait fwait;
+    WebDriverWait wait;
     public void setup(ConfigProperties propconfig){
         initializeDriver(propconfig);
         initializeWait();
@@ -35,7 +33,7 @@ public class TestSetup {
         /*fwait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(GlobalConfig.GLOBALWAIT))
                 .pollingEvery(Duration.ofMillis(GlobalConfig.GLOBALPOLLING));*/
-        fwait = new WebDriverWait(driver,Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
+        wait = new WebDriverWait(driver,Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
 
     }
 
