@@ -10,9 +10,7 @@ import org.opensourcedemo.core.driver_manager.TestSetup;
 
 
 @Log4j2
-public class LoginPage {
-    TestSetup testsetup;
-
+public class LoginPage extends PageObjectParent{
     @FindBy(css="input[name=\"username\"]")
     private WebElement inputUsername;
 
@@ -23,8 +21,7 @@ public class LoginPage {
     WebElement bontouLogin;
 
     public LoginPage(TestSetup paramtestsetup){
-        testsetup = paramtestsetup;
-        testsetup.getWait().ignoring(ElementClickInterceptedException.class, java.util.NoSuchElementException.class);
+        super(paramtestsetup);
         PageFactory.initElements(testsetup.getDriver(),this);
         log.info("Initialize Login Page");
     }

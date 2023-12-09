@@ -7,17 +7,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.opensourcedemo.core.driver_manager.TestSetup;
+import org.opensourcedemo.pagesobjects.PageObjectParent;
 
 @Log4j2
-public class PimPage {
-    TestSetup testsetup;
-
+public class PimPage extends PageObjectParent {
     @FindBy(css="button.oxd-button--secondary:first-child")
     WebElement addButton;
-
     public PimPage(TestSetup paramtestsetup){
-        testsetup = paramtestsetup;
-        testsetup.getWait().ignoring(ElementClickInterceptedException.class, java.util.NoSuchElementException.class);
+        super(paramtestsetup);
         PageFactory.initElements(testsetup.getDriver(),this);
         log.info("Initialize PimPage");
     }

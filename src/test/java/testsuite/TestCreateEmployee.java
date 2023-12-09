@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.listerners.Mylisterner;
 import org.opensourcedemo.pagesobjects.DashbordPage;
 import org.opensourcedemo.pagesobjects.LoginPage;
+import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -13,6 +14,7 @@ public class TestCreateEmployee extends BaseTest {
     public TestCreateEmployee(){
         super();
     }
+
     @Test(testName = "Create Employee PIM" )
     public void TestCreatePIM(){
         //Arrange
@@ -27,14 +29,24 @@ public class TestCreateEmployee extends BaseTest {
                 .typeFirstName(configproperties.getEmployee().get(1).getFirstname())
                 .typeMiddletName(configproperties.getEmployee().get(1).getMiddlename())
                 .typeLastName(configproperties.getEmployee().get(1).getLastname())
-                .clickswitchCreateLoginDetails()
+                .clickSaveButton()
+                        .clickSaveButton()
+                                .getTitle();
+
+
+                /*.clickswitchCreateLoginDetails()
                 .typeUsername(configproperties.getEmployee().get(1).getUser().getUsername())
-                //.clickRadioButtonStatus()
+                .clickRadioButtonStatus()
                 .typePassword(configproperties.getEmployee().get(1).getUser().getPassword())
                 .typePasswordConfirmation(configproperties.getEmployee().get(1).getUser().getPassword())
                 .clickSaveButton()
                 .clickSaveButton()
-                .getTitle();
+                .clickToProfil()
+                .logOutbutton()
+                        .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
+                                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                                        .clickButtonLogin()
+                .getNameProfil();*/
         //Asserts
         Assert.assertEquals(titlegetted,title);
     }

@@ -17,7 +17,7 @@ public class ReaderPropertiesFile {
             FileInputStream fileInputStream = new FileInputStream(configpath);
              properties.load(fileInputStream);
             fileInputStream.close();
-            log.info("Initilize ");
+            log.info("Initilize dserialize file properties");
         }catch (IOException e){
             log.error(e);
         }

@@ -1,11 +1,11 @@
 package org.opensourcedemo.pagesobjects.pimpages;
 
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.opensourcedemo.core.driver_manager.TestSetup;
 import org.opensourcedemo.pagesobjects.PageObjectParent;
@@ -23,20 +23,21 @@ public class AddEmployeePage extends PageObjectParent {
 
     @FindBy(css = "form.oxd-form")
     WebElement formelement;
-    @FindBy(css = "span.oxd-switch-input")
+    @FindBy(css = "input[type=\"checkbox\"]~span")
     WebElement buttonswitchecreateuser;
-    @FindBy(css = "div.oxd-form-row:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    @FindBy(css = "div.orangehrm-full-width-grid>div:nth-child(1)>div:nth-child(1)>div>input.oxd-input[autocomplete=\"off\"]")
     WebElement inputUsername;
-    @FindBy(css = ".--status-grouped-field > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > label:nth-child(1) > input:nth-child(1)")
-    WebElement radiobuttonstatus;
-    @FindBy(css = ".user-password-cell > div:nth-child(2) > div:nth-child(2) > input:nth-child(1)")
+    @FindBy(css = "input[type=\"radio\"][value=\"1\"]~span")
+    WebElement radiobuttonenable;
+    @FindBy(css = "div.user-password-cell>div>div>input.oxd-input[type=\"password\"]")
     WebElement inputpassword;
-    @FindBy(css = "div.oxd-form-row:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    @FindBy(css = "div:nth-child(2)>div>div>input.oxd-input[type=\"password\"]")
     WebElement inputpasswordconfirmationt;
+    @FindBy(css="button[type=\"submit\"]")
+    WebElement bontouLogin;
 
     public AddEmployeePage(TestSetup param_testsetup){
         super(param_testsetup);
-        testsetup.getWait().ignoring(ElementClickInterceptedException.class, java.util.NoSuchElementException.class);
         PageFactory.initElements(testsetup.getDriver(),this);
 //        PageFactory.initElements(new AjaxElementLocatorFactory(testsetup.getDriver(), 10), this);
         log.info("Initialize Add Employee Page");
@@ -49,7 +50,6 @@ public class AddEmployeePage extends PageObjectParent {
     public AddEmployeePage typeLastName(String paramLastName){
         log.info("Typing lastname");
         typeKeys(inputLastname,paramLastName );
-        inputLastname.sendKeys(paramLastName);
         return this;
     }
     public AddEmployeePage typeMiddletName(String paramMiddleName){
@@ -64,7 +64,8 @@ public class AddEmployeePage extends PageObjectParent {
     }
     public AddEmployeePage clickswitchCreateLoginDetails(){
         log.info("Click switch button");
-        testsetup.getWait().until(b -> buttonswitchecreateuser.isEnabled());
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
+        testsetup.getWait().until(b -> buttonswitchecreateuser.isDisplayed());
         buttonswitchecreateuser.click();
         return this;
     }
@@ -83,7 +84,9 @@ public class AddEmployeePage extends PageObjectParent {
     }
     public AddEmployeePage clickRadioButtonStatus(){
         log.info("Click on radio button to enable the Account");
-        clickwithWait(radiobuttonstatus);
+        testsetup.getWait().until(b -> radiobuttonenable.isEnabled());
+        radiobuttonenable.click();
+//        clickwithWait(radiobuttonenable);
         return this;
     }
 

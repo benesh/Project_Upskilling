@@ -25,4 +25,5 @@ public class Employee {
             return  firstname +" "+lastname;
         }
     }
+    public String getNameWithoutMiddlename(){ return  firstname +" "+lastname;}
 }
