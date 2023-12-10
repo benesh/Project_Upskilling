@@ -92,6 +92,8 @@ public class AddEmployeePage extends PageObjectParent {
 
     public EmployeeDatailsPage clickSaveButton(){
         log.info("Save Employee Info primary");
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
+        testsetup.getWait().until(b -> buttonsavevalidation.isDisplayed());
         clickwithWait(buttonsavevalidation);
         return new EmployeeDatailsPage(testsetup);
     }

@@ -8,52 +8,69 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.opensourcedemo.core.driver_manager.TestSetup;
 import org.opensourcedemo.pagesobjects.PageObjectParent;
-
 import java.util.List;
 
 @Log4j2
 public class FormAddAdminUser extends PageObjectParent {
-    @FindBy(css = "div.oxd-form-row:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div")
+    @FindBy(css = "div:nth-child(1)>div>div>div>div>div>i.oxd-select-text--arrow")
     WebElement inptuserroleelement;
     @FindBy(css =".oxd-autocomplete-text-input>input" )
     WebElement inputemployeenameelement;
-    @FindBy(css = "div.oxd-grid-item:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)")
+    @FindBy(css = "div:nth-child(3)>div>div>div>div>div>i.oxd-select-text--arrow")
     WebElement inputstatuselement;
-    @FindBy(css = "div.oxd-grid-item:nth-child(4) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    @FindBy(css = "div:nth-child(1)>div>div>div>div>input.oxd-input")
     WebElement inputusernameadminelement;
-    @FindBy(css = ".user-password-cell > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
-    WebElement inputpasswordelement; //input.oxd-input[autocomplete="off"]
-    @FindBy(css = "div.oxd-form-row:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
-    WebElement inputpasswordfconfirmationelement; //input.oxd-input[autocomplete="off"]
+    @FindBy(css = "div:nth-child(1)>div>div>input[type=\"password\"]")
+    WebElement inputpasswordelement;
+    @FindBy(css = "div>div:nth-child(1)>div>input[type=\"password\"]")
+    WebElement inputpasswordfconfirmationelement;
     @FindBy(css = ".orangehrm-left-space")
     WebElement buttonsaveelement;
+    @FindBy(css = ".oxd-select-option")
+    List<WebElement> liststatuselement;
+    @FindBy(css = ".oxd-select-option>span")
+    List<WebElement> listroleelement;
     public FormAddAdminUser(TestSetup paramtestsetup){
         super(paramtestsetup);
         PageFactory.initElements(testsetup.getDriver(),this);
-        log.info("Initialize Formuler Admin Page");
+        log.info("Initialize formuler admin page");
     }
-    public FormAddAdminUser inputUserRole(){
+    public List<WebElement> getElementfind(String cssSelector){
+        return testsetup.getDriver().findElements(By.cssSelector( cssSelector));
+    }
+    public FormAddAdminUser setUserToAdminRole(){
+        log.info("set user role");
         testsetup.getWait() .until(ExpectedConditions.visibilityOf(inptuserroleelement));
         inptuserroleelement.click();
-        log.info("input User role");
-        return selectoption( ".oxd-select-option","Administrador");
+        List<WebElement> listOption = getElementfind(".oxd-select-option");
+        WebElement optiontoselectelement = listOption.get(1) ;
+        testsetup.getWait().until(ExpectedConditions.visibilityOf(optiontoselectelement));
+        optiontoselectelement.click();
+        return this;
     }
-    public FormAddAdminUser inputSatus(){
+    public FormAddAdminUser setSatusUserAccountToEnable(){
         testsetup.getWait().until(ExpectedConditions.visibilityOf(inputstatuselement));
         inputstatuselement.click();
-        return selectoption(".oxd-select-option>span","Habilitado");
+        List<WebElement> listOption = getElementfind(".oxd-select-option>span");
+        WebElement optiontoselectelement = listOption.getFirst();
+        testsetup.getWait().until(ExpectedConditions.visibilityOf(optiontoselectelement));
+        optiontoselectelement.click();
+        return this;
     }
-    public FormAddAdminUser inputEmployeeName(String paramemployeename){
+    public FormAddAdminUser typeEmployeeName(String paramemployeename){
+        log.info("type employee Name");
         testsetup.getWait().until(ExpectedConditions.visibilityOf(inputemployeenameelement));
         String firstname = paramemployeename.substring(0,paramemployeename.indexOf(" "));
         inputemployeenameelement.sendKeys(firstname.substring(2));
-        log.info("Input Employee Name");
-        return selectoption(".oxd-autocomplete-option>span",paramemployeename);
+        List<WebElement> listOption = getElementfind(".oxd-autocomplete-option>span");
+        WebElement optiontoselectelement = listOption.getFirst();
+        optiontoselectelement.click();
+        return this;
     }
     public FormAddAdminUser inputUserNameAdmin(String paramusername){
+        log.info("Input Username Admin");
         testsetup.getWait().until(ExpectedConditions.visibilityOf(inputusernameadminelement));
         inputusernameadminelement.sendKeys(paramusername);
-        log.info("Input Username Admin");
         return this;
     }
     public FormAddAdminUser inputPassword(String parampassword){
@@ -66,33 +83,12 @@ public class FormAddAdminUser extends PageObjectParent {
         testsetup.getWait().until(ExpectedConditions.visibilityOfAllElements(inputpasswordfconfirmationelement));
         inputpasswordfconfirmationelement.sendKeys(parampasswor);
         log.info("Input Password Confirmation");
-
         return this;
     }
     public AdminPage buttonSaveAdmin(){
+        log.info("Submit Admin");
         testsetup.getWait().until(ExpectedConditions.visibilityOfAllElements(buttonsaveelement));
         buttonsaveelement.click();
-        log.info("Submit Admin");
         return new AdminPage(testsetup);
-    }
-    public FormAddAdminUser selectoption (String cssselector,String optiontoselect){
-        By userroleselector = By.cssSelector(cssselector);
-        List<WebElement> listuserrolestatus = testsetup.getDriver().findElements(userroleselector);
-        WebElement oneoption = testsetup.getDriver().findElement(userroleselector);
-        testsetup.getWait().until(ExpectedConditions.visibilityOfAllElements(listuserrolestatus));
-//        wait.until(d-> listuserrolestatus.getFirst().isDisplayed());
-//        wait.until(ExpectedConditions.visibilityOf(oneoption));
-        for(WebElement optionelement : listuserrolestatus){
-            if(optionelement.getText().equals(optiontoselect)){
-                optionelement.click();
-                break;
-            }
-        }
-/*        WebElement optiontoselectelement = listuserrolestatus.stream()
-                .filter( e -> e.getText().equals(optiontoselect))
-                .findFirst()
-                .findFirst();*//*
-        optiontoselectelement.click();*/
-        return this;
     }
 }

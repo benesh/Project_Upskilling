@@ -15,7 +15,7 @@ public class Employee {
     @Getter
     private String gender = null;
     @Getter
-    private Date birthdate = null;
+    private String birthdate = null;
     @Getter
     private User user;
     public String getNameComplete(){

@@ -20,8 +20,8 @@ public class BaseTest {
     protected String pathconfig ;
     PropertiesFactory propfactory;
 
-    public BaseTest(){
-        pathconfig = "src/main/resources/entry_data/scenario1/config.properties";
+    public BaseTest( String param_config){
+        pathconfig = param_config;
     }
     @BeforeSuite
     public void setupAll(){

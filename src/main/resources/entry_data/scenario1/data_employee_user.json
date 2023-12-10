@@ -9,11 +9,22 @@
     }
   },
   {
-    "firstname" : "Penelopp",
-    "middlename" : "Bennedite",
-    "lastname" : "Sottopoe",
+    "firstname" : "Omar",
+    "middlename" : "Ben",
+    "lastname" : "Stoop",
     "user": {
-      "username": "moma1325",
+      "username": "ben1325",
+      "password": "Moma123456"
+    }
+  },
+  {
+    "firstname" : "Samba",
+    "middlename" : "Ben",
+    "lastname" : "Batthieu",
+    "gender": "M",
+    "birthdate" : "2000-12-01",
+    "user": {
+      "username": "ben1325",
       "password": "Moma123456"
     }
   }

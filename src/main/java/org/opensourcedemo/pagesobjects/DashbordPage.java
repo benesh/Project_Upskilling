@@ -39,6 +39,8 @@ public class DashbordPage extends PageObjectParent {
         return testsetup.getDriver().getTitle();
     }
     public  String getNameProfil(){
+        log.info("Get Complete profil");
         testsetup.getWait().until(ExpectedConditions.visibilityOf(profilNameComplet));
-        return profilNameComplet.getText();}
+        return profilNameComplet.getText();
+    }
 }

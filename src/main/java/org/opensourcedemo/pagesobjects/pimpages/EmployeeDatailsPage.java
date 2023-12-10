@@ -8,13 +8,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.opensourcedemo.core.driver_manager.TestSetup;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.PageObjectParent;
+import org.w3c.dom.ls.LSInput;
+
+import java.util.List;
+import java.util.Random;
 
 @Log4j2
 public class EmployeeDatailsPage extends PageObjectParent {
     @FindBy(css = ".oxd-topbar-header-title")
     WebElement titleElement;
-//    @FindBy(css="button.oxd-button--secondary:nth-child(2)")
-    @FindBy(xpath = "/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[5]/button")
+    @FindBy(css = "p~button.orangehrm-left-space")
     WebElement savebuttonElemnt;
     @FindBy(css = "li.oxd-topbar-body-nav-tab:nth-child(2)")
     WebElement employeeListelement;
@@ -24,6 +27,16 @@ public class EmployeeDatailsPage extends PageObjectParent {
     WebElement logoutElement;
     @FindBy(css = ".oxd-userdropdown-icon")
     WebElement profilelement;
+    @FindBy(css = "div:nth-child(1)>div>div>div>div>input[placeholder=\"yyyy-mm-dd\"]")
+    WebElement inputbirthdate;
+    @FindBy(css = "input[type=\"radio\"][value=\"1\"]")
+    WebElement radiobuttonmale;
+    @FindBy(css = "input[type=\"radio\"][value=\"2\"]")
+    WebElement radiobuttonfemale;
+    @FindBy(css = "div:nth-child(1)>div>div>div>div>div>div>div>i.bi-caret-down-fill")
+    WebElement bloodtypelement;
+    @FindBy(css = "div.oxd-select-option")
+    List<WebElement> listbloodtypeoptionelement;
     public EmployeeDatailsPage(TestSetup paramtestetup){
         super(paramtestetup);
         PageFactory.initElements(testsetup.getDriver(),this);
@@ -31,6 +44,8 @@ public class EmployeeDatailsPage extends PageObjectParent {
     }
     public EmployeeDatailsPage clickSaveButton(){
         log.info("Save EmployeSecondary");
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
+        testsetup.getWait().until(b -> savebuttonElemnt.isDisplayed());
         clickwithWait(savebuttonElemnt);
         return this;
     }
@@ -55,9 +70,39 @@ public class EmployeeDatailsPage extends PageObjectParent {
         return this;
     }
     public LoginPage logOutbutton(){
+        log.info("Logout");
         testsetup.getWait().until(d-> logoutElement.isDisplayed());
         logoutElement.click();
-        log.info("Logout");
         return new LoginPage(testsetup);
     }
+    public EmployeeDatailsPage typeBirthDate(String datebirth){
+        log.info("type birth date");
+        typeKeys(inputbirthdate,datebirth);
+        return this;
+    }
+    public EmployeeDatailsPage clickGender(String param_gender){
+        log.info("Set gender");
+        if(param_gender == "M"){
+            clickwithWait(radiobuttonmale);
+            return this;
+        }else{
+            clickwithWait(radiobuttonfemale);
+            return this;
+        }
+    }
+    public EmployeeDatailsPage clicktBloodListInput(){
+        log.info("select blood type");
+        clickwithWait(bloodtypelement);
+        return this;
+    }
+    public EmployeeDatailsPage clickRancdomBloodtypeOption(){
+        log.info("select blood type");
+        clickwithWait(listbloodtypeoptionelement.get(getRandomBloodtype()));
+        return this;
+    }
+    public int getRandomBloodtype(){
+        return (int)(Math.random() * 8) + 1;
+    }
+
+
 }
