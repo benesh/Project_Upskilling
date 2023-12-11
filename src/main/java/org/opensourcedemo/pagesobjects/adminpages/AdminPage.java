@@ -1,6 +1,7 @@
 package org.opensourcedemo.pagesobjects.adminpages;
 
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -32,6 +33,7 @@ public class AdminPage extends PageObjectParent {
         return testsetup.getDriver().getTitle();
     }
     public AdminPage clickToProfil(){
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
         testsetup.getWait().until(ExpectedConditions.visibilityOf(profilelement));
         profilelement.click();
         log.info("Click to Profil");

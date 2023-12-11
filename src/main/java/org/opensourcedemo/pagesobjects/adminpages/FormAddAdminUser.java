@@ -63,7 +63,7 @@ public class FormAddAdminUser extends PageObjectParent {
         String firstname = paramemployeename.substring(0,paramemployeename.indexOf(" "));
         inputemployeenameelement.sendKeys(firstname.substring(2));
         List<WebElement> listOption = getElementfind(".oxd-autocomplete-option>span");
-        WebElement optiontoselectelement = listOption.getFirst();
+        WebElement optiontoselectelement = listOption.stream().filter(x -> x.getText().equals(paramemployeename)).findAny().get();
         optiontoselectelement.click();
         return this;
     }

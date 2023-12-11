@@ -1,14 +1,20 @@
 package testsuite;
+import org.apache.logging.log4j.Logger;
 import org.opensourcedemo.BaseTest.BaseTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.listerners.Mylisterner;
 import org.opensourcedemo.pagesobjects.LoginPage;
+import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import java.security.AlgorithmParameterGenerator;
+
 @Listeners(Mylisterner.class)
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
+
 
     public TestCreateEmployee(){
         super("src/main/resources/entry_data/scenario1/config.properties");
@@ -69,8 +75,8 @@ public class TestCreateEmployee extends BaseTest {
                 .buttonSaveAdmin()
                 .clickToProfil()
                 .logOutbutton()
-                        .inputPwd(configproperties.getEmployee().get(1).getUser().getUsername())
-                                .inputPwd(configproperties.getEmployee().get(1).getUser().getUsername())
+                        .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
+                                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
                                         .clickButtonLogin()
                 .getNameProfil();
         //Assert
@@ -81,10 +87,10 @@ public class TestCreateEmployee extends BaseTest {
     @Test
     public void remplirLeFormulaire(){
         //Arrange
-        String titlegetted = "PIM";
+
 
         // Act
-        String title = new LoginPage(testsetup)
+        EmployeeDatailsPage pimListPage = new LoginPage(testsetup)
                 .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
                 .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
                 .clickButtonLogin()
@@ -96,17 +102,27 @@ public class TestCreateEmployee extends BaseTest {
                 .clickSaveButton()
                 .typeBirthDate(configproperties.getEmployee().get(2).getBirthdate())
                 .clickGender(configproperties.getEmployee().get(2).getGender())
+                .clickSaveButton()
                 .clicktBloodListInput()
                 .clickRancdomBloodtypeOption()
-                .getTitle();
+                .clickSaveButtonWithBloodType()
+                .refreshPage();
+
         //Assert
-        Assert.assertEquals(titlegetted,title);
+
+        Assert.assertEquals(pimListPage.getBirtdaydate(),configproperties.getEmployee().get(2).getBirthdate());
+        if (configproperties.getEmployee().get(2).getGender().equals("M")){
+            Assert.assertTrue (pimListPage.isRadioButtonMaleSelected());
+        }else {
+            Assert.assertTrue (pimListPage.isRadioButtonFemalealeSelected());
+        }
+
     }
 
+/*
     @Test
     public void Testtest() {
         //Arrange
-        String titlegetted = "PIM";
 
         // Act
         String title = new LoginPage(testsetup)
@@ -115,7 +131,10 @@ public class TestCreateEmployee extends BaseTest {
                 .clickButtonLogin()
                 .getNameProfil();
 
+        log.info(title);
+
     }
+*/
 
 
 

@@ -29,9 +29,9 @@ public class EmployeeDatailsPage extends PageObjectParent {
     WebElement profilelement;
     @FindBy(css = "div:nth-child(1)>div>div>div>div>input[placeholder=\"yyyy-mm-dd\"]")
     WebElement inputbirthdate;
-    @FindBy(css = "input[type=\"radio\"][value=\"1\"]")
+    @FindBy(css = "input[type=\"radio\"][value=\"1\"]~span")
     WebElement radiobuttonmale;
-    @FindBy(css = "input[type=\"radio\"][value=\"2\"]")
+    @FindBy(css = "input[type=\"radio\"][value=\"2\"]~span")
     WebElement radiobuttonfemale;
     @FindBy(css = "div:nth-child(1)>div>div>div>div>div>div>div>i.bi-caret-down-fill")
     WebElement bloodtypelement;
@@ -40,6 +40,7 @@ public class EmployeeDatailsPage extends PageObjectParent {
     public EmployeeDatailsPage(TestSetup paramtestetup){
         super(paramtestetup);
         PageFactory.initElements(testsetup.getDriver(),this);
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
         log.info("Initialize Employee Datail Page ");
     }
     public EmployeeDatailsPage clickSaveButton(){
@@ -82,11 +83,17 @@ public class EmployeeDatailsPage extends PageObjectParent {
     }
     public EmployeeDatailsPage clickGender(String param_gender){
         log.info("Set gender");
-        if(param_gender == "M"){
-            clickwithWait(radiobuttonmale);
+        if(param_gender.equals("M")){
+            //testsetup.getWait().until(b -> radiobuttonmale.isDisplayed());
+            radiobuttonmale.click();
             return this;
-        }else{
-            clickwithWait(radiobuttonfemale);
+        }else if(param_gender.equals("F")){
+
+            testsetup.getWait().until(b -> radiobuttonfemale.isDisplayed());
+            radiobuttonfemale.click();
+            return this;
+        }else {
+            log.error("Gender not defined correctly :" + param_gender );
             return this;
         }
     }
@@ -103,6 +110,22 @@ public class EmployeeDatailsPage extends PageObjectParent {
     public int getRandomBloodtype(){
         return (int)(Math.random() * 8) + 1;
     }
-
+    public EmployeeDatailsPage refreshPage(){
+        testsetup.getDriver().navigate().refresh();
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
+        return this;
+    }
+    public String getBirtdaydate(){
+        return inputbirthdate.getText();
+    }
+    public Boolean isRadioButtonMaleSelected(){
+        return radiobuttonmale.isSelected();
+    }
+    public Boolean isRadioButtonFemalealeSelected(){
+        return radiobuttonmale.isSelected();
+    }
+    public String getGenderValue(){
+        return
+    }
 
 }
