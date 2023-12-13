@@ -8,7 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.opensourcedemo.core.driver_manager.TestSetup;
 import org.opensourcedemo.pagesobjects.adminpages.AdminPage;
+import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
 import org.opensourcedemo.pagesobjects.pimpages.PimPage;
+import org.opensourcedemo.pagesobjects.time.TimePage;
 
 @Log4j2
 public class DashbordPage extends PageObjectParent {
@@ -18,6 +20,10 @@ public class DashbordPage extends PageObjectParent {
     WebElement adminPageElement;
     @FindBy(css = ".oxd-userdropdown-name")
     WebElement profilNameComplet;
+    @FindBy(css = "a[href*='viewTimeModule']")
+    WebElement timePageElemennt;
+    @FindBy(css = "a[href*='viewMyDetails']")
+    WebElement myinfopage;
     public DashbordPage(TestSetup param_testsetoup){
         super(param_testsetoup);
         PageFactory.initElements(testsetup.getDriver(),this);
@@ -42,5 +48,15 @@ public class DashbordPage extends PageObjectParent {
         log.info("Get Complete profil");
         testsetup.getWait().until(ExpectedConditions.visibilityOf(profilNameComplet));
         return profilNameComplet.getText();
+    }
+    public TimePage clickTimePage(){
+        log.info("Click Time Page");
+        clickwithWait(timePageElemennt);
+        return new TimePage(testsetup);
+    }
+    public MyInfoPage clickMyInfoPage(){
+        log.info("Click my info page");
+        clickwithWait(myinfopage);
+        return new MyInfoPage(testsetup);
     }
 }

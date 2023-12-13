@@ -4,11 +4,14 @@ import org.opensourcedemo.BaseTest.BaseTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.listerners.Mylisterner;
 import org.opensourcedemo.pagesobjects.LoginPage;
+import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
 import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
+import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.security.AlgorithmParameterGenerator;
 
 @Listeners(Mylisterner.class)
@@ -37,25 +40,9 @@ public class TestCreateEmployee extends BaseTest {
                 .clickSaveButton()
                         .clickSaveButton()
                                 .getTitle();
-
-
-                /*.clickswitchCreateLoginDetails()
-                .typeUsername(configproperties.getEmployee().get(1).getUser().getUsername())
-                .clickRadioButtonStatus()
-                .typePassword(configproperties.getEmployee().get(1).getUser().getPassword())
-                .typePasswordConfirmation(configproperties.getEmployee().get(1).getUser().getPassword())
-                .clickSaveButton()
-                .clickSaveButton()
-                .clickToProfil()
-                .logOutbutton()
-                        .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
-                                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
-                                        .clickButtonLogin()
-                .getNameProfil();*/
-        //Asserts
         Assert.assertEquals(titlegetted,title);
     }
-    @Test
+    @Test(dependsOnMethods = "TestCreateEmployeePIM")
     public void testCreateUserAdmin(){
         //Arrange
         String title="PIM";
@@ -84,10 +71,9 @@ public class TestCreateEmployee extends BaseTest {
     }
 
 
-    @Test
+    @Test()//dependsOnMethods = "testCreateUserAdmin")
     public void remplirLeFormulaire(){
         //Arrange
-
 
         // Act
         EmployeeDatailsPage pimListPage = new LoginPage(testsetup)
@@ -107,35 +93,60 @@ public class TestCreateEmployee extends BaseTest {
                 .clickRancdomBloodtypeOption()
                 .clickSaveButtonWithBloodType()
                 .refreshPage();
-
         //Assert
-
         Assert.assertEquals(pimListPage.getBirtdaydate(),configproperties.getEmployee().get(2).getBirthdate());
         if (configproperties.getEmployee().get(2).getGender().equals("M")){
             Assert.assertTrue (pimListPage.isRadioButtonMaleSelected());
         }else {
             Assert.assertTrue (pimListPage.isRadioButtonFemalealeSelected());
         }
-
+        Assert.assertNotNull(pimListPage.getBloodTypeValue());
     }
 
-/*
-    @Test
-    public void Testtest() {
+    @Test(testName = "Feuille de temps")
+    public void testFeuilledetemps(){
         //Arrange
-
-        // Act
-        String title = new LoginPage(testsetup)
+        String nameproject="ACME";
+        //Act
+        ProjectReportSearch pageproject = new LoginPage(testsetup)
                 .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
                 .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
                 .clickButtonLogin()
-                .getNameProfil();
+                .clickTimePage()
+                .clickReportMenulist()
+                .clickReportProject()
+                .typeSearchProjectByName(nameproject)
+                .clickFirstOptionSearch()
+                .clickViewProject();
 
-        log.info(title);
-
+        //Assert
+        Assert.assertTrue(pageproject.verifyIftimesMatcheesTotal());
     }
-*/
+    @Test
+    public void testFileUpload(){
+        //Arrange
+        File filetoUptload= new File(" ");
+        File uploadFile = new File("src/test/resources/selenium-snapshot.png");
+        String filename="";
+        String date = "";
 
+        //Act
+        MyInfoPage myinfopage = new LoginPage(testsetup)
+                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
+                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                .clickButtonLogin()
+                .clickMyInfoPage()
+                .clickAddAttachement()
+                .updaloadFile(filetoUptload)
+                ;
+        int index = myinfopage.verifyIfIsUploaded(filename);
 
-
+        //Assert
+        Assert.assertTrue(index>0);
+        Assert.assertEquals(myinfopage.getFileDateUploaded(index),date);
     }
+
+
+
+
+}

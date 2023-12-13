@@ -1,33 +1,23 @@
-package org.opensourcedemo.pagesobjects.pimpages;
+package org.opensourcedemo.pagesobjects.myinfopage;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.opensourcedemo.core.driver_manager.TestSetup;
-import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.PageObjectParent;
-import org.w3c.dom.ls.LSInput;
+import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
 
 import java.io.File;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
+import java.util.Optional;
 
 @Log4j2
-public class EmployeeDatailsPage extends PageObjectParent {
-    @FindBy(css = ".oxd-topbar-header-title")
-    WebElement titleElement;
-    @FindBy(css = "p~button.orangehrm-left-space")
-    WebElement savebuttonElemnt;
-    @FindBy(css = "li.oxd-topbar-body-nav-tab:nth-child(2)")
-    WebElement employeeListelement;
-    @FindBy(css = ".oxd-button--secondary:nth-child(1)")
-    WebElement buttonsavewithbloddtype;
-    @FindBy(css = "a[href*='auth/logout'].oxd-userdropdown-link ")
-    WebElement logoutElement;
-    @FindBy(css = ".oxd-userdropdown-icon")
-    WebElement profilelement;
+public class MyInfoPage extends PageObjectParent {
+
     @FindBy(css = "div:nth-child(1)>div>div>div>div>input[placeholder=\"yyyy-mm-dd\"]")
     WebElement inputbirthdate;
     @FindBy(css = "input[type=\"radio\"][value=\"1\"]~span")
@@ -48,53 +38,25 @@ public class EmployeeDatailsPage extends PageObjectParent {
     WebElement addattachementbutton;
     @FindBy(css = "div.oxd-file-button")
     WebElement inputuploadfilelement;
-    @FindBy(css = "div.oxd-table>div.oxd-table-body>div>div>div.oxd-table-cell:nth-child(2)")
-    WebElement filenameuploadedelement;
-    public EmployeeDatailsPage(TestSetup paramtestetup){
-        super(paramtestetup);
+    @FindBy(css = "div.oxd-table-body>div>div.oxd-table-row[role=\"row\"]>div:nth-child(2)>div")
+    List<WebElement> listnameuploadedfile;
+
+    @FindBy(css = "div.oxd-table-body>div>div.oxd-table-row[role=\"row\"]>div:nth-child(6)>div")
+    List<WebElement> listdateoffileuploaded;
+
+    public MyInfoPage(TestSetup paramtesteur){
+        super(paramtesteur);
         PageFactory.initElements(testsetup.getDriver(),this);
         testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
-        log.info("Initialize Employee Datail Page ");
+        log.info("Initalize My Ifno page ");
     }
-    public EmployeeDatailsPage clickSaveButton(){
-        log.info("Save EmployeSecondary");
-        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
-        testsetup.getWait().until(b -> savebuttonElemnt.isDisplayed());
-        clickwithWait(savebuttonElemnt);
-        return this;
-    }
-    public EmployeeDatailsPage clickSaveButtonWithBloodType(){
-        log.info("Save Employe");
-        clickwithWait(buttonsavewithbloddtype);
-        return this;
-    }
-    public PimPage clickEmployeeList(){
-        log.info("Click sur Employe List ou PIM Page");
-        clickwithWait(employeeListelement);
-        return new PimPage(testsetup);
-    }
-    public String getTitle(){
-        log.info("Getting Tittle");
-        return titleElement.getText();
-    }
-    public EmployeeDatailsPage clickToProfil(){
-        testsetup.getWait().until(ExpectedConditions.visibilityOf(profilelement));
-        profilelement.click();
-        log.info("Click to Profil");
-        return this;
-    }
-    public LoginPage logOutbutton(){
-        log.info("Logout");
-        testsetup.getWait().until(d-> logoutElement.isDisplayed());
-        logoutElement.click();
-        return new LoginPage(testsetup);
-    }
-    public EmployeeDatailsPage typeBirthDate(String datebirth){
+
+    public MyInfoPage typeBirthDate(String datebirth){
         log.info("type birth date");
         typeKeys(inputbirthdate,datebirth);
         return this;
     }
-    public EmployeeDatailsPage clickGender(String param_gender){
+    public MyInfoPage clickGender(String param_gender){
         log.info("Set gender");
         if(param_gender.equals("M")){
             //testsetup.getWait().until(b -> radiobuttonmale.isDisplayed());
@@ -109,12 +71,12 @@ public class EmployeeDatailsPage extends PageObjectParent {
             return this;
         }
     }
-    public EmployeeDatailsPage clicktBloodListInput(){
+    public MyInfoPage clicktBloodListInput(){
         log.info(" select blood type ");
         clickwithWait(bloodtypelement);
         return this;
     }
-    public EmployeeDatailsPage clickRancdomBloodtypeOption(){
+    public MyInfoPage clickRancdomBloodtypeOption(){
         log.info(" select blood type ");
         clickwithWait(listbloodtypeoptionelement.get(getRandomBloodtype()));
         return this;
@@ -122,7 +84,7 @@ public class EmployeeDatailsPage extends PageObjectParent {
     public int getRandomBloodtype(){
         return (int)(Math.random() * 8) + 1;
     }
-    public EmployeeDatailsPage refreshPage(){
+    public MyInfoPage refreshPage(){
         log.info(" Refresh Page ");
         testsetup.getDriver().navigate().refresh();
         testsetup.getWait().
@@ -145,20 +107,32 @@ public class EmployeeDatailsPage extends PageObjectParent {
         log.info(" Get the blood type ");
         return inputbloodtypeelement.getText();
     }
-    public EmployeeDatailsPage clickAddAttachement(){
+    public MyInfoPage clickAddAttachement(){
         log.info("Click Add Button Attachement");
         clickwithWait(addattachementbutton);
         return this;
     }
-    public EmployeeDatailsPage updaloadFile(File paramfile){
+    public MyInfoPage updaloadFile(File paramfile){
         log.info("Upload file");
         testsetup.getWait().until(ExpectedConditions.visibilityOf(inputuploadfilelement));
         inputuploadfilelement.sendKeys(paramfile.getAbsolutePath());
         return this;
     }
-    public String getNameOfFileUploaded(){
+    public int verifyIfIsUploaded(String paramnamefile){
         log.info(" Get name of file uploaded ");
-        return filenameuploadedelement.getText();
+        int index = 0;
+         for(WebElement element : listnameuploadedfile){
+             if (element.getText().equals(paramnamefile)){
+                 return index;
+             }else{
+                 index ++;
+             }
+         }
+         return -1;
+    }
+    public String getFileDateUploaded(int index){
+        log.info("Get date of file uploaded");
+        return listdateoffileuploaded.get(index).getText();
     }
 
 }
