@@ -1,10 +1,12 @@
 target/
-test-output/*
+report/*
 test_output/*
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+Screenshots/
+test-output/
+report.html
 ### IntelliJ IDEA ###
 .idea/
 .idea/modules.xml

@@ -1,5 +1,4 @@
 package testsuite;
-import org.apache.logging.log4j.Logger;
 import org.opensourcedemo.BaseTest.BaseTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.listerners.Mylisterner;
@@ -10,9 +9,6 @@ import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.security.AlgorithmParameterGenerator;
 
 @Listeners(Mylisterner.class)
 @Log4j2
@@ -42,7 +38,7 @@ public class TestCreateEmployee extends BaseTest {
                                 .getTitle();
         Assert.assertEquals(titlegetted,title);
     }
-    @Test(dependsOnMethods = "TestCreateEmployeePIM")
+    @Test(dependsOnMethods = "TestCreateEmployeePIM",testName = "Creation Admin User")
     public void testCreateUserAdmin(){
         //Arrange
         String title="PIM";
@@ -71,14 +67,14 @@ public class TestCreateEmployee extends BaseTest {
     }
 
 
-    @Test()//dependsOnMethods = "testCreateUserAdmin")
-    public void remplirLeFormulaire(){
+    @Test(dependsOnMethods = "testCreateUserAdmin",testName = "Remplir le formaulaire ")
+    public void fillLeFormInfo(){
         //Arrange
 
         // Act
         EmployeeDatailsPage pimListPage = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                .inputUserName(configproperties.getEmployee().get(0).getUser().getUsername())
+                .inputPwd(configproperties.getEmployee().get(0).getUser().getPassword())
                 .clickButtonLogin()
                 .clickPimPage()
                 .clickAddButton()
@@ -103,14 +99,14 @@ public class TestCreateEmployee extends BaseTest {
         Assert.assertNotNull(pimListPage.getBloodTypeValue());
     }
 
-    @Test(testName = "Feuille de temps")
+    @Test(testName = "Feuille de temps",dependsOnMethods = "testCreateUserAdmin")
     public void testFeuilledetemps(){
         //Arrange
         String nameproject="ACME";
         //Act
         ProjectReportSearch pageproject = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                .inputUserName(configproperties.getEmployee().get(0).getUser().getUsername())
+                .inputPwd(configproperties.getEmployee().get(0).getUser().getPassword())
                 .clickButtonLogin()
                 .clickTimePage()
                 .clickReportMenulist()
@@ -122,28 +118,30 @@ public class TestCreateEmployee extends BaseTest {
         //Assert
         Assert.assertTrue(pageproject.verifyIftimesMatcheesTotal());
     }
-    @Test
+    @Test(testName = "Upload de document",dependsOnMethods = "testCreateUserAdmin")
     public void testFileUpload(){
         //Arrange
-        File filetoUptload= new File(" ");
-        File uploadFile = new File("src/test/resources/selenium-snapshot.png");
-        String filename="";
-        String date = "";
+        String filepath = "test_output/screenshots/screenshot.png";
+        String filename="screenshot.png";
 
         //Act
         MyInfoPage myinfopage = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                .inputUserName(configproperties.getEmployee().get(0).getUser().getUsername())
+                .inputPwd(configproperties.getEmployee().get(0).getUser().getPassword())
                 .clickButtonLogin()
                 .clickMyInfoPage()
                 .clickAddAttachement()
-                .updaloadFile(filetoUptload)
+                .updaloadFile(filepath)
+                .clickSaveButtonForFileUploaded()
+                .handlerSuccessAlert()
                 ;
         int index = myinfopage.verifyIfIsUploaded(filename);
 
         //Assert
-        Assert.assertTrue(index>0);
-        Assert.assertEquals(myinfopage.getFileDateUploaded(index),date);
+        // Vérification de la présence du fichier parmis les noms de la liste
+        Assert.assertTrue(index>=0);
+        //Vérification de la date de l'upload qui doit celui del'exécution du test
+        Assert.assertEquals(myinfopage.getFileDateUploaded(index),java.time.LocalDate.now().toString());
     }
 
 

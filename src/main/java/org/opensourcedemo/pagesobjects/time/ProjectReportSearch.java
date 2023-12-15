@@ -17,7 +17,7 @@ import static io.opentelemetry.sdk.metrics.Aggregation.sum;
 public class ProjectReportSearch extends PageObjectParent {
     @FindBy(css = "input[placeholder=\"Type for hints...\"]")
     WebElement inputprojectnamelement;
-    @FindBy(css = "div.oxd-autocomplete-option[role=\"option\"]")
+    @FindBy(css = "div.oxd-autocomplete-option>span")
     List<WebElement> optionelementsearched;
     @FindBy(css = "button.oxd-button--medium")
     WebElement viewbuttonelement;
@@ -28,11 +28,12 @@ public class ProjectReportSearch extends PageObjectParent {
     public ProjectReportSearch(TestSetup paramtestsetup){
         super(paramtestsetup);
         PageFactory.initElements(testsetup.getDriver(),this);
+        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
         log.info("Initialze Project Report Search");
     }
 
     public ProjectReportSearch typeSearchProjectByName(String paramName){
-        log.info("type hint for searching project ");;
+        log.info("type hint for searching project ");
         typeKeys(inputprojectnamelement,paramName);
         return this;
     }
@@ -40,7 +41,7 @@ public class ProjectReportSearch extends PageObjectParent {
     public ProjectReportSearch clickFirstOptionSearch(){
         log.info("Click the forst option project");
         testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
-        clickwithWait(optionelementsearched.getFirst());
+        clickWithoutWait(optionelementsearched.getFirst());
         return this;
     }
     public ProjectReportSearch clickViewProject(){
@@ -50,12 +51,12 @@ public class ProjectReportSearch extends PageObjectParent {
     }
     public boolean verifyIftimesMatcheesTotal(){
         log.info("verify times matched total");
-        Long timecumulated = listtimecell.stream()
-                .mapToLong(ob -> Long.parseLong(ob.getText()) +Long.parseLong(ob.getText()))
-                .reduce(0, Long::sum);
+        Double timecumulated = listtimecell.stream()
+                .mapToDouble(ob -> Double.parseDouble(ob.getText()))
+                .reduce(0, Double::sum);
         String testTotal =totaltimeelement.getText();
-        Long total =
-                Long.parseLong(testTotal.substring(testTotal.lastIndexOf(" "),testTotal.length() -1));
+        Double total =
+                Double.parseDouble(testTotal.substring(testTotal.lastIndexOf(" ")));
         return timecumulated.equals(total);
     }
 

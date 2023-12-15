@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="suite" parallel="false">
-    <parameter name="browserTypeDefault" value="FIREFOX"></parameter>
+
     <!--    <parameter name="pathconfig" value="C:/Users/cobcouli/IdeaProjects/Project_Upskilling/src/main/resources/testng/testng.xml"></parameter>-->
     <test name="TestCreateEmployee">
         <parameter name="pathconfig" value=""></parameter>
         <classes>
-            <class name="testsuite.TestCreateEmployee"/>
+            <class name="testsuite.TestSecond"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
