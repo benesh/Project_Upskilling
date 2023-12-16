@@ -13,14 +13,15 @@ import org.testng.annotations.Test;
 @Listeners(Mylisterner.class)
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
-
-
     public TestCreateEmployee(){
         super("src/main/resources/entry_data/scenario1/config.properties");
     }
 
     @Test(testName = "Create Employee PIM" )
     public void TestCreateEmployeePIM(){
+        logger = extent.createTest("Create Employee PIM");
+        logger.assignAuthor("Ben Omar")
+                .assignCategory("Sanity check");
         //Arrange
         String title="PIM";
         //Act
@@ -40,8 +41,12 @@ public class TestCreateEmployee extends BaseTest {
     }
     @Test(dependsOnMethods = "TestCreateEmployeePIM",testName = "Creation Admin User")
     public void testCreateUserAdmin(){
+        logger = extent.createTest("Creation Admin User")
+                .assignAuthor("Ben Omar")
+                .assignCategory("Sanity check")
+                .assignDevice(configproperties.getBrowser().toString());
         //Arrange
-        String title="PIM";
+
         //Virat  Kohli
         String namelogin = new LoginPage(testsetup)
                 .inputUserName(configproperties.getEmployee().get(0).getUser().getUsername())
@@ -69,6 +74,11 @@ public class TestCreateEmployee extends BaseTest {
 
     @Test(dependsOnMethods = "testCreateUserAdmin",testName = "Remplir le formaulaire ")
     public void fillLeFormInfo(){
+        logger = extent.createTest("Remplir le formaulaire ")
+                .assignAuthor("Ben Omar")
+                .assignDevice(configproperties.getBrowser().toString())
+                .assignCategory("Sanity check")
+                ;
         //Arrange
 
         // Act
@@ -101,12 +111,16 @@ public class TestCreateEmployee extends BaseTest {
 
     @Test(testName = "Feuille de temps",dependsOnMethods = "testCreateUserAdmin")
     public void testFeuilledetemps(){
+        logger = extent.createTest("Feuille de temps")
+                .assignCategory("Feature Gestion Temps")
+                .assignDevice(configproperties.getBrowser().toString())
+                .assignAuthor("Ben Omar");
         //Arrange
         String nameproject="ACME";
         //Act
         ProjectReportSearch pageproject = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(0).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(0).getUser().getPassword())
+                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
+                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
                 .clickButtonLogin()
                 .clickTimePage()
                 .clickReportMenulist()
@@ -120,14 +134,18 @@ public class TestCreateEmployee extends BaseTest {
     }
     @Test(testName = "Upload de document",dependsOnMethods = "testCreateUserAdmin")
     public void testFileUpload(){
+        logger = extent.createTest("Upload de document")
+                .assignDevice(configproperties.getBrowser().toString())
+                .assignCategory("Upload fichier")
+                .assignAuthor("Omzo");
         //Arrange
-        String filepath = "test_output/screenshots/screenshot.png";
+        String filepath = "target/screenshot/scenari1/TestCreateEmployeePIM/screenshot.png";
         String filename="screenshot.png";
 
         //Act
         MyInfoPage myinfopage = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(0).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(0).getUser().getPassword())
+                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
+                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
                 .clickButtonLogin()
                 .clickMyInfoPage()
                 .clickAddAttachement()

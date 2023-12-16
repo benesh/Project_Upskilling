@@ -3,11 +3,11 @@
 
 <suite name="suite" parallel="false">
 
-    <!--    <parameter name="pathconfig" value="C:/Users/cobcouli/IdeaProjects/Project_Upskilling/src/main/resources/testng/testng.xml"></parameter>-->
     <test name="TestCreateEmployee">
-        <parameter name="pathconfig" value=""></parameter>
+        <parameter name="pathconfig"
+                   value="C:\Users\omarben\IdeaProjects\Project_Upskilling\src\main\resources\entry_data\scenario1\config.properties"/>
         <classes>
-            <class name="testsuite.TestSecond"/>
+            <class name="testsuite.TestCreateEmployee"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

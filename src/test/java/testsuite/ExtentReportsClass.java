@@ -63,7 +63,7 @@ public class ExtentReportsClass {
     @Test
     public void verifyTitle() {
         logger = extent.createTest("To verify Google Title");
-        Assert.assertEquals(driver.getTitle(),"Google123456");
+        Assert.assertEquals(driver.getTitle(),"Google");
     }
     @Test
     public void verifyLogo() {
