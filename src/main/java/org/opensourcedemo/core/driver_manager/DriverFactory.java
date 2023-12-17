@@ -26,9 +26,9 @@ public class DriverFactory {
                 WebDriverManager.edgedriver().setup();
                 return new EdgeDriver();
             }
-            /*case Driver.OPERA -> {
+            /*case DriverType.OPERA -> {
                 WebDriverManager.operadriver().setup();
-                return new Webdriver.OperaDriver();
+                return new
             }*/
         }
         return null;
