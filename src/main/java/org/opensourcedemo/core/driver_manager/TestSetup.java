@@ -24,7 +24,7 @@ public class TestSetup {
         driver.quit();
     }
     private void initializeDriver(ConfigProperties propconfig){
-        driver = new DriverFactory(propconfig.getBrowser()).getDriver();
+        driver = new WebDriverFactory(propconfig.getBrowser()).getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(propconfig.getUrl());
         driver.manage().window().maximize();

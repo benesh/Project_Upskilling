@@ -1,8 +1,7 @@
 package org.opensourcedemo.core.driver_manager;
 
-public enum DriverType {
+public enum WebDriverType {
     FIREFOX,
     CHROME,
-    EDGE,
-    OPERA;
+    EDGE;
 }

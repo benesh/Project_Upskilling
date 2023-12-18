@@ -1,6 +1,7 @@
 package testsuite;
 import org.opensourcedemo.BaseTest.BaseTest;
 import lombok.extern.log4j.Log4j2;
+import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 import org.opensourcedemo.listerners.Mylisterner;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
@@ -16,7 +17,6 @@ public class TestCreateEmployee extends BaseTest {
     public TestCreateEmployee(){
         super("src/main/resources/entry_data/scenario1/config.properties");
     }
-
     @Test(testName = "Create Employee PIM" )
     public void TestCreateEmployeePIM(){
         logger = extent.createTest("Create Employee PIM");

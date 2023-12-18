@@ -2,7 +2,7 @@ package org.opensourcedemo.core.properties_manager;
 
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
-import org.opensourcedemo.core.driver_manager.DriverType;
+import org.opensourcedemo.core.driver_manager.WebDriverType;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 
 import java.io.IOException;
@@ -24,13 +24,13 @@ public class ConfigProperties {
     public String getUrl(){
         return propertie.getProperty("URL");
     }
-    public DriverType getBrowser(){
-        return DriverType.valueOf(propertie.getProperty("browser"));
+    public WebDriverType getBrowser(){
+        return WebDriverType.valueOf(propertie.getProperty("browser"));
     }
     public String getPathLog(){return propertie.getProperty("pathlog");}
     public String getPathScreenshot(){return propertie.getProperty("pathscreenshot");}
     public String getPathReport(){return propertie.getProperty("pathreport");}
-    public String geOptions(){ return propertie.getProperty("option_browser");}
+    public String getOptionheadless(){ return propertie.getProperty("option_browser");}
     public String getDataEmployeeUserPath(){ return propertie.getProperty("option_browser");}
     public String getPathUserData(){return propertie.getProperty("pathuserdata");}
     public int getExplicitWait(){return Integer.parseInt(propertie.getProperty("explicitwait"));}
