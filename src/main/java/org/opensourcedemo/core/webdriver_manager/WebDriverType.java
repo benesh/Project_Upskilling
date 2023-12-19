@@ -1,4 +1,4 @@
-package org.opensourcedemo.core.driver_manager;
+package org.opensourcedemo.core.webdriver_manager;
 
 public enum WebDriverType {
     FIREFOX,

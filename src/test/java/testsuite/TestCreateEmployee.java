@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(Mylisterner.class)
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
     public TestCreateEmployee(){
@@ -39,7 +38,7 @@ public class TestCreateEmployee extends BaseTest {
                                 .getTitle();
         Assert.assertEquals(titlegetted,title);
     }
-    @Test(dependsOnMethods = "TestCreateEmployeePIM",testName = "Creation Admin User")
+    @Test()//dependsOnMethods = "TestCreateEmployeePIM",testName = "Creation Admin User")
     public void testCreateUserAdmin(){
         logger = extent.createTest("Creation Admin User")
                 .assignAuthor("Ben Omar")
@@ -139,7 +138,7 @@ public class TestCreateEmployee extends BaseTest {
                 .assignCategory("Upload fichier")
                 .assignAuthor("Omzo");
         //Arrange
-        String filepath = "target/screenshot/scenari1/TestCreateEmployeePIM/screenshot.png";
+        String filepath = "target/screenshot/scenari1/testFileUpload20231217011929.png";
         String filename="screenshot.png";
 
         //Act

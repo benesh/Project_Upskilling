@@ -1,4 +1,4 @@
-package org.opensourcedemo.core.driver_manager;
+package org.opensourcedemo.core.webdriver_manager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -21,10 +21,10 @@ public class WebDriverFactory {
                 return getWebeDriveChrome(headless);
             }
             case WebDriverType.FIREFOX -> {
-                return new FirefoxDriver();
+                return getWebDriveFirefox(headless);
             }
             case WebDriverType.EDGE -> {
-                return new EdgeDriver();
+                return getWebDriveEdge(headless);
             }
         }
         return null;
@@ -39,7 +39,7 @@ public class WebDriverFactory {
             return new ChromeDriver();
         }
     }
-    public WebDriver getWebeDriveFirefox(String headless){
+    public WebDriver getWebDriveFirefox(String headless){
         WebDriverManager.firefoxdriver().setup();
         if(headless.equals("YES")){
             FirefoxOptions options = new FirefoxOptions();
@@ -49,7 +49,7 @@ public class WebDriverFactory {
             return new FirefoxDriver();
         }
     }
-    public WebDriver getWebeDriveEdge(String headless){
+    public WebDriver getWebDriveEdge(String headless){
         WebDriverManager.edgedriver().setup();
         if(headless.equals("YES")){
             EdgeOptions options = new EdgeOptions();

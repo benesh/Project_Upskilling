@@ -5,14 +5,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.opensourcedemo.core.driver_manager.TestSetup;
+import org.opensourcedemo.core.webdriver_manager.TestSetup;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.PageObjectParent;
-import org.w3c.dom.ls.LSInput;
 
 import java.io.File;
 import java.util.List;
-import java.util.Random;
 
 @Log4j2
 public class EmployeeDatailsPage extends PageObjectParent {

@@ -4,10 +4,9 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.opensourcedemo.core.driver_manager.TestSetup;
+import org.opensourcedemo.core.webdriver_manager.TestSetup;
 import org.opensourcedemo.pagesobjects.PageObjectParent;
 
-import java.sql.Time;
 import java.util.List;
 
 @Log4j2

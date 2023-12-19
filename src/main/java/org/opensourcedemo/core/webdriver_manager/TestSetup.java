@@ -1,4 +1,4 @@
-package org.opensourcedemo.core.driver_manager;
+package org.opensourcedemo.core.webdriver_manager;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -24,7 +24,7 @@ public class TestSetup {
         driver.quit();
     }
     private void initializeDriver(ConfigProperties propconfig){
-        driver = new WebDriverFactory(propconfig.getBrowser()).getDriver();
+        driver = new WebDriverFactory(propconfig.getBrowser()).getDriver(propconfig.getHeadless());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(propconfig.getUrl());
         driver.manage().window().maximize();
