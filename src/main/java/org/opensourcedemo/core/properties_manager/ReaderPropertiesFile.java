@@ -9,15 +9,16 @@ import java.util.Properties;
 public class ReaderPropertiesFile {
     Properties properties;
     public ReaderPropertiesFile(String configpath){
+
         initializeProperties(configpath);
     }
     private void initializeProperties(String configpath){
         properties = new Properties();
         try {
+            log.info("Initilize dserialize file properties");
             FileInputStream fileInputStream = new FileInputStream(configpath);
              properties.load(fileInputStream);
             fileInputStream.close();
-            log.info("Initilize dserialize file properties");
         }catch (IOException e){
             log.error(e);
         }

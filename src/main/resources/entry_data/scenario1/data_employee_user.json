@@ -9,19 +9,19 @@
     }
   },
   {
-    "firstname" : "Malinne",
-    "middlename" : "Bba",
-    "lastname" : "lola",
+    "firstname" : "testOmar",
+    "middlename" : "Bolll",
+    "lastname" : "pollla",
     "user": {
-      "username": "mailnnel123",
+      "username": "mail23",
       "password": "Amadou12345678"
     }
   },
   {
-    "firstname" : "Omzoa",
-    "middlename" : "Lina",
-    "lastname" : "Soline",
-    "gender": "F",
+    "firstname" : "Omueteoa",
+    "middlename" : "Linaazd",
+    "lastname" : "Solineezfr",
+    "gender": "M",
     "birthdate" : "2000-12-01",
     "user": {
       "username": "ben1325",

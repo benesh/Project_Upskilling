@@ -26,6 +26,9 @@ public class WebDriverFactory {
             case WebDriverType.EDGE -> {
                 return getWebDriveEdge(headless);
             }
+            default -> {
+
+            }
         }
         return null;
     }
