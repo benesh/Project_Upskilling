@@ -1,7 +1,9 @@
 package testsuite;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import org.opensourcedemo.BaseTest.BaseTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
+import org.opensourcedemo.core.properties_manager.data_manager.ProjectDescription;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
 import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
@@ -9,6 +11,9 @@ import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.nio.file.Paths;
 
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
@@ -122,59 +127,86 @@ public class TestCreateEmployee extends BaseTest {
         }
         Assert.assertNotNull(pimListPage.getBloodTypeValue());
     }
-    @DataProvider(name = "dataFeuilledeTmps")
+    @DataProvider(name = "dataFeuilledeTemps")
     public Object[][] dataProviderMethodFeuillDetemps(){
         log.info("Load Dayaprovider For Login");
-        Object[][] data = new Object[1][2];
-        data[0][0] = configproperties.getEmployee().get(1);
-        data[0][1] = configproperties.getEmployee().get(2);
+        String pathdata ="src/main/resources/entry_data/scenario1/dataproject.json";
+        ProjectDescription[] projetdata = new ProjectDescription[4];
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            projetdata = mapper.readValue(Paths.get(pathdata).toFile(), ProjectDescription[].class);
+        } catch (IOException e) {
+            log.error(" Employee json cnnot be readed error log: " + e);
+            throw new RuntimeException(e);
+        }
+
+        Object[][] data = new Object[4][2];
+        data[0][0] = configproperties.getEmployee().get(0);
+        data[1][0] = configproperties.getEmployee().get(0);
+        data[2][0] = configproperties.getEmployee().get(0);
+        data[3][0] = configproperties.getEmployee().get(0);
+        data[0][1] = projetdata[0];
+        data[1][1] = projetdata[1];
+        data[2][1] = projetdata[2];
+        data[3][1] = projetdata[3];
         return data;
     }
-    @Test(testName = "Feuille de temps",dependsOnMethods = "testCreateUserAdmin",dataProvider = "dataFeuilledeTmps")
-    public void testFeuilledetemps(){
+    @Test(testName = "Feuille de temps",dataProvider = "dataFeuilledeTemps")//,dependsOnMethods = "testCreateUserAdmin")
+    public void testFeuilledetemps(Employee employe,ProjectDescription projectdata ){
         logger = extent.createTest("Feuille de temps")
                 .assignCategory("Feature Gestion Temps")
                 .assignDevice(configproperties.getBrowser().toString())
                 .assignAuthor("Ben Omar");
         //Arrange
-        String nameproject="ACME";
+
         //Act
         ProjectReportSearch pageproject = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                .inputUserName(employe.getUser().getUsername())
+                .inputPwd(employe.getUser().getPassword())
                 .clickButtonLogin()
                 .clickTimePage()
                 .clickReportMenulist()
                 .clickReportProject()
-                .typeSearchProjectByName(nameproject)
-                .clickFirstOptionSearch()
+                .typeSearchProjectByName(projectdata.getAnachrome())
+                .clickRightOptionSearch(projectdata.getDescription())
                 .clickViewProject();
 
         //Assert
         Assert.assertTrue(pageproject.verifyIftimesMatcheesTotal());
     }
-    @Test(testName = "Upload de document",dependsOnMethods = "testCreateUserAdmin")
-    public void testFileUpload(){
+
+    @DataProvider(name = "dataproviderUploadFichier")
+    public Object[][] dataProviderMethodFileUpload(){
+        log.info("Load Dayaprovider For Login");
+        Object[][] data = new Employee[1][3];
+        data[0][0] = configproperties.getEmployee().get(1);
+        data[0][1] = "src/main/resources/entry_data/scenario1/testFileUpload.png";
+        data[0][2] = "testFileUpload.png";
+
+        return data;
+    }
+
+    @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnMethods = "testCreateUserAdmin")
+    public void testFileUpload(Employee employe,String fileUpload,String fileName){
         logger = extent.createTest("Upload de document")
                 .assignDevice(configproperties.getBrowser().toString())
                 .assignCategory("Upload fichier")
                 .assignAuthor("Omzo");
         //Arrange
-        String filepath = "target/screenshot/scenari1/testFileUpload20231217011929.png";
-        String filename="screenshot.png";
 
         //Act
         MyInfoPage myinfopage = new LoginPage(testsetup)
-                .inputUserName(configproperties.getEmployee().get(1).getUser().getUsername())
-                .inputPwd(configproperties.getEmployee().get(1).getUser().getPassword())
+                .inputUserName(employe.getUser().getUsername())
+                .inputPwd(employe.getUser().getPassword())
                 .clickButtonLogin()
                 .clickMyInfoPage()
                 .clickAddAttachement()
-                .updaloadFile(filepath)
+                .updaloadFile(fileUpload)
                 .clickSaveButtonForFileUploaded()
                 .handlerSuccessAlert()
                 ;
-        int index = myinfopage.verifyIfIsUploaded(filename);
+        int index = myinfopage.verifyIfIsUploaded(fileName);
 
         //Assert
         // Vérification de la présence du fichier parmis les noms de la liste

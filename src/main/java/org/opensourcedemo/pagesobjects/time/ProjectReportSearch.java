@@ -36,10 +36,13 @@ public class ProjectReportSearch extends PageObjectParent {
         return this;
     }
 
-    public ProjectReportSearch clickFirstOptionSearch(){
+    public ProjectReportSearch clickRightOptionSearch(String namedescription){
         log.info("Click the forst option project");
         testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
-        clickWithoutWait(optionelementsearched.getFirst());
+        WebElement optioneleme = optionelementsearched.stream()
+                .filter(element -> element.getText().equals(namedescription))
+                        .findFirst().get();
+        clickWithoutWait(optioneleme);
         return this;
     }
     public ProjectReportSearch clickViewProject(){
