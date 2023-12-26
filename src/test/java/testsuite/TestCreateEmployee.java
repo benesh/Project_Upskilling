@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-@Listeners(org.opensourcedemo.listerners.ReportListerner.class)
+@Listeners({org.opensourcedemo.listerners.ReportListerner.class, app.getxray.xray.testng.listeners.XrayListener.class})
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
 

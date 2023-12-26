@@ -19,8 +19,8 @@ import java.util.Properties;
 
 @Log4j2
 public class BaseTest {
-    public static TestSetup testsetup;
-    public static ConfigProperties configproperties;
+    public TestSetup testsetup;
+    public ConfigProperties configproperties;
     public  Properties propertiesSuite ;
     public static ReportManager report ;
 
@@ -55,7 +55,7 @@ public class BaseTest {
         log.info("Flushing Extent Report");
         ReportManager.reportFlush();
     }
-    public static String takeScreenShot(String screenshotName) {
+    public String takeScreenShot(String screenshotName) {
         String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         TakesScreenshot ts = (TakesScreenshot) testsetup.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);

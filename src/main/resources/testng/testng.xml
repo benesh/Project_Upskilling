@@ -2,7 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="suite" thread-count="2" parallel="classes">
-
+    <listeners>
+        <listener class-name="app.getxray.xray.testng.listeners.XrayListener" />
+    </listeners>
     <test name="TestCreateEmployee">
         <classes>
             <class name="testsuite.TestCreateEmployee"/>

@@ -15,6 +15,7 @@ import java.io.IOException;
 @Log4j2
 public class ReportManager {
     protected static ExtentReports extent;
+    BaseTest baseTest;
     protected static ExtentSparkReporter sparkreport ;
     protected static ExtentTest test;
     public static String reportDirectory;
@@ -28,6 +29,4 @@ public class ReportManager {
         log.info("Flushing Extent Report");
         extent.flush();
     }
-
-
 }
