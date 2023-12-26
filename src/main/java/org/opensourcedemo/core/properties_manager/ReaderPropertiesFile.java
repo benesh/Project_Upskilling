@@ -7,23 +7,17 @@ import java.util.Properties;
 
 @Log4j2
 public class ReaderPropertiesFile {
-    Properties properties;
-    public ReaderPropertiesFile(String configpath){
 
-        initializeProperties(configpath);
-    }
-    private void initializeProperties(String configpath){
-        properties = new Properties();
+    public static Properties readPropertiesFromFile(String configpath){
+        Properties properties= new Properties();
         try {
-            log.info("Initilize dserialize file properties");
+            log.info("Initialize deserialize file properties");
             FileInputStream fileInputStream = new FileInputStream(configpath);
-             properties.load(fileInputStream);
+            properties.load(fileInputStream);
             fileInputStream.close();
         }catch (IOException e){
             log.error(e);
         }
+        return properties;
     }
-    public Properties getProperties(){
-        log.info("Get Properties");
-        return properties;}
 }

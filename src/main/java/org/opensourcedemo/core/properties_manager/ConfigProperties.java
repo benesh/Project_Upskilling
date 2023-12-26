@@ -14,7 +14,6 @@ import java.util.Properties;
 @Log4j2
 public class ConfigProperties {
     Properties propertie ;
-    List<Employee> employees;
     public ConfigProperties(Properties parampropertie){
         propertie = parampropertie;
         GlobalConfig.GLOBALWAIT= getExplicitWait();
@@ -25,26 +24,14 @@ public class ConfigProperties {
         return propertie.getProperty("URL");
     }
     public WebDriverType getBrowser(){
-        return WebDriverType.valueOf(propertie.getProperty("browser"));
+        return WebDriverType.valueOf(propertie.getProperty("default_browser"));
     }
     public String getPathLog(){return propertie.getProperty("pathlog");}
     public String getPathScreenshot(){return propertie.getProperty("pathscreenshot");}
     public String getPathReport(){return propertie.getProperty("pathreport");}
     public String getHeadless(){ return propertie.getProperty("headless");}
-    public String getDataEmployeeUserPath(){ return propertie.getProperty("option_browser");}
     public String getPathUserData(){return propertie.getProperty("pathuserdata");}
     public int getExplicitWait(){return Integer.parseInt(propertie.getProperty("explicitwait"));}
     public int getWaitPollingEvery(){return Integer.parseInt(propertie.getProperty("pollingEvery"));}
-    public List<Employee> getEmployee() {
-        if (employees==null){
-            ObjectMapper mapper = new ObjectMapper();
-            try {
-                employees = Arrays.asList(mapper.readValue(Paths.get(getPathUserData()).toFile(), Employee[].class));
-            } catch (IOException e) {
-                log.error(" Employee json cnnot be readed error log: " + e);
-                throw new RuntimeException(e);
-            }
-        }
-        return employees;
-    }
+
 }

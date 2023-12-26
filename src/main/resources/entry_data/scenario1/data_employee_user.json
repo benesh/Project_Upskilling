@@ -9,18 +9,18 @@
     }
   },
   {
-    "firstname" : "testOmar",
-    "middlename" : "Bolll",
-    "lastname" : "pollla",
+    "firstname" : "Amadou",
+    "middlename" : "Bollé",
+    "lastname" : "Ploti",
     "user": {
-      "username": "mail23",
+      "username": "Amadoutest123",
       "password": "Amadou12345678"
     }
   },
   {
-    "firstname" : "Omueteoa",
-    "middlename" : "Linaazd",
-    "lastname" : "Solineezfr",
+    "firstname" : "Lollipop",
+    "middlename" : "Lizard",
+    "lastname" : "Solifr",
     "gender": "M",
     "birthdate" : "2000-12-01",
     "user": {

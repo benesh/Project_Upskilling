@@ -3,6 +3,7 @@ package testsuite;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.BaseTest.BaseTest;
+import org.opensourcedemo.core.properties_manager.ReaderPropertiesFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 import org.opensourcedemo.core.properties_manager.data_manager.ProjectDescription;
 import org.opensourcedemo.pagesobjects.LoginPage;
@@ -11,30 +12,49 @@ import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
 import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Properties;
 
+@Listeners(org.opensourcedemo.listerners.ReportListerner.class)
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
+
+    Employee[] employees;
     public TestCreateEmployee(){
-        super("src/main/resources/config/config.properties");
+        super();
+        log.info("Initailize TestCreateEmploye");
+        String path = "src/main/resources/entry_data/scenario1/data.properties";
+        Properties prop;
+        prop = ReaderPropertiesFile.readPropertiesFromFile(path);
+        initializeConfigSuite(prop);
     }
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
+        if (employees==null){
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                employees = mapper.readValue(
+                        Paths.get(propertiesSuite.getProperty("pathuserdata")).toFile()
+                        ,Employee[].class
+                );
+            } catch (IOException e) {
+                log.error(" Employee json cnnot be readed error log: " + e);
+                throw new RuntimeException(e);
+            }
+        }
         Employee[][] data = new Employee[1][2];
-        data[0][0] = configproperties.getEmployee().getFirst();
-        data[0][1] = configproperties.getEmployee().get(1);
+        data[0][0] = employees[0];
+        data[0][1] = employees[1];
         return data;
     }
-    @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee")
+    @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee", groups = {"group default"})
     public void TestCreateEmployeePIM( Employee employees1, Employee employe2 ){
-        //Report Arrange
-        logger = extent.createTest("Create Employee PIM");
-        logger.assignAuthor("Ben Omar")
-                .assignCategory("Sanity check");
+
         //Arrange
         String title="PIM";
         //Act
@@ -55,10 +75,7 @@ public class TestCreateEmployee extends BaseTest {
     @Test(dependsOnMethods = "TestCreateEmployeePIM",testName = "Creation Admin User",dataProvider = "dataCreateEmployee")
     public void testCreateUserAdmin(Employee employees1, Employee employe2){
         //Report Arrange
-        logger = extent.createTest("Creation Admin User")
-                .assignAuthor("Ben Omar")
-                .assignCategory("Sanity check")
-                .assignDevice(configproperties.getBrowser().toString());
+
         //Arrange
 
         //Virat  Kohli
@@ -89,19 +106,15 @@ public class TestCreateEmployee extends BaseTest {
     public Employee[][] dataProviderMethodFillForm(){
         log.info("Load Dayaprovider For Login");
         Employee[][] data = new Employee[1][2];
-        data[0][0] = configproperties.getEmployee().get(1);
-        data[0][1] = configproperties.getEmployee().get(2);
+        data[0][0] = employees[1];
+        data[0][1] = employees[2];
         return data;
     }
 
     @Test(testName = "Remplir le formaulaire ", dataProvider = "dataRemplirFormulaire",dependsOnMethods = "testCreateUserAdmin")
     public void remplirFormulaire(Employee employe1, Employee employe2){
         //Report Arrange
-        logger = extent.createTest("Remplir le formaulaire ")
-                .assignAuthor("Ben Omar")
-                .assignDevice(configproperties.getBrowser().toString())
-                .assignCategory("Sanity check")
-                ;
+
         //Arrange
 
         // Act
@@ -134,12 +147,14 @@ public class TestCreateEmployee extends BaseTest {
     @DataProvider(name = "dataFeuilledeTemps")
     public Object[][] dataProviderMethodFeuillDetemps(){
         log.info("Load Dayaprovider For Login");
-        String pathdata ="src/main/resources/entry_data/scenario1/dataproject.json";
         ProjectDescription[] projetdata;
         Object[][] data ;
         ObjectMapper mapper = new ObjectMapper();
         try {
-            projetdata = mapper.readValue(Paths.get(pathdata).toFile(), ProjectDescription[].class);
+            projetdata = mapper.readValue(
+                            Paths.get(propertiesSuite.getProperty("pathdataproject"))
+                                    .toFile(), ProjectDescription[].class
+                    );
         } catch (IOException e) {
             log.error(" Employee json cnnot be readed error log: " + e);
             throw new RuntimeException(e);
@@ -148,7 +163,7 @@ public class TestCreateEmployee extends BaseTest {
         int index = 0;
         for( ProjectDescription projet : projetdata){
             data[index][1] = projet;
-            data[index][0] = configproperties.getEmployee().get(0);
+            data[index][0] = employees[0];
             index++;
         }
         return data;
@@ -156,10 +171,7 @@ public class TestCreateEmployee extends BaseTest {
     @Test(testName = "Feuille de temps",dataProvider = "dataFeuilledeTemps",dependsOnMethods = "testCreateUserAdmin")
     public void testFeuilledetemps(Employee employe,ProjectDescription projectdata ){
         //Report Arrange
-        logger = extent.createTest("Feuille de temps")
-                .assignCategory("Feature Gestion Temps")
-                .assignDevice(configproperties.getBrowser().toString())
-                .assignAuthor("Ben Omar");
+
         //Arrange
 
         //Act
@@ -177,25 +189,21 @@ public class TestCreateEmployee extends BaseTest {
         //Assert
         Assert.assertTrue(pageproject.verifyIftimesMatcheesTotal());
     }
-
     @DataProvider(name = "dataproviderUploadFichier")
     public Object[][] dataProviderMethodFileUpload(){
         log.info("Load Dayaprovider For Login");
         Object[][] data = new Object[1][3];
-        data[0][0] = configproperties.getEmployee().get(0);
-        data[0][1] = "src/main/resources/entry_data/scenario1/testFileUpload.png";
-        data[0][2] = "testFileUpload.png";
-
+        data[0][0] = employees[0];
+        data[0][1] = propertiesSuite.getProperty("pathfiletoupload");
+        data[0][2] = propertiesSuite.getProperty("pathfiletoupload")
+                .substring(propertiesSuite.getProperty("pathfiletoupload").lastIndexOf("/") +1
+                );
         return data;
     }
-
-    @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier")//,dependsOnMethods = "testCreateUserAdmin")
+    @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnMethods = "testCreateUserAdmin")
     public void testFileUpload(Employee employe,String fileUpload,String fileName){
         //Report Arrange
-        logger = extent.createTest("Upload de document")
-                .assignDevice(configproperties.getBrowser().toString())
-                .assignCategory("Upload fichier")
-                .assignAuthor("Omzo");
+
         //Arrange
 
         //Act
@@ -217,8 +225,5 @@ public class TestCreateEmployee extends BaseTest {
         //Vérification de la date de l'upload qui doit celui del'exécution du test
         Assert.assertEquals(myinfopage.getFileDateUploaded(index),java.time.LocalDate.now().toString());
     }
-
-
-
 
 }
