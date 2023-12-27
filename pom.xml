@@ -100,17 +100,15 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
-                        <disableXmlReport>true</disableXmlReport>
                         <suiteXmlFiles>
                             <suiteXmlFile>src/main/resources/testng/testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
                         <properties>
                             <property>
                                 <name>reporter</name>
-                                <value>org.testng.reporters.XMLReporter:generateTestResultAttributes=true</value>
+                                <value>app.getxray.xray.testng.listeners.XrayJsonReporter:xrayCloud=true,projectKey=XT,testPlanKey=XT-616</value>
                             </property>
                         </properties>
-
                     </configuration>
                 </plugin>
             </plugins>

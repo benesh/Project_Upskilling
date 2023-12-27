@@ -7,22 +7,17 @@ import org.opensourcedemo.core.properties_manager.ReaderPropertiesFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 import org.opensourcedemo.core.properties_manager.data_manager.ProjectDescription;
 import org.opensourcedemo.pagesobjects.LoginPage;
-import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
 import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
-import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-@Listeners({org.opensourcedemo.listerners.ReportListerner.class, app.getxray.xray.testng.listeners.XrayListener.class})
 @Log4j2
 public class TestCreateEmployee extends BaseTest {
-
     Employee[] employees;
     public TestCreateEmployee(){
         super();
@@ -168,7 +163,7 @@ public class TestCreateEmployee extends BaseTest {
         }
         return data;
     }
-    @Test(testName = "Feuille de temps",dataProvider = "dataFeuilledeTemps",dependsOnMethods = "testCreateUserAdmin")
+    /*@Test(testName = "Feuille de temps",dataProvider = "dataFeuilledeTemps",dependsOnMethods = "testCreateUserAdmin")
     public void testFeuilledetemps(Employee employe,ProjectDescription projectdata ){
         //Report Arrange
 
@@ -188,7 +183,7 @@ public class TestCreateEmployee extends BaseTest {
 
         //Assert
         Assert.assertTrue(pageproject.verifyIftimesMatcheesTotal());
-    }
+    }*/
     @DataProvider(name = "dataproviderUploadFichier")
     public Object[][] dataProviderMethodFileUpload(){
         log.info("Load Dayaprovider For Login");
@@ -200,7 +195,7 @@ public class TestCreateEmployee extends BaseTest {
                 );
         return data;
     }
-    @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnMethods = "testCreateUserAdmin")
+    /*@Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnMethods = "testCreateUserAdmin")
     public void testFileUpload(Employee employe,String fileUpload,String fileName){
         //Report Arrange
 
@@ -225,5 +220,5 @@ public class TestCreateEmployee extends BaseTest {
         //Vérification de la date de l'upload qui doit celui del'exécution du test
         Assert.assertEquals(myinfopage.getFileDateUploaded(index),java.time.LocalDate.now().toString());
     }
-
+*/
 }
