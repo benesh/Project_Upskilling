@@ -4,12 +4,10 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.opensourcedemo.core.webdriver_manager.TestSetup;
 
 
 @Log4j2
-public class LoginPage extends PageObjectParent{
+public class LoginPage extends BasePage {
     @FindBy(css="input[name=\"username\"]")
     private WebElement inputUsername;
 
@@ -19,26 +17,26 @@ public class LoginPage extends PageObjectParent{
     @FindBy(css="button[type=\"submit\"]")
     WebElement bontouLogin;
 
-    public LoginPage(TestSetup paramtestsetup){
-        super(paramtestsetup);
-        PageFactory.initElements(testsetup.getDriver(),this);
+    public LoginPage(){
         log.info("Initialize Login Page");
+        PageFactory.initElements(getDriver(),this);
     }
     public LoginPage inputUserName(String parma_unsername ){
-        testsetup.getWait().until(ExpectedConditions.visibilityOf(inputUsername));
         log.info("Typing user name " + parma_unsername);
-        inputUsername.sendKeys(parma_unsername);
+        waitOfVisibilityOf(inputUsername);
+        typeKeys(inputUsername,parma_unsername);
         return this;
     }
     public LoginPage inputPwd(String parma_password ){
         log.info("Typing user Password ");
-        testsetup.getWait().until(ExpectedConditions.visibilityOf(inputPassword));
-        inputPassword.sendKeys(parma_password);
+        waitOfVisibilityOf(inputPassword);
+        typeKeys(inputPassword,parma_password);
         return this;
     }
     public DashbordPage clickButtonLogin(){
-        testsetup.getWait().until(b -> bontouLogin.isDisplayed());
-        bontouLogin.click();
-        return new DashbordPage(testsetup);
+        lamdaWaitIsDisplayed(bontouLogin);
+        clickElement(bontouLogin);
+        invisibilityLoader();
+        return new DashbordPage();
     }
 }

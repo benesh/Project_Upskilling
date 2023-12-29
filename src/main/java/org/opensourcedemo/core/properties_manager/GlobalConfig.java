@@ -2,7 +2,14 @@ package org.opensourcedemo.core.properties_manager;
 
 public class GlobalConfig {
 
-    public static int GLOBALWAIT;
-    public static int GLOBALPOLLING;
-    public static String PATHCONFIG="src/main/resources/config/config.properties";
+    public static int EXPLICITWAIT;
+    public static int IMPLICITWAIT;
+    public static String ENV;
+    public static String USER;
+    public static String HOSTNAME;
+    public static String SOFTWARETEST;
+    public static String DOCUMENTTITLE;
+    public static String REPORTNAME;
+    public static String PATHREPORT;
+
 }

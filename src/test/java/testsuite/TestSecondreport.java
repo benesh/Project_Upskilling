@@ -1,19 +1,22 @@
 package testsuite;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import listeners.ReportListerner;
 import lombok.extern.log4j.Log4j2;
-import org.opensourcedemo.BaseTest.BaseTest;
-import org.opensourcedemo.core.properties_manager.ReaderPropertiesFile;
+import BaseTest.BaseTest;
+import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 import org.opensourcedemo.pagesobjects.DashbordPage;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+@Listeners(ReportListerner.class)
 @Log4j2
 public class TestSecondreport extends BaseTest {
     Employee[] employees;
@@ -22,10 +25,9 @@ public class TestSecondreport extends BaseTest {
         log.info("Initailize TestSecondreport");
         String path = "src/main/resources/scenario_2/data.properties";
         Properties prop;
-        prop = ReaderPropertiesFile.readPropertiesFromFile(path);
-        initializeConfigSuite(prop);
+        prop = ReaderPropertiesJsonFile.readPropertiesFromFile(path);
+        initializePorpertiesSuite(prop);
     }
-
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
@@ -46,21 +48,21 @@ public class TestSecondreport extends BaseTest {
         data[0][1] = employees[1];
         return data;
     }
-
-    @Test
+    @Test(testName = "Test Assert 3",description = "Test Success de verification",groups = "TestAssert1Group")
     public void TesAssert1(){
         log.info("Initailize TesAssert1");
         Assert.assertTrue(true);
     }
-    @Test
+    @Test(groups = {"Asserttion1255","AssertGroups"},description = "Test verification du fail doc")
     public void TesAssert2(){
         log.info("Initailize TesAssert2");
         Assert.assertTrue(true);
     }
-    @Test(dataProvider = "dataCreateEmployee")
+    @Test(dataProvider = "dataCreateEmployee",groups = {"Asserttion","AssertGroups"},description = "Test verification du fail doc"
+    ,testName = "Test Assert 3")
     public void TesAssert3(Employee employe1, Employee employe2){
         log.info("Initailize TesAssert3");
-        DashbordPage page = new LoginPage(testsetup)
+        DashbordPage page = new LoginPage()
                 .inputUserName(employe1.getUser().getUsername())
                         .inputPwd(employe1.getUser().getPassword())
                                 .clickButtonLogin();

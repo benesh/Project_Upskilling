@@ -1,16 +1,13 @@
 package org.opensourcedemo.pagesobjects.pimpages;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.opensourcedemo.core.webdriver_manager.TestSetup;
-import org.opensourcedemo.pagesobjects.PageObjectParent;
+import org.opensourcedemo.pagesobjects.BasePage;
 
 @Log4j2
-public class AddEmployeePage extends PageObjectParent {
+public class AddEmployeePage extends BasePage {
     @FindBy(css=".orangehrm-firstname")
     WebElement inputFirstname;
     @FindBy(css=".orangehrm-middlename")
@@ -35,10 +32,8 @@ public class AddEmployeePage extends PageObjectParent {
     @FindBy(css="button[type=\"submit\"]")
     WebElement bontouLogin;
 
-    public AddEmployeePage(TestSetup param_testsetup){
-        super(param_testsetup);
-        PageFactory.initElements(testsetup.getDriver(),this);
-//        PageFactory.initElements(new AjaxElementLocatorFactory(testsetup.getDriver(), 10), this);
+    public AddEmployeePage(){
+        PageFactory.initElements(getDriver(),this);
         log.info("Initialize Add Employee Page");
     }
     public AddEmployeePage typeFirstName(String paramFirstName){
@@ -63,9 +58,9 @@ public class AddEmployeePage extends PageObjectParent {
     }
     public AddEmployeePage clickswitchCreateLoginDetails(){
         log.info("Click switch button");
-        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
-        testsetup.getWait().until(b -> buttonswitchecreateuser.isDisplayed());
-        buttonswitchecreateuser.click();
+        invisibilityLoader();
+        lamdaWaitIsDisplayed(buttonswitchecreateuser);
+        clickElement(buttonswitchecreateuser);
         return this;
     }
     public AddEmployeePage typeUsername(String parmausername){
@@ -83,19 +78,15 @@ public class AddEmployeePage extends PageObjectParent {
     }
     public AddEmployeePage clickRadioButtonStatus(){
         log.info("Click on radio button to enable the Account");
-        testsetup.getWait().until(b -> radiobuttonenable.isEnabled());
-        radiobuttonenable.click();
-//        clickwithWait(radiobuttonenable);
+        lamdaWaitIsDisplayed(radiobuttonenable);
+        clickElement(radiobuttonenable);
         return this;
     }
-
-    public EmployeeDatailsPage clickSaveButton(){
+    public EmployeeDetailsPage clickSaveButton(){
         log.info("Save Employee Info primary");
-        testsetup.getWait().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.oxd-form-loader")));
-        testsetup.getWait().until(b -> buttonsavevalidation.isDisplayed());
-        clickwithWait(buttonsavevalidation);
-        return new EmployeeDatailsPage(testsetup);
+        invisibilityLoader();
+        lamdaWaitIsDisplayed(buttonsavevalidation);
+        clickElement(buttonsavevalidation);
+        return new EmployeeDetailsPage();
     }
-
-
 }

@@ -9,25 +9,12 @@ import java.time.Duration;
 @Log4j2
 public class TestSetup {
     public static WebDriver setupWebDriver(WebDriverType paramWebdrivertype,String paramHeadless){
-        WebDriver driver = new WebDriverAndWaitFactory(paramWebdrivertype).getDriver(paramHeadless);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        WebDriver driver = WebDriverFactory.getDriver(paramWebdrivertype, paramHeadless);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConfig.IMPLICITWAIT));
         driver.manage().window().maximize();
         return driver;
     }
-    public static WebDriverWait setupWebDriverWait()
-    private WebDriver initializeDriver(){
-        WebDriver driver = new WebDriverAndWaitFactory(webDriverType).getDriver(headleass);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().window().maximize();
-        return driver;
+    public static WebDriverWait setupWebDriverWait(WebDriver driver){
+        return new WebDriverWait(driver,Duration.ofSeconds(GlobalConfig.EXPLICITWAIT));
     }
-    private WebDriverWait initializeWait(WebDriver driver){
-        /*fwait = new FluentWait(driver)
-                .withTimeout(Duration.ofSeconds(GlobalConfig.GLOBALWAIT))
-                .pollingEvery(Duration.ofMillis(GlobalConfig.GLOBALPOLLING));*/
-         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(GlobalConfig.GLOBALWAIT));
-         return wait;
-
-    }
-
 }

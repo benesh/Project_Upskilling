@@ -1,14 +1,10 @@
 package org.opensourcedemo.core.properties_manager;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.webdriver_manager.WebDriverType;
-import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Properties;
 
 @Log4j2
@@ -16,12 +12,27 @@ public class ConfigProperties {
     Properties propertie ;
     public ConfigProperties(Properties parampropertie){
         propertie = parampropertie;
-        GlobalConfig.GLOBALWAIT= getExplicitWait();
-        GlobalConfig.GLOBALPOLLING=getWaitPollingEvery();
+        GlobalConfig.EXPLICITWAIT = getExplicitWait();
+        GlobalConfig.IMPLICITWAIT = getImplicitWait();
+        GlobalConfig.ENV = propertie.getProperty("env");
+        GlobalConfig.DOCUMENTTITLE = propertie.getProperty("ducomenttitle");
+        GlobalConfig.REPORTNAME = propertie.getProperty("rapportname");
+        GlobalConfig.HOSTNAME = getHostName();
+        GlobalConfig.SOFTWARETEST = propertie.getProperty("softwaretest");
+        GlobalConfig.USER = propertie.getProperty("user");
+        GlobalConfig.PATHREPORT = getPathReport();
+
+
         log.info("Initialise properties config " + propertie.getProperty("title"));
     }
-    public String getUrl(){
-        return propertie.getProperty("URL");
+    public String getHostName(){
+        InetAddress id = null;
+        try {
+            return InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+
     }
     public WebDriverType getBrowser(){
         return WebDriverType.valueOf(propertie.getProperty("default_browser"));
@@ -30,8 +41,7 @@ public class ConfigProperties {
     public String getPathScreenshot(){return propertie.getProperty("pathscreenshot");}
     public String getPathReport(){return propertie.getProperty("pathreport");}
     public String getHeadless(){ return propertie.getProperty("headless");}
-    public String getPathUserData(){return propertie.getProperty("pathuserdata");}
     public int getExplicitWait(){return Integer.parseInt(propertie.getProperty("explicitwait"));}
-    public int getWaitPollingEvery(){return Integer.parseInt(propertie.getProperty("pollingEvery"));}
+    public int getImplicitWait(){return Integer.parseInt(propertie.getProperty("implicitwait"));}
 
 }

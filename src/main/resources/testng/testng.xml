@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite" >
+<suite name="suite" thread-count="10" parallel="methods" >
     <listeners>
-        <listener class-name="org.opensourcedemo.listerners.ReportListerner" />
+        <listener class-name="listeners.ReportListerner" />
         <listener class-name="app.getxray.xray.testng.listeners.XrayJsonReporter" />
     </listeners>
     <test name="TestCreateEmployee">
@@ -10,5 +10,5 @@
             <class name="testsuite.TestCreateEmployee"/>
             <class name="testsuite.TestSecondreport"/>
         </classes>
-    </test> <!-- Test -->
-</suite> <!-- Suite -->
+    </test>
+</suite>

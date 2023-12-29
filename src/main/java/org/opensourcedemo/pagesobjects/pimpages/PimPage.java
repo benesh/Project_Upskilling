@@ -5,23 +5,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.opensourcedemo.core.webdriver_manager.TestSetup;
-import org.opensourcedemo.pagesobjects.PageObjectParent;
+import org.opensourcedemo.pagesobjects.BasePage;
 
 @Log4j2
-public class PimPage extends PageObjectParent {
+public class PimPage extends BasePage {
     @FindBy(css="button.oxd-button--secondary:first-child")
     WebElement addButton;
-    public PimPage(TestSetup paramtestsetup){
-        super(paramtestsetup);
-        PageFactory.initElements(testsetup.getDriver(),this);
+    public PimPage(){
+        PageFactory.initElements(getDriver(),this);
         log.info("Initialize PimPage");
     }
-
     public AddEmployeePage clickAddButton(){
-        testsetup.getWait().until(ExpectedConditions.elementToBeClickable(addButton));
-        addButton.click();
+        getWait().until(ExpectedConditions.elementToBeClickable(addButton));
+        clickElement(addButton);
         log.info("Click on Add Button");
-        return new AddEmployeePage(testsetup);
+        return new AddEmployeePage();
     }
 }

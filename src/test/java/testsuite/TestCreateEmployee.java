@@ -2,12 +2,14 @@ package testsuite;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
-import org.opensourcedemo.BaseTest.BaseTest;
-import org.opensourcedemo.core.properties_manager.ReaderPropertiesFile;
+import BaseTest.BaseTest;
+import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 import org.opensourcedemo.core.properties_manager.data_manager.ProjectDescription;
 import org.opensourcedemo.pagesobjects.LoginPage;
-import org.opensourcedemo.pagesobjects.pimpages.EmployeeDatailsPage;
+import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
+import org.opensourcedemo.pagesobjects.pimpages.EmployeeDetailsPage;
+import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -23,37 +25,27 @@ public class TestCreateEmployee extends BaseTest {
         super();
         log.info("Initailize TestCreateEmploye");
         String path = "src/main/resources/entry_data/scenario1/data.properties";
-        Properties prop;
-        prop = ReaderPropertiesFile.readPropertiesFromFile(path);
-        initializeConfigSuite(prop);
+        Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(path);
+        initializePorpertiesSuite(prop);
     }
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
         if (employees==null){
-            ObjectMapper mapper = new ObjectMapper();
-            try {
-                employees = mapper.readValue(
-                        Paths.get(propertiesSuite.getProperty("pathuserdata")).toFile()
-                        ,Employee[].class
-                );
-            } catch (IOException e) {
-                log.error(" Employee json cnnot be readed error log: " + e);
-                throw new RuntimeException(e);
-            }
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
         }
         Employee[][] data = new Employee[1][2];
         data[0][0] = employees[0];
         data[0][1] = employees[1];
         return data;
     }
-    @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee", groups = {"group default"})
-    public void TestCreateEmployeePIM( Employee employees1, Employee employe2 ){
-
+    @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee", groups = {"group default"}
+    ,description = "Test de création d'un employee et iformation de base")
+    public void testCreationEmployeePIM(Employee employees1, Employee employe2 ){
         //Arrange
         String title="PIM";
         //Act
-        String titlegetted = new LoginPage(testsetup)
+        String titlegetted = new LoginPage()
                 .inputUserName(employees1.getUser().getUsername())
                 .inputPwd(employees1.getUser().getPassword())
                 .clickButtonLogin()
@@ -67,14 +59,13 @@ public class TestCreateEmployee extends BaseTest {
                                 .getTitle();
         Assert.assertEquals(titlegetted,title);
     }
-    @Test(dependsOnMethods = "TestCreateEmployeePIM",testName = "Creation Admin User",dataProvider = "dataCreateEmployee")
-    public void testCreateUserAdmin(Employee employees1, Employee employe2){
-        //Report Arrange
-
+    @Test(groups ={"adminUser"},testName = "Creation ustilisateur Admin",dataProvider = "dataCreateEmployee"
+            ,dependsOnGroups = "group default",description = "Test création d'un utilisateur de role Admin pour l'employé créé précédemment")
+    public void testCreationUserAdmin(Employee employees1, Employee employe2){
         //Arrange
 
         //Virat  Kohli
-        String namelogin = new LoginPage(testsetup)
+        String namelogin = new LoginPage()
                 .inputUserName(employees1.getUser().getUsername())
                 .inputPwd(employees1.getUser().getPassword())
                 .clickButtonLogin()
@@ -83,7 +74,7 @@ public class TestCreateEmployee extends BaseTest {
                 .setUserToAdminRole()
                 .typeEmployeeName(employe2.getNameComplete())
                 .setSatusUserAccountToEnable()
-                .inputUserNameAdmin(employe2.getUser().getUsername())
+                .inputUserAdminName(employe2.getUser().getUsername())
                 .inputPassword(employe2.getUser().getPassword())
                 .inputPassworConfirmation(employe2.getUser().getPassword())
                 .buttonSaveAdmin()
@@ -100,20 +91,22 @@ public class TestCreateEmployee extends BaseTest {
     @DataProvider(name = "dataRemplirFormulaire")
     public Employee[][] dataProviderMethodFillForm(){
         log.info("Load Dayaprovider For Login");
+        if (employees==null){
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+        }
         Employee[][] data = new Employee[1][2];
         data[0][0] = employees[1];
         data[0][1] = employees[2];
         return data;
     }
 
-    @Test(testName = "Remplir le formaulaire ", dataProvider = "dataRemplirFormulaire",dependsOnMethods = "testCreateUserAdmin")
+    @Test(testName = "Remplir formulaire ", dataProvider = "dataRemplirFormulaire",dependsOnGroups = {"adminUser"},
+            groups = "PIM Doamine",description = "Remplir le formulaire et vérifier que les données sont bien sauvegardées")
     public void remplirFormulaire(Employee employe1, Employee employe2){
-        //Report Arrange
-
         //Arrange
 
         // Act
-        EmployeeDatailsPage pimListPage = new LoginPage(testsetup)
+        EmployeeDetailsPage pimListPage = new LoginPage()
                 .inputUserName(employe1.getUser().getUsername())
                 .inputPwd(employe1.getUser().getPassword())
                 .clickButtonLogin()
@@ -142,18 +135,13 @@ public class TestCreateEmployee extends BaseTest {
     @DataProvider(name = "dataFeuilledeTemps")
     public Object[][] dataProviderMethodFeuillDetemps(){
         log.info("Load Dayaprovider For Login");
+        if (employees==null){
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+        }
         ProjectDescription[] projetdata;
         Object[][] data ;
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            projetdata = mapper.readValue(
-                            Paths.get(propertiesSuite.getProperty("pathdataproject"))
-                                    .toFile(), ProjectDescription[].class
-                    );
-        } catch (IOException e) {
-            log.error(" Employee json cnnot be readed error log: " + e);
-            throw new RuntimeException(e);
-        }
+        projetdata = ReaderPropertiesJsonFile
+                .readJsonDataDescriptionProject(propertiesSuite.getProperty("pathdataproject"));
         data = new Object[projetdata.length][2];
         int index = 0;
         for( ProjectDescription projet : projetdata){
@@ -163,14 +151,13 @@ public class TestCreateEmployee extends BaseTest {
         }
         return data;
     }
-    /*@Test(testName = "Feuille de temps",dataProvider = "dataFeuilledeTemps",dependsOnMethods = "testCreateUserAdmin")
+    @Test(testName = "Feuille temps projet",dataProvider = "dataFeuilledeTemps",dependsOnGroups = {"adminUser"}, groups = "timegroup"
+    ,description = "Vérification des temps répartie avec le total")
     public void testFeuilledetemps(Employee employe,ProjectDescription projectdata ){
-        //Report Arrange
-
         //Arrange
 
         //Act
-        ProjectReportSearch pageproject = new LoginPage(testsetup)
+        ProjectReportSearch pageproject = new LoginPage()
                 .inputUserName(employe.getUser().getUsername())
                 .inputPwd(employe.getUser().getPassword())
                 .clickButtonLogin()
@@ -183,10 +170,13 @@ public class TestCreateEmployee extends BaseTest {
 
         //Assert
         Assert.assertTrue(pageproject.verifyIftimesMatcheesTotal());
-    }*/
+    }
     @DataProvider(name = "dataproviderUploadFichier")
     public Object[][] dataProviderMethodFileUpload(){
         log.info("Load Dayaprovider For Login");
+        if (employees==null){
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+        }
         Object[][] data = new Object[1][3];
         data[0][0] = employees[0];
         data[0][1] = propertiesSuite.getProperty("pathfiletoupload");
@@ -195,14 +185,13 @@ public class TestCreateEmployee extends BaseTest {
                 );
         return data;
     }
-    /*@Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnMethods = "testCreateUserAdmin")
+    @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnGroups = {"adminUser"},
+            groups = "MyInfogroup",description = "Upload de documentet vérification si le document est bien suavegardé")
     public void testFileUpload(Employee employe,String fileUpload,String fileName){
-        //Report Arrange
-
         //Arrange
 
         //Act
-        MyInfoPage myinfopage = new LoginPage(testsetup)
+        MyInfoPage myinfopage = new LoginPage()
                 .inputUserName(employe.getUser().getUsername())
                 .inputPwd(employe.getUser().getPassword())
                 .clickButtonLogin()
@@ -220,5 +209,5 @@ public class TestCreateEmployee extends BaseTest {
         //Vérification de la date de l'upload qui doit celui del'exécution du test
         Assert.assertEquals(myinfopage.getFileDateUploaded(index),java.time.LocalDate.now().toString());
     }
-*/
+
 }
