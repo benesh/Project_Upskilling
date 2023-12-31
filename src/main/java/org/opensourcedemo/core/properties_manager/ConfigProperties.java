@@ -21,18 +21,16 @@ public class ConfigProperties {
         GlobalConfig.SOFTWARETEST = propertie.getProperty("softwaretest");
         GlobalConfig.USER = propertie.getProperty("user");
         GlobalConfig.PATHREPORT = getPathReport();
-
+        GlobalConfig.HUB_URL = propertie.getProperty("url_hub");
 
         log.info("Initialise properties config " + propertie.getProperty("title"));
     }
     public String getHostName(){
-        InetAddress id = null;
         try {
             return InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
-
     }
     public WebDriverType getBrowser(){
         return WebDriverType.valueOf(propertie.getProperty("default_browser"));

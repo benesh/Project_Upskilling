@@ -11,5 +11,6 @@ public class GlobalConfig {
     public static String DOCUMENTTITLE;
     public static String REPORTNAME;
     public static String PATHREPORT;
+    public static String HUB_URL;
 
 }
