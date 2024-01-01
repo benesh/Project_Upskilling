@@ -5,10 +5,26 @@
         <listener class-name="listeners.ReportListerner" />
         <listener class-name="app.getxray.xray.testng.listeners.XrayJsonReporter" />
     </listeners>
-    <test name="TestCreateEmployee">
+    <parameter name="config" value="src/main/resources/config/config.properties"/>
+    <test name="TestBrowserFirefox">
+        <parameter name="browser" value="FIREFOX"/>
         <classes>
-            <class name="testsuite.TestCreateEmployee"/>
+<!--            <class name="testsuite.TestCreateEmployee"/>-->
             <class name="testsuite.TestSecondreport"/>
         </classes>
     </test>
+<!--    <test name="TestBrowserChrome">-->
+<!--        <parameter name="browser" value="CHROME"/>-->
+<!--        <classes>-->
+<!--&lt;!&ndash;            <class name="testsuite.TestCreateEmployee"/>&ndash;&gt;-->
+<!--            <class name="testsuite.TestSecondreport"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="TestBrowserEDGE">-->
+<!--        <parameter name="browser" value="EDGE"/>-->
+<!--        <classes>-->
+<!--&lt;!&ndash;            <class name="testsuite.TestCreateEmployee"/>&ndash;&gt;-->
+<!--            <class name="testsuite.TestSecondreport"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

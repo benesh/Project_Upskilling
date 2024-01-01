@@ -15,6 +15,7 @@ public class ReportManager {
         ExtentReports extent = new ExtentReports();
         File filereport = new File(GlobalConfig.PATHREPORT + "report.html").getAbsoluteFile();
         ExtentSparkReporter sparkreport = new ExtentSparkReporter(filereport);
+        extent.attachReporter(sparkreport);
 //        sparkreport.viewConfigurer().viewOrder().as(new ViewName[]{ViewName.DASHBOARD, ViewName.TEST}).apply();
         extent.setSystemInfo("Host Name", GlobalConfig.HOSTNAME);
         extent.setSystemInfo("Environment", GlobalConfig.ENV);
@@ -25,7 +26,6 @@ public class ReportManager {
         sparkreport.config().setReportName(GlobalConfig.REPORTNAME);
         // Dark Theme
         sparkreport.config().setTheme(Theme.STANDARD);
-        extent.attachReporter(sparkreport);
         return extent;
     }
 }

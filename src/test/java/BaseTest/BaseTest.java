@@ -5,9 +5,11 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ThreadGuard;
+import org.opensourcedemo.core.properties_manager.GlobalConfig;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.webdriver_manager.TestSetup;
 import org.opensourcedemo.core.properties_manager.ConfigProperties;
+import org.opensourcedemo.core.webdriver_manager.WebDriverType;
 import org.opensourcedemo.pagesobjects.BasePage;
 import org.testng.annotations.*;
 import java.io.File;
@@ -25,14 +27,23 @@ public class BaseTest extends BasePage {
         String pathconfig ="src/main/resources/config/config.properties";
         configproperties = new ConfigProperties(ReaderPropertiesJsonFile.readPropertiesFromFile(pathconfig));
     }
+    @Parameters({"config"})
+    @BeforeSuite
+    public void initializeConfig(String pathconfig){
+        if(pathconfig != null){
+            configproperties = new ConfigProperties(ReaderPropertiesJsonFile.readPropertiesFromFile(pathconfig));
+        }
+    }
     protected void initializePorpertiesSuite(Properties prop ){
         log.info("Initialize Config Suite");
          propertiesSuite = prop;
     }
+    @Parameters({"browser"})
     @BeforeMethod
-    public void setup(){
+    public void setup(@Optional("CHROME") String browser){
         log.info("Setup before Method");
-        driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (configproperties.getBrowser(),configproperties.getHeadless())));
+//        driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (configproperties.getBrowser(),configproperties.getHeadless())));
+        driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (WebDriverType.valueOf(browser),configproperties.getHeadless())));
         getDriver().get(propertiesSuite.getProperty("URL"));
         wait.set(TestSetup.setupWebDriverWait(getDriver()));
     }

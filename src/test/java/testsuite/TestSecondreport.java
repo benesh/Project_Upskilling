@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-@Listeners(ReportListerner.class)
 @Log4j2
 public class TestSecondreport extends BaseTest {
     Employee[] employees;
