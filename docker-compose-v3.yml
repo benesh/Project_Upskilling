@@ -12,6 +12,9 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_MAX_SESSION_TIMEOUT=4
 
   edge:
     image: selenium/node-edge:4.15.0-20231129
@@ -22,6 +25,9 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_MAX_SESSION_TIMEOUT=4
 
   firefox:
     image: selenium/node-firefox:4.15.0-20231129
@@ -32,6 +38,9 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_MAX_SESSION_TIMEOUT=4
 
   selenium-hub:
     image: selenium/hub:4.15.0-20231129

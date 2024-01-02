@@ -9,14 +9,12 @@ import org.opensourcedemo.core.properties_manager.data_manager.Employee;
 import org.opensourcedemo.pagesobjects.DashbordPage;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-@Listeners(ReportListerner.class)
 @Log4j2
 public class TestSecondreport extends BaseTest {
     Employee[] employees;
@@ -28,6 +26,13 @@ public class TestSecondreport extends BaseTest {
         prop = ReaderPropertiesJsonFile.readPropertiesFromFile(path);
         initializePorpertiesSuite(prop);
     }
+    /*@Parameters({"data"})
+    @BeforeSuite
+    public void setupData(String pathData){
+        Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(pathData);
+        initializePorpertiesSuite(prop);
+    }*/
+
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
@@ -48,17 +53,17 @@ public class TestSecondreport extends BaseTest {
         data[0][1] = employees[1];
         return data;
     }
-    @Test(testName = "Test Assert 3",description = "Test Success de verification",groups = "TestAssert1Group")
+    @Test(testName = "Test Assert 3",description = "Test Success de verification",groups = {"PIM"})
     public void TesAssert1(){
         log.info("Initailize TesAssert1");
         Assert.assertTrue(true);
     }
-    @Test(groups = {"Asserttion1255","AssertGroups"},description = "Test verification du fail doc")
+    @Test(groups = {"PIM","AssertGroups"},description = "Test verification du fail doc")
     public void TesAssert2(){
         log.info("Initailize TesAssert2");
         Assert.assertTrue(true);
     }
-    @Test(dataProvider = "dataCreateEmployee",groups = {"Asserttion","AssertGroups"},description = "Test verification du fail doc"
+    @Test(dataProvider = "dataCreateEmployee",groups = {"TIME","AssertGroups"},description = "Test verification du fail doc"
     ,testName = "Test Assert 3")
     public void TesAssert3(Employee employe1, Employee employe2){
         log.info("Initailize TesAssert3");

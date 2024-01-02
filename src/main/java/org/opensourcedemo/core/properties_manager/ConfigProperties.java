@@ -1,6 +1,8 @@
 package org.opensourcedemo.core.properties_manager;
 
 import lombok.extern.log4j.Log4j2;
+import org.opensourcedemo.core.webdriver_manager.Env;
+import org.opensourcedemo.core.webdriver_manager.Headless;
 import org.opensourcedemo.core.webdriver_manager.WebDriverType;
 
 import java.net.InetAddress;
@@ -14,7 +16,8 @@ public class ConfigProperties {
         propertie = parampropertie;
         GlobalConfig.EXPLICITWAIT = getExplicitWait();
         GlobalConfig.IMPLICITWAIT = getImplicitWait();
-        GlobalConfig.ENV = propertie.getProperty("env");
+        GlobalConfig.HEADLESS = getHeadless();
+        GlobalConfig.ENV = getEnv();
         GlobalConfig.DOCUMENTTITLE = propertie.getProperty("ducomenttitle");
         GlobalConfig.REPORTNAME = propertie.getProperty("rapportname");
         GlobalConfig.HOSTNAME = getHostName();
@@ -22,6 +25,7 @@ public class ConfigProperties {
         GlobalConfig.USER = propertie.getProperty("user");
         GlobalConfig.PATHREPORT = getPathReport();
         GlobalConfig.HUB_URL = propertie.getProperty("url_hub");
+        GlobalConfig.PATHSCREENCHSOT = getPathScreenshot();
 
         log.info("Initialise properties config " + propertie.getProperty("title"));
     }
@@ -38,8 +42,11 @@ public class ConfigProperties {
     public String getPathLog(){return propertie.getProperty("pathlog");}
     public String getPathScreenshot(){return propertie.getProperty("pathscreenshot");}
     public String getPathReport(){return propertie.getProperty("pathreport");}
-    public String getHeadless(){ return propertie.getProperty("headless");}
+    public Headless getHeadless(){ return Headless.valueOf(propertie.getProperty("headless"));}
     public int getExplicitWait(){return Integer.parseInt(propertie.getProperty("explicitwait"));}
     public int getImplicitWait(){return Integer.parseInt(propertie.getProperty("implicitwait"));}
+    public Env getEnv(){
+        return Env.valueOf(propertie.getProperty("env"));
+    }
 
 }

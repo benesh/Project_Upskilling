@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite" thread-count="10" parallel="methods" >
+<suite name="suite" thread-count="10" parallel="tests" >
     <listeners>
         <listener class-name="listeners.ReportListerner" />
         <listener class-name="app.getxray.xray.testng.listeners.XrayJsonReporter" />
     </listeners>
+    <parameter name="config" value="src/main/resources/config/config.properties"/>
     <test name="TestCreateEmployee">
+        <parameter name="browser" value="FIREFOX"/>
+        <parameter name="data" value="src/main/resources/entry_data/scenario1/data.properties"/>
         <classes>
-            <class name="testsuite.TestCreateEmployee"/>
+<!--            <class name="testsuite.TestCreateEmployee"/>-->
+            <class name="testsuite.TestSecondreport"/>
+        </classes>
+    </test>
+    <test name="TestCreateEmployee2">
+        <parameter name="browser" value="CHROME"/>
+        <parameter name="data" value="src/main/resources/entry_data/scenario1/data.properties"/>
+        <classes>
+<!--            <class name="testsuite.TestCreateEmployee"/>-->
+            <class name="testsuite.TestSecondreport"/>
+        </classes>
+    </test>
+    <test name="TestCreateEmployee3">
+        <parameter name="browser" value="EDGE"/>
+        <parameter name="data" value="src/main/resources/entry_data/scenario1/data.properties"/>
+        <classes>
+<!--            <class name="testsuite.TestCreateEmployee"/>-->
             <class name="testsuite.TestSecondreport"/>
         </classes>
     </test>

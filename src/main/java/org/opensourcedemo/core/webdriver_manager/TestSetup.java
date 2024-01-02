@@ -1,5 +1,6 @@
 package org.opensourcedemo.core.webdriver_manager;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,7 +11,7 @@ import java.time.Duration;
 
 @Log4j2
 public class TestSetup {
-    public static WebDriver setupWebDriver(WebDriverType paramWebdrivertype,String paramHeadless){
+    public static WebDriver setupWebDriver(WebDriverType paramWebdrivertype,Headless paramHeadless){
         WebDriver driver = null;
         try {
             driver = WebDriverFactory.getDriver(paramWebdrivertype, paramHeadless);
@@ -24,4 +25,5 @@ public class TestSetup {
     public static WebDriverWait setupWebDriverWait(WebDriver driver){
         return new WebDriverWait(driver,Duration.ofSeconds(GlobalConfig.EXPLICITWAIT));
     }
+
 }

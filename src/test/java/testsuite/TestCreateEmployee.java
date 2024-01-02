@@ -11,7 +11,9 @@ import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
 import org.opensourcedemo.pagesobjects.pimpages.EmployeeDetailsPage;
 import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -28,6 +30,12 @@ public class TestCreateEmployee extends BaseTest {
         Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(path);
         initializePorpertiesSuite(prop);
     }
+    /*@Parameters({"data"})
+    @BeforeClass
+    public void setupData(String pathData){
+        Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(pathData);
+        initializePorpertiesSuite(prop);
+    }*/
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
@@ -39,7 +47,7 @@ public class TestCreateEmployee extends BaseTest {
         data[0][1] = employees[1];
         return data;
     }
-    @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee", groups = {"group default"}
+    @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee", groups = {"PIM_DOMAINE","group default"}
     ,description = "Test de création d'un employee et iformation de base")
     public void testCreationEmployeePIM(Employee employees1, Employee employe2 ){
         //Arrange
@@ -59,7 +67,7 @@ public class TestCreateEmployee extends BaseTest {
                                 .getTitle();
         Assert.assertEquals(titlegetted,title);
     }
-    @Test(groups ={"adminUser"},testName = "Creation ustilisateur Admin",dataProvider = "dataCreateEmployee"
+    @Test(groups ={"PIM_DOMAINE","adminUser"},testName = "Creation ustilisateur Admin",dataProvider = "dataCreateEmployee"
             ,dependsOnGroups = "group default",description = "Test création d'un utilisateur de role Admin pour l'employé créé précédemment")
     public void testCreationUserAdmin(Employee employees1, Employee employe2){
         //Arrange
@@ -88,50 +96,6 @@ public class TestCreateEmployee extends BaseTest {
         Assert.assertEquals(namelogin,employe2.getNameWithoutMiddlename());
     }
 
-    @DataProvider(name = "dataRemplirFormulaire")
-    public Employee[][] dataProviderMethodFillForm(){
-        log.info("Load Dayaprovider For Login");
-        if (employees==null){
-            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
-        }
-        Employee[][] data = new Employee[1][2];
-        data[0][0] = employees[1];
-        data[0][1] = employees[2];
-        return data;
-    }
-
-    @Test(testName = "Remplir formulaire ", dataProvider = "dataRemplirFormulaire",dependsOnGroups = {"adminUser"},
-            groups = "PIM Doamine",description = "Remplir le formulaire et vérifier que les données sont bien sauvegardées")
-    public void remplirFormulaire(Employee employe1, Employee employe2){
-        //Arrange
-
-        // Act
-        EmployeeDetailsPage pimListPage = new LoginPage()
-                .inputUserName(employe1.getUser().getUsername())
-                .inputPwd(employe1.getUser().getPassword())
-                .clickButtonLogin()
-                .clickPimPage()
-                .clickAddButton()
-                .typeFirstName(employe2.getFirstname())
-                .typeMiddletName(employe2.getMiddlename())
-                .typeLastName(employe2.getLastname())
-                .clickSaveButton()
-                .typeBirthDate(employe2.getBirthdate())
-                .clickGender(employe2.getGender())
-                .clickSaveButton()
-                .clicktBloodListInput()
-                .clickRancdomBloodtypeOption()
-                .clickSaveButtonWithBloodType()
-                .refreshPage();
-        //Assert
-        Assert.assertEquals(pimListPage.getBirtdaydate(),employe2.getBirthdate());
-        if (employe2.getGender().equals("M")){
-            Assert.assertTrue (pimListPage.isRadioButtonMaleSelected());
-        }else {
-            Assert.assertTrue (pimListPage.isRadioButtonFemalealeSelected());
-        }
-        Assert.assertNotNull(pimListPage.getBloodTypeValue());
-    }
     @DataProvider(name = "dataFeuilledeTemps")
     public Object[][] dataProviderMethodFeuillDetemps(){
         log.info("Load Dayaprovider For Login");
@@ -151,7 +115,7 @@ public class TestCreateEmployee extends BaseTest {
         }
         return data;
     }
-    @Test(testName = "Feuille temps projet",dataProvider = "dataFeuilledeTemps",dependsOnGroups = {"adminUser"}, groups = "timegroup"
+    @Test(testName = "Feuille temps projet",dataProvider = "dataFeuilledeTemps",dependsOnGroups = {"adminUser"}, groups = {"TIME","timegroup"}
     ,description = "Vérification des temps répartie avec le total")
     public void testFeuilledetemps(Employee employe,ProjectDescription projectdata ){
         //Arrange
@@ -186,7 +150,7 @@ public class TestCreateEmployee extends BaseTest {
         return data;
     }
     @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",dependsOnGroups = {"adminUser"},
-            groups = "MyInfogroup",description = "Upload de documentet vérification si le document est bien suavegardé")
+            groups = {"MY_INFO"},description = "Upload de documentet vérification si le document est bien suavegardé")
     public void testFileUpload(Employee employe,String fileUpload,String fileName){
         //Arrange
 
@@ -210,4 +174,48 @@ public class TestCreateEmployee extends BaseTest {
         Assert.assertEquals(myinfopage.getFileDateUploaded(index),java.time.LocalDate.now().toString());
     }
 
+    @DataProvider(name = "dataRemplirFormulaire")
+    public Employee[][] dataProviderMethodFillForm(){
+        log.info("Load Dayaprovider For Login");
+        if (employees==null){
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+        }
+        Employee[][] data = new Employee[1][2];
+        data[0][0] = employees[1];
+        data[0][1] = employees[2];
+        return data;
+    }
+
+    @Test(testName = "Remplir formulaire ", dataProvider = "dataRemplirFormulaire",dependsOnGroups = {"adminUser"},
+            groups = {"PIM_DOMAINE"},description = "Remplir le formulaire et vérifier que les données sont bien sauvegardées")
+    public void remplirFormulaire(Employee employe1, Employee employe2){
+        //Arrange
+
+        // Act
+        EmployeeDetailsPage pimListPage = new LoginPage()
+                .inputUserName(employe1.getUser().getUsername())
+                .inputPwd(employe1.getUser().getPassword())
+                .clickButtonLogin()
+                .clickPimPage()
+                .clickAddButton()
+                .typeFirstName(employe2.getFirstname())
+                .typeMiddletName(employe2.getMiddlename())
+                .typeLastName(employe2.getLastname())
+                .clickSaveButton()
+                .typeBirthDate(employe2.getBirthdate())
+                .clickGender(employe2.getGender())
+                .clickSaveButton()
+                .clicktBloodListInput()
+                .clickRancdomBloodtypeOption()
+                .clickSaveButtonWithBloodType()
+                .refreshPage();
+        //Assert
+        Assert.assertEquals(pimListPage.getBirtdaydate(),employe2.getBirthdate());
+        if (employe2.getGender().equals("M")){
+            Assert.assertTrue (pimListPage.isRadioButtonMaleSelected());
+        }else {
+            Assert.assertTrue (pimListPage.isRadioButtonFemalealeSelected());
+        }
+        Assert.assertNotNull(pimListPage.getBloodTypeValue());
+    }
 }
