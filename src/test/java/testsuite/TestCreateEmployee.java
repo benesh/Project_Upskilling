@@ -1,6 +1,5 @@
 package testsuite;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import BaseTest.BaseTest;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
@@ -11,13 +10,8 @@ import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
 import org.opensourcedemo.pagesobjects.pimpages.EmployeeDetailsPage;
 import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Properties;
 
 @Log4j2
@@ -26,21 +20,21 @@ public class TestCreateEmployee extends BaseTest {
     public TestCreateEmployee(){
         super();
         log.info("Initailize TestCreateEmploye");
-        String path = "src/main/resources/entry_data/scenario1/data.properties";
+        /*String path = "src/main/resources/entry_data/scenario1/data.properties";
         Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(path);
-        initializePorpertiesSuite(prop);
+        setPorpertiesSuite(prop);*/
     }
-    /*@Parameters({"data"})
-    @BeforeClass
+    @Parameters({"data"})
+    @BeforeSuite
     public void setupData(String pathData){
         Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(pathData);
-        initializePorpertiesSuite(prop);
-    }*/
+        setPorpertiesSuite(prop);
+    }
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
         if (employees==null){
-            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(getPropertiesSuite().getProperty("pathuserdata"));
         }
         Employee[][] data = new Employee[1][2];
         data[0][0] = employees[0];
@@ -100,12 +94,12 @@ public class TestCreateEmployee extends BaseTest {
     public Object[][] dataProviderMethodFeuillDetemps(){
         log.info("Load Dayaprovider For Login");
         if (employees==null){
-            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(getPropertiesSuite().getProperty("pathuserdata"));
         }
         ProjectDescription[] projetdata;
         Object[][] data ;
         projetdata = ReaderPropertiesJsonFile
-                .readJsonDataDescriptionProject(propertiesSuite.getProperty("pathdataproject"));
+                .readJsonDataDescriptionProject(getPropertiesSuite().getProperty("pathdataproject"));
         data = new Object[projetdata.length][2];
         int index = 0;
         for( ProjectDescription projet : projetdata){
@@ -139,13 +133,13 @@ public class TestCreateEmployee extends BaseTest {
     public Object[][] dataProviderMethodFileUpload(){
         log.info("Load Dayaprovider For Login");
         if (employees==null){
-            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(getPropertiesSuite().getProperty("pathuserdata"));
         }
         Object[][] data = new Object[1][3];
         data[0][0] = employees[0];
-        data[0][1] = propertiesSuite.getProperty("pathfiletoupload");
-        data[0][2] = propertiesSuite.getProperty("pathfiletoupload")
-                .substring(propertiesSuite.getProperty("pathfiletoupload").lastIndexOf("/") +1
+        data[0][1] = getPropertiesSuite().getProperty("pathfiletoupload");
+        data[0][2] = getPropertiesSuite().getProperty("pathfiletoupload")
+                .substring(getPropertiesSuite().getProperty("pathfiletoupload").lastIndexOf("/") +1
                 );
         return data;
     }
@@ -178,7 +172,7 @@ public class TestCreateEmployee extends BaseTest {
     public Employee[][] dataProviderMethodFillForm(){
         log.info("Load Dayaprovider For Login");
         if (employees==null){
-            employees = ReaderPropertiesJsonFile.readJsonEmployee(propertiesSuite.getProperty("pathuserdata"));
+            employees = ReaderPropertiesJsonFile.readJsonEmployee(getPropertiesSuite().getProperty("pathuserdata"));
         }
         Employee[][] data = new Employee[1][2];
         data[0][0] = employees[1];

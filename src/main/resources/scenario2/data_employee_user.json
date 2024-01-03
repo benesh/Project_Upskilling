@@ -9,18 +9,20 @@
     }
   },
   {
-  "firstname" : "AmadghouSaP",
-    "middlename" : "boopone",
-    "lastname" : "Mall45oBa",
+    "browser": "FIREFOX",
+    "firstname" : "Saliou",
+    "middlename" : "Ben",
+    "lastname" : "Mall",
     "user": {
-      "username": "Am4md4Sola12",
+      "username": "Saliou1233",
       "password": "Adlkh1295678"
     }
   },
   {
-    "firstname" : "AmapoudouPol123",
-    "middlename" : "Lizard",
-    "lastname" : "Pogffmlo",
+    "browser": "FIREFOX",
+    "firstname" : "Sogou",
+    "middlename" : "Ba",
+    "lastname" : "Bop",
     "gender": "F",
     "birthdate" : "2004-11-01",
     "user": {

@@ -1,0 +1,77 @@
+[
+  {
+    "firstname" : "Default Admin",
+    "lastname" : "Admin",
+    "user":
+    {
+      "username": "Admin",
+      "password": "admin123"
+    }
+  },
+  {
+    "browser": "FIREFOX",
+    "firstname" : "Amadou",
+    "middlename" : "boop",
+    "lastname" : "Sall",
+    "user": {
+      "username": "Amadou1234",
+      "password": "Adlkh1295678"
+    }
+  },
+  {
+    "browser": "FIREFOX",
+    "firstname" : "Pap",
+    "middlename" : "Lizard",
+    "lastname" : "Pol",
+    "gender": "F",
+    "birthdate" : "2004-11-01",
+    "user": {
+      "username": "ben1325",
+      "password": "Moma123456"
+    }
+  },
+  {
+    "browser": "CHROME",
+    "firstname" : "Saliou",
+    "middlename" : "Ben",
+    "lastname" : "Mall",
+    "user": {
+      "username": "Saliou1233",
+      "password": "Adlkh1295678"
+    }
+  },
+  {
+    "browser": "CHROME",
+    "firstname" : "Sogou",
+    "middlename" : "Ba",
+    "lastname" : "Bop",
+    "gender": "F",
+    "birthdate" : "2004-11-01",
+    "user": {
+      "username": "ben1325",
+      "password": "Moma123456"
+    }
+  },
+  {
+    "browser": "EDGE",
+    "firstname" : "Galou",
+    "middlename" : "Polla",
+    "lastname" : "Diallo",
+    "user": {
+      "username": "Galou123",
+      "password": "Adlkh1295678"
+    }
+  },
+  {
+    "browser": "EDGE",
+    "firstname" : "Scenario2",
+    "middlename" : "Scena",
+    "lastname" : "Test",
+    "gender": "F",
+    "birthdate" : "2004-11-01",
+    "user": {
+      "username": "ben1325",
+      "password": "Moma123456"
+    }
+  }
+]

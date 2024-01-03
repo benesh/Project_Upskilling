@@ -1,7 +1,6 @@
 package testsuite;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import listeners.ReportListerner;
 import lombok.extern.log4j.Log4j2;
 import BaseTest.BaseTest;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
@@ -20,19 +19,20 @@ public class TestSecondreport extends BaseTest {
     Employee[] employees;
     public TestSecondreport(){
         super();
-        log.info("Initailize TestSecondreport");
-        String path = "src/main/resources/scenario_2/data.properties";
+       log.info("Initailize TestSecondreport");
+        /*String pathData="" ;
+        pathData="src/main/resources/scenario_2/data.properties";
         Properties prop;
-        prop = ReaderPropertiesJsonFile.readPropertiesFromFile(path);
-        initializePorpertiesSuite(prop);
+        prop = ReaderPropertiesJsonFile.readPropertiesFromFile(pathData);
+        setPorpertiesSuite(prop);*/
     }
-    /*@Parameters({"data"})
+
+    @Parameters({"data"})
     @BeforeSuite
     public void setupData(String pathData){
         Properties prop = ReaderPropertiesJsonFile.readPropertiesFromFile(pathData);
-        initializePorpertiesSuite(prop);
-    }*/
-
+        setPorpertiesSuite(prop);
+    }
     @DataProvider(name = "dataCreateEmployee")
     public Employee[][] dataproviderMethod(){
         log.info("Load Dayaprovider For Login");
@@ -40,7 +40,7 @@ public class TestSecondreport extends BaseTest {
             ObjectMapper mapper = new ObjectMapper();
             try {
                 employees = mapper.readValue(
-                        Paths.get(propertiesSuite.getProperty("pathuserdata")).toFile()
+                        Paths.get(getPropertiesSuite().getProperty("pathuserdata")).toFile()
                         ,Employee[].class
                 );
             } catch (IOException e) {

@@ -7,6 +7,8 @@ import lombok.Getter;
 import java.util.Date;
 public class Employee {
     @Getter
+    private String browser =null;
+    @Getter
     private String firstname;
     @Getter
     private String middlename = null;

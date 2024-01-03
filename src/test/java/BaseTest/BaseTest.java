@@ -21,14 +21,19 @@ import java.util.Properties;
 @Log4j2
 public class BaseTest extends BasePage {
     public static ConfigProperties configproperties;
-    public Properties propertiesSuite ;
+    public ThreadLocal<Properties> propertiesSuite = new ThreadLocal<>();
     public BaseTest(){
         log.info("initialize BaseTest Class ");
     }
-    protected void initializePorpertiesSuite(Properties prop ){
+    protected void setPorpertiesSuite(Properties prop ){
         log.info("Initialize Config Suite");
-         propertiesSuite = prop;
+         propertiesSuite.set(prop);
     }
+
+    public Properties getPropertiesSuite(){
+        return propertiesSuite.get();
+    }
+
     @Parameters({"config"})
     @BeforeSuite
     public void setupConfig(String pathConfig){
@@ -39,7 +44,7 @@ public class BaseTest extends BasePage {
     public void setup(String paramBrowser){
         log.info("Setup before Method");
         driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (WebDriverType.valueOf(paramBrowser),configproperties.getHeadless())));
-        getDriver().get(propertiesSuite.getProperty("URL"));
+        getDriver().get(getPropertiesSuite().getProperty("URL"));
         wait.set(TestSetup.setupWebDriverWait(getDriver()));
     }
     @AfterMethod
