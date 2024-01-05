@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.opensourcedemo.core.webdriver_manager.WebDriverType;
 
 import java.util.List;
 
@@ -14,7 +15,6 @@ public class BasePage {
     protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     protected static final ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
     By loaderFomBy = By.cssSelector("div.oxd-form-loader");
-
     public BasePage(){
         log.info("initialize Page Parent ");
     }

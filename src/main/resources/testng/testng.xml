@@ -7,28 +7,65 @@
         <listener class-name="app.getxray.xray.testng.listeners.XrayJsonReporter" />
     </listeners>
     <parameter name="config" value="src/main/resources/config/config.properties"/>
-    <parameter name="data1" value="src/main/resources/scenario1/data.properties"/>
-    <test name="TestCreateEmployee">
+
+    <test name="TestWithFirefox">
+        <groups>
+            <dependencies>
+                <group depends-on= "createemp" name= "adminUser"></group>
+                <group depends-on= "adminUser" name= "feuilletemp"></group>
+                <group depends-on= "adminUser" name= "form"></group>
+                <group depends-on= "adminUser" name= "uppload"></group>
+            </dependencies>
+        </groups>
+
         <parameter name="browser" value="FIREFOX"/>
+        <parameter name="datainput" value="src/main/resources/scenario1/data.properties"/>
         <classes>
-<!--            <class name="testsuite.TestCreateEmployee"/>-->
-            <class name="testsuite.TestSecondreport"/>
+            <class name="testsuite.TestCreateEmployee"/>
+            <class name="testsuite.TestCreateAdmin"></class>
+            <class name="testsuite.TestFeuilleDeTemp"></class>
+            <class name="testsuite.TestRemplirFormulaire"></class>
+            <class name="testsuite.TestUploadFichier"></class>
         </classes>
     </test>
-    <parameter name="data2" value="src/main/resources/scenario2/data.properties"/>
-    <test name="TestCreateEmployee2">
+    <test name="TestWithChrome">
+        <groups>
+            <dependencies>
+                <group depends-on= "createemp" name= "adminUser"></group>
+                <group depends-on= "adminUser" name= "feuilletemp"></group>
+                <group depends-on= "adminUser" name= "form"></group>
+                <group depends-on= "adminUser" name= "uppload"></group>
+            </dependencies>
+        </groups>
+
         <parameter name="browser" value="CHROME"/>
+        <parameter name="datainput" value="src/main/resources/scenario1/data.properties"/>
         <classes>
-<!--            <class name="testsuite.TestCreateEmployee"/>-->
-            <class name="testsuite.TestSecondreport"/>
+            <class name="testsuite.TestCreateEmployee"/>
+            <class name="testsuite.TestCreateAdmin"></class>
+            <class name="testsuite.TestFeuilleDeTemp"></class>
+            <class name="testsuite.TestRemplirFormulaire"></class>
+            <class name="testsuite.TestUploadFichier"></class>
         </classes>
     </test>
-    <test name="TestCreateEmployee3">
-        <parameter name="data" value="src/main/resources/scenario3/data.properties"/>
+    <test name="TestWithEDGE">
+        <groups>
+            <dependencies>
+                <group depends-on= "createemp" name= "adminUser"></group>
+                <group depends-on= "adminUser" name= "feuilletemp"></group>
+                <group depends-on= "adminUser" name= "form"></group>
+                <group depends-on= "adminUser" name= "uppload"></group>
+            </dependencies>
+        </groups>
+
         <parameter name="browser" value="EDGE"/>
+        <parameter name="datainput" value="src/main/resources/scenario1/data.properties"/>
         <classes>
-<!--            <class name="testsuite.TestCreateEmployee"/>-->
-            <class name="testsuite.TestSecondreport"/>
+            <class name="testsuite.TestCreateEmployee"/>
+            <class name="testsuite.TestCreateAdmin"></class>
+            <class name="testsuite.TestFeuilleDeTemp"></class>
+            <class name="testsuite.TestRemplirFormulaire"></class>
+            <class name="testsuite.TestUploadFichier"></class>
         </classes>
     </test>
 </suite>

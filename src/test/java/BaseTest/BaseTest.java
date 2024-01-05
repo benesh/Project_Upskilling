@@ -21,29 +21,41 @@ import java.util.Properties;
 @Log4j2
 public class BaseTest extends BasePage {
     public static ConfigProperties configproperties;
-    public ThreadLocal<Properties> propertiesSuite = new ThreadLocal<>();
+//    public ThreadLocal<Properties> propertiesSuite = new ThreadLocal<>();
+    protected String webDriverType;
+    Properties propertiesSuite;
+
     public BaseTest(){
         log.info("initialize BaseTest Class ");
     }
-    protected void setPorpertiesSuite(Properties prop ){
+    protected synchronized void setPorpertiesSuite(Properties prop ){
         log.info("Initialize Config Suite");
-         propertiesSuite.set(prop);
+//         propertiesSuite.set(prop);
+        propertiesSuite=prop;
+    }
+    public WebDriverType getWebDriverType(){
+        return WebDriverType.valueOf(webDriverType);
     }
 
     public Properties getPropertiesSuite(){
-        return propertiesSuite.get();
+        log.info("Get Properties Suite");
+//        return propertiesSuite.get();
+        return propertiesSuite;
     }
-
     @Parameters({"config"})
     @BeforeSuite
     public void setupConfig(String pathConfig){
         configproperties = new ConfigProperties(ReaderPropertiesJsonFile.readPropertiesFromFile(pathConfig));
     }
-    @Parameters({"browser"})
     @BeforeMethod
-    public void setup(String paramBrowser){
+    public void setup(){
         log.info("Setup before Method");
-        driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (WebDriverType.valueOf(paramBrowser),configproperties.getHeadless())));
+        if(webDriverType!= null){
+            driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (WebDriverType.valueOf(webDriverType) ,configproperties.getHeadless())));
+
+        }else {
+            driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (configproperties.getBrowser(),configproperties.getHeadless())));
+        }
         getDriver().get(getPropertiesSuite().getProperty("URL"));
         wait.set(TestSetup.setupWebDriverWait(getDriver()));
     }
