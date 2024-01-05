@@ -1,6 +1,5 @@
 package testsuite;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import BaseTest.BaseTest;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
@@ -10,9 +9,6 @@ import org.opensourcedemo.pagesobjects.DashbordPage;
 import org.opensourcedemo.pagesobjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Properties;
 
 @Log4j2

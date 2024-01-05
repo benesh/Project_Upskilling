@@ -1,7 +1,6 @@
 package testsuite;
 
 import BaseTest.BaseTest;
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;

@@ -4,12 +4,8 @@ import lombok.extern.log4j.Log4j2;
 import BaseTest.BaseTest;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
-import org.opensourcedemo.core.properties_manager.data_manager.ProjectDescription;
 import org.opensourcedemo.core.webdriver_manager.WebDriverType;
 import org.opensourcedemo.pagesobjects.LoginPage;
-import org.opensourcedemo.pagesobjects.myinfopage.MyInfoPage;
-import org.opensourcedemo.pagesobjects.pimpages.EmployeeDetailsPage;
-import org.opensourcedemo.pagesobjects.time.ProjectReportSearch;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
