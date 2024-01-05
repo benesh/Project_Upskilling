@@ -22,9 +22,9 @@
         <classes>
             <class name="testsuite.TestCreateEmployee"/>
             <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"></class>
-            <class name="testsuite.TestRemplirFormulaire"></class>
-            <class name="testsuite.TestUploadFichier"></class>
+            <class name="testsuite.TestFeuilleDeTemp"/>
+            <class name="testsuite.TestRemplirFormulaire"/>
+            <class name="testsuite.TestUploadFichier"/>
         </classes>
     </test>
     <test name="TestWithChrome">
@@ -40,10 +40,10 @@
         </groups>
         <classes>
             <class name="testsuite.TestCreateEmployee"/>
-            <class name="testsuite.TestCreateAdmin"></class>
-            <class name="testsuite.TestFeuilleDeTemp"></class>
-            <class name="testsuite.TestRemplirFormulaire"></class>
-            <class name="testsuite.TestUploadFichier"></class>
+            <class name="testsuite.TestCreateAdmin"/>
+            <class name="testsuite.TestFeuilleDeTemp"/>
+            <class name="testsuite.TestRemplirFormulaire"/>
+            <class name="testsuite.TestUploadFichier"/>
         </classes>
     </test>
     <test name="TestWithEDGE">
@@ -59,10 +59,10 @@
         </groups>
         <classes>
             <class name="testsuite.TestCreateEmployee"/>
-            <class name="testsuite.TestCreateAdmin"></class>
+            <class name="testsuite.TestCreateAdmin"/>
             <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"></class>
-            <class name="testsuite.TestUploadFichier"></class>
+            <class name="testsuite.TestRemplirFormulaire"/>
+            <class name="testsuite.TestUploadFichier"/>
         </classes>
     </test>
 </suite>
