@@ -56,6 +56,7 @@ public class TestCreateEmployee extends BaseTest {
                 .typeMiddletName(employe2.getMiddlename())
                 .typeLastName(employe2.getLastname())
                 .clickSaveButton()
+                .handlerSuccessAlert()
                         .clickSaveButton()
                                 .getTitle();
         Assert.assertEquals(titlegetted,title);

@@ -61,6 +61,7 @@ public class TestCreateAdmin extends BaseTest {
                 .inputPassword(adminUserToCreate.getUser().getPassword())
                 .inputPassworConfirmation(adminUserToCreate.getUser().getPassword())
                 .buttonSaveAdmin()
+                .handlerSuccessAlert()              //Vérifie la creation de user admin
                 .clickToProfil()
                 .logOutbutton()
                 .inputUserName(adminUserToCreate.getUser().getUsername())

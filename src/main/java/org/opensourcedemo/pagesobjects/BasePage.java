@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,16 +14,32 @@ import java.util.List;
 public class BasePage {
     protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     protected static final ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
-    By loaderFomBy = By.cssSelector("div.oxd-form-loader");
+    By loaderFomBySelector = By.cssSelector("div.oxd-form-loader");
     public BasePage(){
         log.info("initialize Page Parent ");
     }
     public static WebDriver getDriver(){
         return driver.get();
     }
+    public void setDriver(WebDriver paramDriver){
+        log.info("Set driver Thread");
+        driver.set(paramDriver);
+    }
+    public void setWait(WebDriverWait param_wait){
+        log.info("initiate wait");
+        wait.set(param_wait);
+    }
+    public void removeWait(){
+        log.info("remove wait");
+        wait.remove();
+    }
+    public void removeThreadDriver(){
+        driver.remove();
+    }
     public static WebDriverWait getWait(){
         return wait.get();
     }
+
 
     public void clickwithWait(WebElement element){
         log.info("click in element");
@@ -56,7 +73,7 @@ public class BasePage {
     }
     public void invisibilityLoader(){
         log.info("Invisibility of loader");
-        getWait().until(ExpectedConditions.invisibilityOfElementLocated(loaderFomBy));
+        getWait().until(ExpectedConditions.invisibilityOfElementLocated(loaderFomBySelector));
     }
     public void refreshBasePage(){
         log.info("Refresh Page");

@@ -12,13 +12,13 @@ import org.opensourcedemo.pagesobjects.time.TimePage;
 @Log4j2
 public class DashbordPage extends BasePage {
     @FindBy(css="a[href*='viewPimModule']")
-    WebElement pimElement;
+    WebElement pimPage;
     @FindBy(css = "a[href*='viewAdminModule']")
-    WebElement adminPageElement;
+    WebElement adminPage;
     @FindBy(css = ".oxd-userdropdown-name")
     WebElement profilNameComplet;
     @FindBy(css = "a[href*='viewTimeModule']")
-    WebElement timePageElemennt;
+    WebElement timePage;
     @FindBy(css = "a[href*='viewMyDetails']")
     WebElement myInfoPage;
     public DashbordPage(){
@@ -27,15 +27,15 @@ public class DashbordPage extends BasePage {
     }
     public PimPage clickPimPage(){
         log.info("Click sur la page PIM");
-        lamdaWaitIsDisplayed(pimElement);
-        clickElement(pimElement);
+        lamdaWaitIsDisplayed(pimPage);
+        clickElement(pimPage);
 
         return new PimPage();
     }
     public AdminPage clickAdminPage(){
         log.info("Click Admin Page");
-        lamdaWaitIsDisplayed(adminPageElement);
-        clickElement(adminPageElement);
+        lamdaWaitIsDisplayed(adminPage);
+        clickElement(adminPage);
         return new AdminPage();
     }
     public String getTittle(){
@@ -48,8 +48,8 @@ public class DashbordPage extends BasePage {
     }
     public TimePage clickTimePage(){
         log.info("Click Time Page");
-        lamdaWaitIsDisplayed(timePageElemennt);
-        clickElement(timePageElemennt);
+        lamdaWaitIsDisplayed(timePage);
+        clickElement(timePage);
         return new TimePage();
     }
     public MyInfoPage clickMyInfoPage(){

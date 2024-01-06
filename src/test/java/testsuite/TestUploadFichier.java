@@ -62,8 +62,7 @@ public class TestUploadFichier extends BaseTest {
                 .clickAddAttachement()
                 .updaloadFile(fileUpload)
                 .clickSaveButtonForFileUploaded()
-                .handlerSuccessAlert()
-                ;
+                .handlerSuccessAlert();
         int index = myinfopage.verifyIfIsUploaded(fileName);
 
         //Assert

@@ -28,7 +28,9 @@ public class FormAddAdminUser extends BasePage {
     @FindBy(css = ".oxd-select-option>span")
     List<WebElement> listRoleElement;
     @FindBy(css = ".oxd-autocomplete-option>span")
-    List<WebElement> listName;
+    List<WebElement> listNameElements;
+    @FindBy(css = "div.oxd-toast-icon-wrap--success")
+    WebElement iconAlertSucsess;
     public FormAddAdminUser(){
         PageFactory.initElements(getDriver(),this);
         log.info("Initialize formuler admin page");
@@ -53,8 +55,8 @@ public class FormAddAdminUser extends BasePage {
         waitOfVisibilityOf(inputemployeenameelement);
         String firstname = paramemployeename.substring(0,paramemployeename.indexOf(" "));
         inputemployeenameelement.sendKeys(firstname);
-        waitOfVisibilityOfListElement(listName);
-        WebElement optiontoselectelement = listName.stream().filter(x -> x.getText().equals(paramemployeename)).findAny().get();
+        waitOfVisibilityOfListElement(listNameElements);
+        WebElement optiontoselectelement = listNameElements.stream().filter(x -> x.getText().equals(paramemployeename)).findAny().get();
         clickElement(optiontoselectelement);
         return this;
     }
@@ -76,10 +78,16 @@ public class FormAddAdminUser extends BasePage {
         log.info("Input Password Confirmation");
         return this;
     }
-    public AdminPage buttonSaveAdmin(){
+    public FormAddAdminUser buttonSaveAdmin(){
         log.info("Submit Admin");
         waitOfVisibilityOf(buttonSaveElement);
         clickElement(buttonSaveElement);
+        return this;
+    }
+    public AdminPage handlerSuccessAlert(){
+        log.info("Verification de l'alerte succès");
+        waitOfVisibilityOf(iconAlertSucsess);
+        log.info("Success of uploading");
         return new AdminPage();
     }
 }

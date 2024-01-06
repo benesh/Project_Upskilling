@@ -51,20 +51,20 @@ public class BaseTest extends BasePage {
     public void setup(){
         log.info("Setup before Method");
         if(webDriverType!= null){
-            driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (WebDriverType.valueOf(webDriverType) ,configproperties.getHeadless())));
+            setDriver(ThreadGuard.protect(TestSetup.setupWebDriver (WebDriverType.valueOf(webDriverType) ,configproperties.getHeadless())));
 
         }else {
-            driver.set(ThreadGuard.protect(TestSetup.setupWebDriver (configproperties.getBrowser(),configproperties.getHeadless())));
+            setDriver(ThreadGuard.protect(TestSetup.setupWebDriver (configproperties.getBrowser(),configproperties.getHeadless())));
         }
         getDriver().get(getPropertiesSuite().getProperty("URL"));
-        wait.set(TestSetup.setupWebDriverWait(getDriver()));
+        setWait(TestSetup.setupWebDriverWait(getDriver()));
     }
     @AfterMethod
     public void quittingDriver(){
         log.info("Quitting Driver");
         getDriver().quit();
-        driver.remove();
-        wait.remove();
+        removeThreadDriver();
+        removeWait();
     }
     public static String takeScreenShot(String testName) {
         String pathreport = GlobalConfig.PATHREPORT + GlobalConfig.PATHSCREENCHSOT;

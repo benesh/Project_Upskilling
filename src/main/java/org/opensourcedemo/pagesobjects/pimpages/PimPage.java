@@ -21,4 +21,5 @@ public class PimPage extends BasePage {
         log.info("Click on Add Button");
         return new AddEmployeePage();
     }
+
 }

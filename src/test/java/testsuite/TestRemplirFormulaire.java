@@ -61,6 +61,7 @@ public class TestRemplirFormulaire extends BaseTest {
                 .typeMiddletName(employe2.getMiddlename())
                 .typeLastName(employe2.getLastname())
                 .clickSaveButton()
+                .handlerSuccessAlert()
                 .typeBirthDate(employe2.getBirthdate())
                 .clickGender(employe2.getGender())
                 .clickSaveButton()

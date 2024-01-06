@@ -31,6 +31,8 @@ public class AddEmployeePage extends BasePage {
     WebElement inputpasswordconfirmationt;
     @FindBy(css="button[type=\"submit\"]")
     WebElement bontouLogin;
+    @FindBy(css = "div.oxd-toast-icon-wrap--success")
+    WebElement iconAlertSucsess;
 
     public AddEmployeePage(){
         PageFactory.initElements(getDriver(),this);
@@ -55,6 +57,12 @@ public class AddEmployeePage extends BasePage {
             log.info("middlename Null");
             return this;
         }
+    }
+    public EmployeeDetailsPage handlerSuccessAlert(){
+        log.info("Verification de l'alerte succès");
+        waitOfVisibilityOf(iconAlertSucsess);
+        log.info("Success of uploading");
+        return new EmployeeDetailsPage();
     }
     public AddEmployeePage clickswitchCreateLoginDetails(){
         log.info("Click switch button");
@@ -82,11 +90,11 @@ public class AddEmployeePage extends BasePage {
         clickElement(radiobuttonenable);
         return this;
     }
-    public EmployeeDetailsPage clickSaveButton(){
+    public AddEmployeePage clickSaveButton(){
         log.info("Save Employee Info primary");
         invisibilityLoader();
         lamdaWaitIsDisplayed(buttonsavevalidation);
         clickElement(buttonsavevalidation);
-        return new EmployeeDetailsPage();
+        return this;
     }
 }
