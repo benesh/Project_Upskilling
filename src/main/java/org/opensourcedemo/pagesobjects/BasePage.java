@@ -16,7 +16,7 @@ public class BasePage {
     protected static final ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
     By loaderFomBySelector = By.cssSelector("div.oxd-form-loader");
     public BasePage(){
-        log.info("initialize Page Parent ");
+        log.info("initialize Page Parent");
     }
     public static WebDriver getDriver(){
         return driver.get();

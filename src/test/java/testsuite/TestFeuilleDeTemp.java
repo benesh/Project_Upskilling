@@ -1,6 +1,8 @@
 package testsuite;
 
 import BaseTest.BaseTest;
+import app.getxray.xray.testng.annotations.Requirement;
+import app.getxray.xray.testng.annotations.XrayTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
@@ -56,6 +58,8 @@ public class TestFeuilleDeTemp extends BaseTest {
 
     @Test(testName = "Feuille temps projet",dataProvider = "dataFeuilledeTemps", groups = {"TIME","feuilletemp"}
             ,description = "Vérification des temps répartie avec le total")
+    @XrayTest(key="TestHMR-107" ,summary = "Test Feuille de temps",description = "Verifier que le total des temps correspond",labels = "Core Time")
+    @Requirement(key = "PRO-111")
     public void testFeuilledetemps(Employee adminUser, ProjectDescription projectdata ){
         //Arrange
 

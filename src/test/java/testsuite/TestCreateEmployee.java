@@ -1,5 +1,7 @@
 package testsuite;
 
+import app.getxray.xray.testng.annotations.Requirement;
+import app.getxray.xray.testng.annotations.XrayTest;
 import lombok.extern.log4j.Log4j2;
 import BaseTest.BaseTest;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
@@ -42,6 +44,8 @@ public class TestCreateEmployee extends BaseTest {
     }
     @Test(testName = "Create Employee PIM",dataProvider = "dataCreateEmployee", groups = {"PIM_DOMAINE","createemp"}
     ,description = "Test de création d'un employee et iformation de base")
+    @XrayTest(key="TestHMR-102" ,summary = "Creation d_un compte Admin",description = "Creation d_un compte admin et se connecter avec",labels = "Core Admin")
+    @Requirement(key = "PRO-102")
     public void testCreationEmployeePIM(Employee employees1, Employee employe2 ){
         //Arrange
         String title="PIM";

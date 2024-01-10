@@ -1,6 +1,8 @@
 package testsuite;
 
 import BaseTest.BaseTest;
+import app.getxray.xray.testng.annotations.Requirement;
+import app.getxray.xray.testng.annotations.XrayTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
@@ -50,6 +52,8 @@ public class TestUploadFichier extends BaseTest {
     }
     @Test(testName = "Upload de document",dataProvider = "dataproviderUploadFichier",
             groups = {"MY_INFO","uppload"},description = "Upload de documentet vérification si le document est bien suavegardé")
+    @XrayTest(key="TestHMR-109" ,summary = "Upload fichier",description = "Upload fichier et verifier sa présence sur la page",labels = "Core Info")
+    @Requirement(key = "PRO-113")
     public void testFileUpload(Employee employe,String fileUpload,String fileName){
         //Arrange
 

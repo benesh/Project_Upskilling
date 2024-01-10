@@ -1,6 +1,8 @@
 package testsuite;
 
 import BaseTest.BaseTest;
+import app.getxray.xray.testng.annotations.Requirement;
+import app.getxray.xray.testng.annotations.XrayTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
@@ -47,8 +49,9 @@ public class TestRemplirFormulaire extends BaseTest {
     }
     @Test(testName = "Remplir formulaire ", dataProvider = "dataRemplirFormulaire",
             groups = {"form"},description = "Remplir le formulaire et vérifier que les données sont bien sauvegardées")
+    @XrayTest(key="TestHMR-100" ,summary = "remplir le fomrulaire",description = "Rempli le formulaire et verifier que les valeurs sont bien enregistrer",labels = "Core Info")
+    @Requirement(key = "PRO-105")
     public void remplirFormulaire(Employee employe1, Employee employe2){
-        //Arrange
 
         // Act
         EmployeeDetailsPage pimListPage = new LoginPage()
@@ -69,6 +72,7 @@ public class TestRemplirFormulaire extends BaseTest {
                 .clickRancdomBloodtypeOption()
                 .clickSaveButtonWithBloodType()
                 .refreshPage();
+
         //Assert
         Assert.assertEquals(pimListPage.getBirtdaydate(),employe2.getBirthdate());
         if (employe2.getGender().equals("M")){

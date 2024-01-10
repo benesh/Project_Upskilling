@@ -1,6 +1,8 @@
 package testsuite;
 
 import BaseTest.BaseTest;
+import app.getxray.xray.testng.annotations.Requirement;
+import app.getxray.xray.testng.annotations.XrayTest;
 import lombok.extern.log4j.Log4j2;
 import org.opensourcedemo.core.properties_manager.ReaderPropertiesJsonFile;
 import org.opensourcedemo.core.properties_manager.data_manager.Employee;
@@ -44,6 +46,8 @@ public class TestCreateAdmin extends BaseTest {
     }
     @Test(groups ={"PIM_DOMAINE","adminUser"},dataProvider = "dataCreateEmployee"
             ,description = "Test création d'un utilisateur de role Admin pour l'employé créé précédemment")
+    @XrayTest(key="TestHMR-101" ,summary = "Creer un employee",description = "Creation d'un employee et vérifier que le compte est créer ",labels = "Core PIM")
+    @Requirement(key = "PRO-106")
     public void testCreationUserAdmin(Employee defaultAdminUser, Employee adminUserToCreate){
         //Arrange
 

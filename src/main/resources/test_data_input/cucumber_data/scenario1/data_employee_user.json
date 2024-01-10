@@ -10,39 +10,39 @@
   },
   {
     "browser": "FIREFOX",
-    "firstname" : "Amadou1",
+    "firstname" : "Amadou",
     "middlename" : "boop",
     "lastname" : "Sall",
     "user": {
-      "username": "Bop12",
+      "username": "Amadou1234",
       "password": "Adlkh1295678"
     }
   },
   {
     "browser": "FIREFOX",
-    "firstname" : "Pap1",
+    "firstname" : "Pap",
     "middlename" : "Lizard",
     "lastname" : "Pol",
     "gender": "F",
     "birthdate" : "2004-11-01",
     "user": {
-      "username": "ben775",
+      "username": "ben1325",
       "password": "Moma123456"
     }
   },
   {
     "browser": "CHROME",
-    "firstname" : "Saliou1",
+    "firstname" : "Saliou",
     "middlename" : "Ben",
     "lastname" : "Mall",
     "user": {
-      "username": "Saliou7733",
+      "username": "Saliou1233",
       "password": "Adlkh1295678"
     }
   },
   {
     "browser": "CHROME",
-    "firstname" : "Sogou1",
+    "firstname" : "Sogou",
     "middlename" : "Ba",
     "lastname" : "Bop",
     "gender": "F",
@@ -54,17 +54,17 @@
   },
   {
     "browser": "EDGE",
-    "firstname" : "Galou1",
+    "firstname" : "Galou",
     "middlename" : "Polla",
     "lastname" : "Diallo",
     "user": {
-      "username": "Galou7723",
+      "username": "Galou123",
       "password": "Adlkh1295678"
     }
   },
   {
     "browser": "EDGE",
-    "firstname" : "Scenario22",
+    "firstname" : "Scenario2",
     "middlename" : "Scena",
     "lastname" : "Test",
     "gender": "F",

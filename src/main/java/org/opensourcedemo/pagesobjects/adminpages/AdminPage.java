@@ -19,11 +19,11 @@ public class AdminPage extends BasePage {
         PageFactory.initElements(getDriver(),this);
         log.info("Initialize Admin Page");
     }
-    public FormAddAdminUser clickAddAmdin(){
+    public AddAdminUserPage clickAddAmdin(){
         waitOfVisibilityOf(addadminelement);
         clickElement(addadminelement);
         log.info("Click for Adding Admin");
-        return new FormAddAdminUser();
+        return new AddAdminUserPage();
     }
     public String getTittle(){
         return getDriver().getTitle();

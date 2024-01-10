@@ -8,7 +8,7 @@ import org.opensourcedemo.pagesobjects.BasePage;
 import java.util.List;
 
 @Log4j2
-public class FormAddAdminUser extends BasePage {
+public class AddAdminUserPage extends BasePage {
     @FindBy(css = "div:nth-child(1)>div>div>div>div>div>i.oxd-select-text--arrow")
     WebElement inptuSetRoleElement;
     @FindBy(css =".oxd-autocomplete-text-input>input" )
@@ -31,11 +31,11 @@ public class FormAddAdminUser extends BasePage {
     List<WebElement> listNameElements;
     @FindBy(css = "div.oxd-toast-icon-wrap--success")
     WebElement iconAlertSucsess;
-    public FormAddAdminUser(){
+    public AddAdminUserPage(){
         PageFactory.initElements(getDriver(),this);
         log.info("Initialize formuler admin page");
     }
-    public FormAddAdminUser setUserToAdminRole(){
+    public AddAdminUserPage setUserToAdminRole(){
         log.info("set user role");
         waitOfVisibilityOf(inptuSetRoleElement);
         clickElement(inptuSetRoleElement);
@@ -43,14 +43,14 @@ public class FormAddAdminUser extends BasePage {
         clickElement(listRoleElement.getFirst());
         return this;
     }
-    public FormAddAdminUser setSatusUserAccountToEnable(){
+    public AddAdminUserPage setSatusUserAccountToEnable(){
         waitOfVisibilityOf(inputstatuselement);
         clickElement(inputstatuselement);
         waitOfVisibilityOfListElement(listStatusElement);
         clickElement(listStatusElement.getFirst());
         return this;
     }
-    public FormAddAdminUser typeEmployeeName(String paramemployeename){
+    public AddAdminUserPage typeEmployeeName(String paramemployeename){
         log.info("type employee Name");
         waitOfVisibilityOf(inputemployeenameelement);
         String firstname = paramemployeename.substring(0,paramemployeename.indexOf(" "));
@@ -60,25 +60,25 @@ public class FormAddAdminUser extends BasePage {
         clickElement(optiontoselectelement);
         return this;
     }
-    public FormAddAdminUser inputUserAdminName(String paramusername){
+    public AddAdminUserPage inputUserAdminName(String paramusername){
         log.info("Input Username Admin");
         waitOfVisibilityOf(inputSserNameAdminElement);
         typeKeys(inputSserNameAdminElement,paramusername);
         return this;
     }
-    public FormAddAdminUser inputPassword(String parampassword){
+    public AddAdminUserPage inputPassword(String parampassword){
         waitOfVisibilityOf(inputPasswordElement);
         typeKeys(inputPasswordElement,parampassword);
         log.info("Input Password");
         return this;
     }
-    public FormAddAdminUser inputPassworConfirmation(String parampasswor){
+    public AddAdminUserPage inputPassworConfirmation(String parampasswor){
         waitOfVisibilityOf(inputPasswordConfirmationElement);
         typeKeys(inputPasswordConfirmationElement,parampasswor);
         log.info("Input Password Confirmation");
         return this;
     }
-    public FormAddAdminUser buttonSaveAdmin(){
+    public AddAdminUserPage buttonSaveAdmin(){
         log.info("Submit Admin");
         waitOfVisibilityOf(buttonSaveElement);
         clickElement(buttonSaveElement);
