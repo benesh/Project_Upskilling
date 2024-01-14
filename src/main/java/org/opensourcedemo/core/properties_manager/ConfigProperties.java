@@ -9,6 +9,12 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Properties;
 
+/*
+* Configuration properties for a session of test
+* Exemple of session: run all test in a Firefox browser and then run another session in chrome browser
+* Test project organize teo exeucute
+*
+ */
 @Log4j2
 public class ConfigProperties {
     Properties propertie ;

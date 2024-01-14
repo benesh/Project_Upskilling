@@ -14,6 +14,16 @@ import org.opensourcedemo.core.properties_manager.GlobalConfig;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/*
+* Classe factory of Webdriver or remote Driver
+* getDriver
+* Param :
+* * Enum WebDriverType {FIREFOX,CHROME,EDGE}
+* * Enum Headless  {YES , NO}
+*
+* Param inner methods
+* * GlobalConfig.HUB_URL: url rgrid Selenium
+ */
 @Log4j2
 public class WebDriverFactory {
 
@@ -33,6 +43,8 @@ public class WebDriverFactory {
             }
         }
     }
+
+
     private static WebDriver getWebeDriveChrome(Headless headless) throws MalformedURLException {
         log.info("Instantiate Webdrivder Chromer");
         ChromeOptions options = new ChromeOptions();
@@ -66,7 +78,7 @@ private static WebDriver getWebDriveFirefox(Headless headless) throws MalformedU
             options.addArguments("--headless=new");
         }
         if(GlobalConfig.ENV.equals(Env.REMOTE)){
-//            options.setCapability("browsername", "edge");
+//            options.setCapability("browsername", "edge"); // line provoque bug in instantiation of edge driver
             return new RemoteWebDriver(new URL(GlobalConfig.HUB_URL),options);
         }else{
             return new EdgeDriver(options);

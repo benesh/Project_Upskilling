@@ -1,4 +1,4 @@
-package BaseTest;
+package steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -19,13 +19,15 @@ public class BaseStep {
         String path="src/main/resources/config/configcucumber/config.properties";
         initConfig(path);
         basePage = new BasePage();
+//        basePage.setDriver(TestSetup.setupWebDriver(configFile.getBrowser(), configFile.getHeadless()));
+//        basePage.setWait(TestSetup.setupWebDriverWait(basePage.getDriver()));
     }
     @Before
     public void setup() {
         log.info("setup Scenario");
         basePage.setDriver(TestSetup.setupWebDriver(configFile.getBrowser(), configFile.getHeadless()));
         basePage.setWait(TestSetup.setupWebDriverWait(basePage.getDriver()));
-        basePage.getDriver().manage().window().maximize();
+       // basePage.getDriver().manage().window().maximize();
     }
     public void initDriver(){
         basePage.setDriver(TestSetup.setupWebDriver(configFile.getBrowser(), configFile.getHeadless()));
@@ -33,10 +35,11 @@ public class BaseStep {
     public void initWait(){
         basePage.setWait(TestSetup.setupWebDriverWait(basePage.getDriver()));
     }
+
     public void initConfig(String pathconfig){
         configFile = new ConfigProperties(ReaderPropertiesJsonFile.readPropertiesFromFile(pathconfig)) ;
     }
-    @Given("je vais a la page de login {string}")
+    @Given("je vais à la page de login {string}")
     public void je_vais_a_la_page_de_login(String url) {
         log.info("Go tu Url: "+url);
         basePage.getDriver().get(url);

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite ORANGE HRM"  >
+<suite name="suite ORANGE HRM" >
+    <!-- Add this attributs to execute in parallel the suite : parallel="tests" thread-count="2" -->
 
     <listeners>
         <listener class-name="listeners.ReportListerner" />
         <listener class-name="app.getxray.xray.testng.listeners.XrayJsonReporter" />
     </listeners>
     <parameter name="config" value="src/main/resources/config/configtestng/config.properties"/>
+    <!--Parameter for the config global-->
 
     <test name="TestWithFirefox">
+        <!--Add this attributs to execute in parallel the test : parallel="methods" thread-count="2"-->
         <parameter name="browser" value="FIREFOX"/>
+        <!--Parameter for the browser-->
         <parameter name="datainput" value="src/main/resources/test_data_input/testng_data/scenario1/data.properties"/>
+        <!--Parameter for the data user for test-->
         <groups>
             <dependencies>
                 <group depends-on="createemp" name="adminUser"/>
@@ -28,8 +33,11 @@
         </classes>
     </test>
     <test name="TestWithChrome">
+        <!--Add this attributs to execute in parallel the test : parallel="methods" thread-count="2"-->
         <parameter name="browser" value="CHROME"/>
+        <!--Parameter for the browser-->
         <parameter name="datainput" value="src/main/resources/test_data_input/testng_data/scenario1/data.properties"/>
+        <!--Parameter for the data user for test-->
         <groups>
             <dependencies>
                 <group depends-on="createemp" name="adminUser"/>
@@ -47,8 +55,11 @@
         </classes>
     </test>
     <test name="TestWithEDGE">
+        <!--Add this attributs to execute in parallel the test : parallel="methods" thread-count="2"-->
         <parameter name="browser" value="EDGE"/>
+        <!--Parameter for the browser-->
         <parameter name="datainput" value="src/main/resources/test_data_input/testng_data/scenario1/data.properties"/>
+        <!--Parameter for the data user for test-->
         <groups>
             <dependencies>
                 <group depends-on="createemp" name="adminUser"/>

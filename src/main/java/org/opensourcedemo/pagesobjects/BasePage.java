@@ -10,6 +10,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+/*
+* Classe de base qui a les méthodes de base ayant les méthdoes du classe père
+* Attributs :
+* * driver : Webdriver en ThreadLocal  pour gérer l'exécution parallèl
+* * waitr : Webdriver en ThreadLocal  pour gérer l'exécution parallèl
+*
+* ThreadLocal : prevent executing an object that doesn't belong to the instance that calling
+ */
 @Log4j2
 public class BasePage {
     protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -71,6 +79,9 @@ public class BasePage {
         log.info("Until element is visible");
         getWait().until(ExpectedConditions.visibilityOfAllElements(listElement));
     }
+    /*
+    *Method that wait for the invisibility of loader element
+     */
     public void invisibilityLoader(){
         log.info("Invisibility of loader");
         getWait().until(ExpectedConditions.invisibilityOfElementLocated(loaderFomBySelector));

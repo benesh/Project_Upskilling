@@ -9,6 +9,15 @@ import org.opensourcedemo.core.properties_manager.GlobalConfig;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
+/*
+* Class for doing all the setup for ClassTest or suiteTest in a class test
+* Setup all the element (Webdriver, WaitWebDriver , .... )for an instannce
+* Param :
+* * Enum : WebDriverType {FIREFOX,CHROME,EDGE}
+* * Enum Headless  {YES , NO}
+*
+ */
+
 @Log4j2
 public class TestSetup {
     public static WebDriver setupWebDriver(WebDriverType paramWebdrivertype,Headless paramHeadless){

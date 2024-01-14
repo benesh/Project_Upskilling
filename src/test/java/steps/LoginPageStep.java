@@ -1,6 +1,5 @@
 package steps;
 
-import BaseTest.BaseStep;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.support.PageFactory;
 import org.opensourcedemo.pagesobjects.LoginPage;
