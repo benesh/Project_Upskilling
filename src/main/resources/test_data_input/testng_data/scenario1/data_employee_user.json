@@ -10,55 +10,55 @@
   },
   {
     "browser": "FIREFOX",
-    "firstname" : "Amadou1",
+    "firstname" : "Amadou11",
     "middlename" : "boop",
     "lastname" : "Sall",
     "user": {
-      "username": "Bop12",
+      "username": "Bop1258",
       "password": "Adlkh1295678"
     }
   },
   {
     "browser": "FIREFOX",
-    "firstname" : "Pap1",
+    "firstname" : "Pap1fr",
     "middlename" : "Lizard",
     "lastname" : "Pol",
     "gender": "F",
     "birthdate" : "2004-11-01",
     "user": {
-      "username": "ben775",
+      "username": "ben775fr",
       "password": "Moma123456"
     }
   },
   {
     "browser": "CHROME",
-    "firstname" : "Saliou1",
+    "firstname" : "Salioufr1",
     "middlename" : "Ben",
     "lastname" : "Mall",
     "user": {
-      "username": "Saliou7733",
+      "username": "Saliou77fr33",
       "password": "Adlkh1295678"
     }
   },
   {
     "browser": "CHROME",
-    "firstname" : "Sogou1",
+    "firstname" : "Sogofru1",
     "middlename" : "Ba",
     "lastname" : "Bop",
     "gender": "F",
     "birthdate" : "2004-11-01",
     "user": {
-      "username": "ben1325",
+      "username": "ben13fr25",
       "password": "Moma123456"
     }
   },
   {
     "browser": "EDGE",
-    "firstname" : "Galou1",
+    "firstname" : "Galorfu1",
     "middlename" : "Polla",
     "lastname" : "Diallo",
     "user": {
-      "username": "Galou7723",
+      "username": "Galofru7723",
       "password": "Adlkh1295678"
     }
   },
@@ -70,7 +70,7 @@
     "gender": "F",
     "birthdate" : "2004-11-01",
     "user": {
-      "username": "ben1325",
+      "username": "ben13fr25",
       "password": "Moma123456"
     }
   }

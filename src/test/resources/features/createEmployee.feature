@@ -11,6 +11,8 @@ Feature:Creer un employe
     And j_insere un firstname "<firstname>" de ajouter Employe
     And j_insere un middlename "<middlename>" de ajouter Employe
     And j_insere un lastname "<lastname>" de ajouter Employe
+
+
     When je click sur le bouton save
     Then je constate l_enregistrement avec succes
     And je click sur le bouton save de la page employe info

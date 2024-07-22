@@ -49,3 +49,28 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+
+  jenkins-hub:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-hub
+    restart: on-failure
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - "./volumes/jenkins_home/jenkins_configuration:/var/jenkins_home"
+      - "./volumes/jenkins_home/run:/var/run/docker.sock"
+
+  agent:
+    image: jenkins/ssh-agent:jdk11
+    privileged: true
+    user: root
+    container_name: agent
+    expose:
+      - 22
+
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/+bZH8WJPgz+arlWiu4l1SZmpFlD8QTH5VemA3Cp0+HHApwAeOrgvq+QSuB8ECPqAkPWza8K3BMTIimLfg1wRicrjQku9R9S4wUOzw1jOAHISp1rjY+myiL0Z8TB0VSc7554q63u+XoqIo4dtW5csUw4k+dMeXIbrR6jAVOxcKCUUKTbO3+j/2hvsT3ZrqaBibQbIJgd6tqugbb0fnXqWOKl2gyg/3CbKAdeIqVptS0sg3Wt+N9JHxZfnLWFP2YXI+21y+ws/omWlo4RgkZTgnmlrT9HWB2vAxbu8Ip6+mSz/Tc6rgacbq7wbAU3oDzHcKkbgUz5+TkkEMKA/HOkGEFduVsSVPzXoEMdK57ayVj+jtueN56L0pUL42qHF2SlCdLxEWR+FUHPy1ie8+0awRCAQDV1wHaqLKzUbjBxcyfmDmjqi/5OBNXEbYyMr0S56+3xmeOxcnYdUt6IvPTvHf5RGiox0aKQUZpgzTYrNk5c1CU7lb8XeU4Xkvr1v1zk= omarben@DESKTOP-2ELJ47S
+
+

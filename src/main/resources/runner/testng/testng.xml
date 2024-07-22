@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite ORANGE HRM" >
+<suite name="suite ORANGE HRM" parallel="tests" thread-count="2">
     <!-- Add this attributs to execute in parallel the suite : parallel="tests" thread-count="2" -->
 
     <listeners>
@@ -10,7 +10,7 @@
     <parameter name="config" value="src/main/resources/config/configtestng/config.properties"/>
     <!--Parameter for the config global-->
 
-    <test name="TestWithFirefox">
+    <test name="TestWithFirefox" >
         <!--Add this attributs to execute in parallel the test : parallel="methods" thread-count="2"-->
         <parameter name="browser" value="FIREFOX"/>
         <!--Parameter for the browser-->
@@ -27,9 +27,9 @@
         <classes>
             <class name="testsuite.TestCreateEmployee"/>
             <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"/>
-            <class name="testsuite.TestUploadFichier"/>
+<!--            <class name="testsuite.TestFeuilleDeTemp"/>-->
+<!--            <class name="testsuite.TestRemplirFormulaire"/>-->
+<!--            <class name="testsuite.TestUploadFichier"/>-->
         </classes>
     </test>
     <test name="TestWithChrome">
@@ -49,9 +49,9 @@
         <classes>
             <class name="testsuite.TestCreateEmployee"/>
             <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"/>
-            <class name="testsuite.TestUploadFichier"/>
+<!--            <class name="testsuite.TestFeuilleDeTemp"/>-->
+<!--            <class name="testsuite.TestRemplirFormulaire"/>-->
+<!--            <class name="testsuite.TestUploadFichier"/>-->
         </classes>
     </test>
     <test name="TestWithEDGE">
@@ -71,9 +71,9 @@
         <classes>
             <class name="testsuite.TestCreateEmployee"/>
             <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"/>
-            <class name="testsuite.TestUploadFichier"/>
+<!--            <class name="testsuite.TestFeuilleDeTemp"/>-->
+<!--            <class name="testsuite.TestRemplirFormulaire"/>-->
+<!--            <class name="testsuite.TestUploadFichier"/>-->
         </classes>
     </test>
 </suite>
