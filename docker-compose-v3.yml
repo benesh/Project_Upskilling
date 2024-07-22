@@ -63,7 +63,7 @@ services:
       - "./volumes/jenkins_home/run:/var/run/docker.sock"
 
   agent:
-    image: jenkins/ssh-agent:jdk11
+    image: jenkins/ssh-agent:jdk21
     privileged: true
     user: root
     container_name: agent
