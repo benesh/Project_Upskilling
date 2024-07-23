@@ -18,7 +18,7 @@ Feature:Creer un employe
     And je click sur le bouton save de la page employe info
     Examples:
       | username | password  | firstname | middlename | lastname |
-      | Admin    | admin1232 | bb25      | bb26    | Bop  |
+      | Admin    | admin123 | bb25      | bb26    | Bop  |
 
   Scenario Outline: crerr un use Admin
     Given je vais à la page de login "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
