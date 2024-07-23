@@ -1,68 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite" thread-count="10" parallel="tests" >
+<!--<suite name="suite" thread-count="10" parallel="tests" >-->
+<suite name="suite" >
 
     <listeners>
-        <listener class-name="listeners.ReportListerner" />
+<!--        <listener class-name="listeners.ReportListerner" />-->
         <listener class-name="app.getxray.xray.testng.listeners.XrayJsonReporter" />
     </listeners>
-    <parameter name="config" value="src/main/resources/config/config.properties"/>
+    <parameter name="config" value="src/main/resources/config/configcucumber/config.properties"/>
 
     <test name="TestWithFirefox">
-        <parameter name="browser" value="FIREFOX"/>
-        <parameter name="datainput" value="src/main/resources/scenario1/data.properties"/>
-        <groups>
-            <dependencies>
-                <group depends-on="createemp" name="adminUser"/>
-                <group depends-on= "adminUser" name= "feuilletemp"/>
-                <group depends-on= "adminUser" name= "form"/>
-                <group depends-on= "adminUser" name= "uppload"/>
-            </dependencies>
-        </groups>
         <classes>
-            <class name="testsuite.TestCreateEmployee"/>
-            <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"/>
-            <class name="testsuite.TestUploadFichier"/>
-        </classes>
-    </test>
-    <test name="TestWithChrome">
-        <parameter name="browser" value="CHROME"/>
-        <parameter name="datainput" value="src/main/resources/scenario1/data.properties"/>
-        <groups>
-            <dependencies>
-                <group depends-on="createemp" name="adminUser"/>
-                <group depends-on= "adminUser" name= "feuilletemp"/>
-                <group depends-on= "adminUser" name= "form"/>
-                <group depends-on= "adminUser" name= "uppload"/>
-            </dependencies>
-        </groups>
-        <classes>
-            <class name="testsuite.TestCreateEmployee"/>
-            <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"/>
-            <class name="testsuite.TestUploadFichier"/>
-        </classes>
-    </test>
-    <test name="TestWithEDGE">
-        <parameter name="browser" value="EDGE"/>
-        <parameter name="datainput" value="src/main/resources/scenario1/data.properties"/>
-        <groups>
-            <dependencies>
-                <group depends-on="createemp" name="adminUser"/>
-                <group depends-on= "adminUser" name= "feuilletemp"/>
-                <group depends-on= "adminUser" name= "form"/>
-                <group depends-on= "adminUser" name= "uppload"/>
-            </dependencies>
-        </groups>
-        <classes>
-            <class name="testsuite.TestCreateEmployee"/>
-            <class name="testsuite.TestCreateAdmin"/>
-            <class name="testsuite.TestFeuilleDeTemp"/>
-            <class name="testsuite.TestRemplirFormulaire"/>
-            <class name="testsuite.TestUploadFichier"/>
+            <class name="runner.RunCucumberTest"/>
         </classes>
     </test>
 </suite>

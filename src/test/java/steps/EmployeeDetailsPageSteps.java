@@ -14,5 +14,4 @@ public class EmployeeDetailsPageSteps {
         employeeDetailsPage.clickSaveButton();
     }
 
-
 }

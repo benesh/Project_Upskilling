@@ -51,8 +51,6 @@ public class ConfigProperties {
     public Headless getHeadless(){ return Headless.valueOf(propertie.getProperty("headless"));}
     public int getExplicitWait(){return Integer.parseInt(propertie.getProperty("explicitwait"));}
     public int getImplicitWait(){return Integer.parseInt(propertie.getProperty("implicitwait"));}
-    public Env getEnv(){
-        return Env.valueOf(propertie.getProperty("env"));
-    }
+    public Env getEnv(){  return Env.valueOf(propertie.getProperty("env"));  }
 
 }
