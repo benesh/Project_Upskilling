@@ -18,7 +18,7 @@ Feature:Creer un employe
     And je click sur le bouton save de la page employe info
     Examples:
       | username | password  | firstname | middlename | lastname |
-      | Admin    | admin1232 | Omar458   | benhes4    | Bah1354  |
+      | Admin    | admin1232 | bb25      | bb26    | Bop  |
 
   Scenario Outline: crerr un use Admin
     Given je vais à la page de login "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
@@ -42,4 +42,4 @@ Feature:Creer un employe
     Then je vois que le nom sur le profil correspond a celui cree "<firstname>" "<lastname>"
     Examples:
       | username | password | firstname | middlename | lastname | username2  | password2     |
-      | Admin    | admin123 | Omar458   | benhes4    | Bah1354  | oklomr4587 | Amadou1235678 |
+      | Admin    | admin123 | bb25   | bb26    | Bop  | oklomr4587 | Amadou1235678 |
